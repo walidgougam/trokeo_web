@@ -1,0 +1,35 @@
+.container_login {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper_login {
+  width: 322px;
+  height: 447px;
+  border: solid 1px black;
+}
+.welcome_login {
+  font-size: 20px;
+}
+
+.text_topic_login {
+  font-size: 11px;
+}
+
+.label_login {
+  font-size: 11px;
+}
+
+.wrapper_input_login {
+  margin: 0 35px;
+}
+.input_login {
+  border: solid 1px #d4d4d4;
+  width: 252px;
+  height: 29px;
+}
+
+.register_login {
+  font-size: 11px;
+  text-decoration: underline;
+}
