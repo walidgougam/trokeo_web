@@ -22,15 +22,15 @@ export default function Login() {
             <br />
             <input className="input_login" type="text" />
           </div>
-          <div className="wrapper_input_login">
+          <div className="wrapper_input_login" style={{ marginTop: 9 }}>
             <label className="label_login">Votre mot de passe</label>
             <br />
             <input className="input_login" type="text" />
           </div>
 
           <p className="forget_password_login">Mot de passe oublié</p>
-          <BtnNext title="continuer" />
-          <p className="register_login">m'inscrire</p>
+          <BtnNext title="Continuer" />
+          <p className="register_login">M'inscrire</p>
         </div>
       </div>
     </div>
