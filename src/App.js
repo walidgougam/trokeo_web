@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Home from "./home/Home";
 import Login from "./login/Login";
+import Register from "./register/Register";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
       </Switch>
     </Router>
   );
