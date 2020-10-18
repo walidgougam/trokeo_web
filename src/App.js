@@ -1,9 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Home from "./home/Home";
-import Login from "./login/Login";
-import Register from "./register/Register";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +8,10 @@ import {
   Link,
   withRouter,
 } from "react-router-dom";
+import Home from "./home/Home";
+import Login from "./login/Login";
+import Register from "./register/Register";
+import EditProfile from "./editprofile/EditProfile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/editprofile" component={EditProfile} />
       </Switch>
     </Router>
   );

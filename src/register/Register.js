@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../header/Header";
 import "./Register.css";
 import BtnFinish from "../component/btn/BtnFinish";
 
 export default function Register() {
+  // STATE
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLasttName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   return (
     <>
       <Header />
