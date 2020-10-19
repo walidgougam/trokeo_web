@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import "./HowItWorks.css";
+import { ReactComponent as PeopleHeart } from "../../asset/allSvg/people_heart_image.svg";
 
 export default function HowItWorks() {
   const [image, setImage] = useState([
     {
-      picture: "../../asset/images/femme.jpg",
+      picture: <PeopleHeart />,
       title: "Poster vos annonces en ligne",
     },
     {
-      picture: "../../asset/images/femme.jpg",
+      picture: <PeopleHeart />,
       title: "Echanger vos biens et/ou services avec les autres trokeurs",
     },
     {
-      picture: "../../asset/images/femme.jpg",
+      picture: <PeopleHeart />,
       title: "Convenez par message d’un lieu/horaire pour l’échange",
     },
     {
-      picture: "../../asset/images/femme.jpg",
+      picture: <PeopleHeart />,
       title: "L’application est 100% gratuite",
     },
     {
-      picture: "../../asset/images/femme.jpg",
+      picture: <PeopleHeart />,
       title:
         "Vous pouvez également faire un don en consultant les demandes dans la rubrique associations",
     },
@@ -32,11 +33,15 @@ export default function HowItWorks() {
         {image.map((img, index) => {
           return (
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <img
-                src={require("../../asset/images/femme.jpg")}
-                alt="Logo"
-                className="logo_hiw"
-              />
+              <div
+                style={{
+                  backgroundColor: "white",
+                  padding: "9px 4px",
+                  borderRadius: "5px",
+                }}
+              >
+                {img.picture}
+              </div>
               <p className="text_description_picture_hiw">{img.title}</p>
             </div>
           );

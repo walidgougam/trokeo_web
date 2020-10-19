@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as LogoTrokeoBig } from "../asset/allSvg/logo_trokeo_big.svg";
-import { ReactComponent as iconFacebook } from "../asset/allSvg/icon_facebook.svg";
-import { ReactComponent as iconGoogle } from "../asset/allSvg/icon_google.svg";
+import { ReactComponent as IconFacebook } from "../asset/allSvg/icon_follow_facebook.svg";
+import { ReactComponent as IconGoogle } from "../asset/allSvg/icon_follow_instagram.svg";
 import "./Footer.css";
 
 export default function Footer() {
@@ -40,9 +40,16 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div>
-          <iconGoogle />
-          <iconGoogle />
+        <div className="wrapper_followus_footer">
+          <p className="title_footer">Suivez-nous </p>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <div>
+              <IconFacebook />
+            </div>
+            <div style={{ marginLeft: 9 }}>
+              <IconGoogle />
+            </div>
+          </div>
         </div>
       </div>
       <p className="description_footer">

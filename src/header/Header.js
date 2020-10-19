@@ -14,7 +14,7 @@ export default function Header() {
             placeholder="Rechercher des mots clés"
           />
           <img
-            src={require("../asset/images/femme.jpg")}
+            src={require("../asset/allSvg/femme.jpg")}
             alt="Logo"
             className="icon_search"
           />
@@ -22,7 +22,7 @@ export default function Header() {
 
         <div className="add_product">
           <img
-            src={require("../asset/images/femme.jpg")}
+            src={require("../asset/allSvg/femme.jpg")}
             alt="stylo"
             className="pencil_icon"
           />

@@ -1,15 +1,10 @@
-.image_home {
+.text_image_home {
+  background-image: url("../asset/allSvg/femme1.jpg");
   width: 100%;
   height: 406px;
-  background-color: purple;
-}
-
-.text_image_home {
-  position: absolute;
-  top: 136px;
-  left: 99px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .text1_home {
@@ -17,6 +12,7 @@
   font-size: 42px;
   line-height: 41px;
   font-family: "Open Sans Bold";
+  margin: 0px 0px;
 }
 
 .text2_home {
@@ -24,4 +20,5 @@
   font-size: 14px;
   line-height: 20px;
   font-family: "Open Sans Bold";
+  margin-top: 24px;
 }

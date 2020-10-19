@@ -51,6 +51,12 @@
   /* font-family: Open Sans SemiBold; */
 }
 
+.wrapper_followus_footer {
+  padding-left: 35px;
+  padding-right: 44px;
+  border-right: solid rgba(133, 133, 133, 0.5) 1px;
+}
+
 .description_footer {
   font-size: 10px;
   color: #3a3a3a;
