@@ -1,0 +1,14 @@
+.wrapper_header_headergreen {
+  background-color: #3ad06b;
+  height: 89px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 93px;
+}
+.text_header_headergreen {
+  color: white;
+  font-size: 18px;
+  line-height: 24px;
+  /* font-family: Open Sans Bold; */
+}

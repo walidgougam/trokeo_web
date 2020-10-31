@@ -1,6 +1,7 @@
 .container_btnnext {
   background-color: #0091ff;
   border-radius: 26px;
+  cursor: pointer;
 }
 .text_btnnext {
   color: white;

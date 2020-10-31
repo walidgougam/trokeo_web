@@ -7,6 +7,7 @@
   justify-content: center;
   background-color: transparent;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 .wrapper_facebook_btnlogin {
   display: flex;
@@ -17,6 +18,7 @@
   justify-content: center;
   background-color: #4b74ff;
   margin-bottom: 21px;
+  cursor: pointer;
 }
 
 .text_google_btnlogin {

@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import "./HowItWorks.css";
+import { ReactComponent as ManComputer } from "../../asset/allSvg/man_computer.svg";
+import { ReactComponent as WomanDress } from "../../asset/allSvg/woman_dress.svg";
+import { ReactComponent as BoyPlant } from "../../asset/allSvg/boy_plant.svg";
+import { ReactComponent as PigMoney } from "../../asset/allSvg/pig_money.svg";
 import { ReactComponent as PeopleHeart } from "../../asset/allSvg/people_heart_image.svg";
 
 export default function HowItWorks() {
   const [image, setImage] = useState([
     {
-      picture: <PeopleHeart />,
+      picture: <ManComputer />,
       title: "Poster vos annonces en ligne",
     },
     {
-      picture: <PeopleHeart />,
+      picture: <WomanDress />,
       title: "Echanger vos biens et/ou services avec les autres trokeurs",
     },
     {
-      picture: <PeopleHeart />,
+      picture: <BoyPlant />,
       title: "Convenez par message d’un lieu/horaire pour l’échange",
     },
     {
-      picture: <PeopleHeart />,
+      picture: <PigMoney />,
       title: "L’application est 100% gratuite",
     },
     {

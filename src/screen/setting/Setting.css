@@ -1,0 +1,8 @@
+.wrapper_card_setting {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container_central_setting {
+  margin: 93px 139px;
+}

@@ -1,0 +1,16 @@
+.container_cardproduct {
+  width: 168px;
+  height: 146px;
+}
+
+.image_product_cardproduct {
+  width: 168px;
+  height: 146px;
+}
+.title_product_cardproduct {
+  font-size: 11px;
+  font-family: "Open Sans Regular";
+  line-height: 20px;
+  color: #5f5f5f;
+  margin-top: 0px;
+}
