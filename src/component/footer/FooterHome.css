@@ -19,14 +19,14 @@
 
 .download_app_footerhome {
   font-size: 23px;
+  /* font-family: "Open Sans SemiBold"; */
   line-height: 23px;
   margin-top: 0px;
-  font-family: "Open Sans SemiBold";
 }
 .text_footerhome {
   font-size: 13px;
+  /* font-family: "Open Sans Regular"; */
   line-height: 16px;
-  font-family: "Open Sans Regular";
 }
 
 .wrapper_phone_screen_footerhome {

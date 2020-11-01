@@ -8,8 +8,8 @@
 .text_btnfinish {
   color: white;
   font-size: 12px;
+  /* font-family: Open Sans Regular; */
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-family: Open Sans Regular; */
 }

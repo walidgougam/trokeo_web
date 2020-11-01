@@ -33,8 +33,8 @@
 }
 .title_footer {
   font-size: 10px;
+  /* font-family: Open Sans Bold; */
   color: #00d65b;
-  font-family: Open Sans Bold;
 }
 .ul_footer {
   display: flex;
@@ -43,12 +43,13 @@
 
 .ul_footer span {
   font-size: 10px;
+  /* font-family: Open Sans SemiBold; */
   text-decoration: none;
 }
 .ul_footer span a {
   text-decoration: none;
   color: black;
-  font-family: Open Sans SemiBold;
+  /* font-family: Open Sans SemiBold; */
 }
 
 .wrapper_followus_footer {
@@ -59,7 +60,7 @@
 
 .description_footer {
   font-size: 10px;
+  /* font-family: Open Sans Regular; */
   color: #3a3a3a;
   margin: 18px 66px 26px;
-  font-family: Open Sans Regular;
 }

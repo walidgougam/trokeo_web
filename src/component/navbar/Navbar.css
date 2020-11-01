@@ -73,6 +73,7 @@
 .add_product_navbar p {
   color: white;
   font-size: 11px;
+  /* font-family:Open Sans Regular ; */
 }
 
 ul {
@@ -88,6 +89,7 @@ li a {
   text-decoration: none;
   color: black;
   font-size: 11px;
+  /* font-family:Open Sans Regular ; */
 }
 
 .wrapper_link_navbar {

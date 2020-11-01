@@ -10,15 +10,15 @@
 .text1_home {
   width: 355px;
   font-size: 42px;
+  /* font-family: "Open Sans Bold"; */
   line-height: 41px;
-  font-family: "Open Sans Bold";
   margin: 0px 0px;
 }
 
 .text2_home {
   width: 410px;
   font-size: 14px;
+  /* font-family: "Open Sans Bold"; */
   line-height: 20px;
-  font-family: "Open Sans Bold";
   margin-top: 24px;
 }

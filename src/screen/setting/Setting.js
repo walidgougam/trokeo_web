@@ -1,56 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Setting.css";
-//PICTURE AND ICON
-import NoAdvertising from "../../asset/allSvg/noAdvertising.png";
-import { ReactComponent as PhoneNotification } from "../../asset/allSvg/phoneNotification.svg";
-import { ReactComponent as AddPicture } from "../../asset/allSvg/addPicture.svg";
+
 //COMPONENT
 import HeaderGreen from "../../component/headerGreen/HeaderGreen";
 import Navbar from "../../component/navbar/Navbar";
-import BtnNext from "../../component/btn/BtnNext";
-import BtnFinish from "../../component/btn/BtnFinish";
-import CardSetting from "../../component/cardSetting/CardSetting";
+import BtnSetting from "../../component/btnSetting/BtnSetting";
 import Footer from "../../component/footer/Footer";
+import PaymentSetting from "../../component/setting/paymentSetting/PaymentSetting";
+import PasswordSetting from "../../component/setting/passwordSetting/PasswordSetting";
+import NotificationSetting from "../../component/setting/notificationSetting/NotificationSetting";
 
 export default function Setting() {
+  const [activeNotification, setActiveNotification] = useState(false);
+  const [activePersonalData, setActivePersonalData] = useState(false);
+  const [activePayment, setActivePayment] = useState(false);
+  const [activePassword, setActivePassword] = useState(false);
+  const [activeDeconnection, setActiveDeconnection] = useState(false);
+
   return (
     <div>
       <Navbar />
       <HeaderGreen title="Paramètres" />
       <div className="container_central_setting">
-        <div style={{ display: "flex", flexDirection: "row", width: 1400 }}>
-          <BtnFinish
-            width={324}
-            height={47}
-            fontSize={16}
-            titleBtn="2,99€/mois"
-          />
-          <BtnFinish
-            width={324}
-            height={47}
-            fontSize={16}
-            titleBtn="18,99€/an"
-          />
-        </div>
-        <div className="wrapper_card_setting">
-          <CardSetting
-            title="Supprimer les publicités"
-            picture={
-              <img src={NoAdvertising} style={{ width: 163, height: 162 }} />
-            }
-            description="Pour un meilleur confort de navigation "
-          />
-          <CardSetting
-            title="Ajouter plus des photos"
-            picture={<AddPicture />}
-            description="Mettez en valeur votre annonce pour une annonce optimale !"
-          />
-          <CardSetting
-            title="Ne rien louper "
-            picture={<PhoneNotification />}
-            description=" Suivre des annonces, être alerter pour une recherche "
-          />
-        </div>
+        <BtnSetting
+          active={activeNotification}
+          onClick={() => setActiveNotification(!activeNotification)}
+          titleBtn="Notifications"
+          component={<NotificationSetting />}
+        />
+        <BtnSetting
+          active={activePersonalData}
+          onClick={() => setActivePersonalData(!activePersonalData)}
+          titleBtn="Données personnelles"
+          paddingTop={28}
+        />
+        <BtnSetting
+          active={activePassword}
+          onClick={() => setActivePassword(!activePassword)}
+          titleBtn="Mot de passe"
+          paddingTop={28}
+          component={<PasswordSetting />}
+        />
+        <BtnSetting
+          active={activePayment}
+          onClick={() => setActivePayment(!activePayment)}
+          titleBtn="Paiements"
+          paddingTop={28}
+          component={<PaymentSetting />}
+        />
+        <BtnSetting
+          active={activeDeconnection}
+          onClick={() => setActiveDeconnection(!activeDeconnection)}
+          titleBtn="Déconnection"
+          paddingTop={28}
+        />
       </div>
       <Footer />
     </div>
