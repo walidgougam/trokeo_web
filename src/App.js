@@ -15,6 +15,7 @@ import EditProfile from "./screen/editprofile/EditProfile";
 import Product from "./screen/product/Product";
 import FollowCategory from "./screen/customization/FollowCategory";
 import Setting from "./screen/setting/Setting";
+import Organization from "./screen/organization/Organization";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/product" component={Product} />
         <Route exact path="/editcategory" component={FollowCategory} />
         <Route exact path="/setting" component={Setting} />
+        <Route exact path="/organization" component={Organization} />
       </Switch>
     </Router>
   );

@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { ReactComponent as LogoTrokeo } from "../../asset/allSvg/logo.svg";
 import { ReactComponent as IconProfileLittle } from "../../asset/allSvg/iconProfileLittle.svg";
 
-export default function Navbar() {
+export default function Navbar({ params, history, location }) {
   //STATE
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
@@ -15,13 +15,16 @@ export default function Navbar() {
       setUserId(userId);
       setUserName(userName);
       console.log(userName, "user name navbar");
+      console.log(location, "location");
     })();
   }, []);
 
   return (
     <div className="container_navbar">
       <div className="header_left_navbar">
-        <LogoTrokeo />
+        <div style={{ margin: 0 }}>
+          <LogoTrokeo />
+        </div>
         <div className="wrapper_input_navbar">
           <input
             type="text"
@@ -46,7 +49,16 @@ export default function Navbar() {
       </div>
       <ul className="wrapper_link_navbar">
         <li>
-          <a href="">Association</a>
+          <a
+            href="/organization"
+            style={{
+              paddingBottom: "3px",
+              borderBottom:
+                location?.pathname === "/organization" && "2px #40CE6A solid",
+            }}
+          >
+            Association
+          </a>
         </li>
         <li>
           <a href="">Favoris</a>

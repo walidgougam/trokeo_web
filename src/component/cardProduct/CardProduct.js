@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardProduct.css";
 import { ReactComponent as IconLocation } from "../../asset/allSvg/icon_location.svg";
+import { ReactComponent as HeartEmpty } from "../../asset/allSvg/heart_empty.svg";
+import { ReactComponent as HeartFull } from "../../asset/allSvg/heart_full.svg";
 
 export default function CardProduct() {
+  const [booked, setBooked] = useState(true);
+  const [heart, setHeart] = useState(false);
   return (
     <div className="container_cardproduct">
       <img
@@ -11,27 +15,27 @@ export default function CardProduct() {
         className="image_product_cardproduct"
       />
       <p
+        className="text_booked_cardproduct"
         style={{
-          backgroundColor: "#5F5F5F",
-          width: 168,
-          height: 29,
-          borderRadius: 5,
-          justifyContent: "center",
-          display: "flex",
-          alignItems: "center",
-          position: "absolute",
-          bottom: 0,
-          color: "white",
-          fontSize: 11,
-          fontFamily: "Avenir Medium",
+          visibility: "visible",
         }}
       >
         Réservé
       </p>
       <p className="title_product_cardproduct">after shave</p>
-      <div>
-        <IconLocation />
-        <span>km</span>
+      <div className="container_icon_cardproduct">
+        <div className="wrapper_icon_cardproduct">
+          <IconLocation />
+          <span className="text_icon_cardproduct">5.8 km</span>
+        </div>
+        <div
+          className="wrapper_icon_cardproduct"
+          style={{ cursor: "pointer" }}
+          onClick={() => setHeart(!heart)}
+        >
+          <div>{heart ? <HeartEmpty /> : <HeartFull />}</div>
+          <span className="text_icon_cardproduct">12</span>
+        </div>
       </div>
     </div>
   );

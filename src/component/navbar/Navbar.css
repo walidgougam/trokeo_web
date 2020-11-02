@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 44px;
   justify-content: space-between;
   padding-left: 6px;
   padding-right: 6px;
@@ -76,21 +77,23 @@
   /* font-family:Open Sans Regular ; */
 }
 
-ul {
+.wrapper_link_navbar {
   display: flex;
   flex-direction: row;
+  margin: 0px;
 }
 
-li {
+.wrapper_link_navbar li {
   list-style-type: none;
   margin-left: 22px;
 }
-li a {
+.wrapper_link_navbar li a {
   text-decoration: none;
   color: black;
   font-size: 11px;
   /* font-family:Open Sans Regular ; */
 }
 
-.wrapper_link_navbar {
+.wrapper_link_navbar li a:active {
+  border-bottom: solid 1px green;
 }
