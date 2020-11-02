@@ -1,7 +1,7 @@
 .container_footer {
   position: relative;
   bottom: 0;
-  border-top: solid rgba(133, 133, 133, 0.5) 1px;
+  /* border-top: solid rgba(133, 133, 133, 0.5) 1px; */
   padding-top: 18px;
 }
 

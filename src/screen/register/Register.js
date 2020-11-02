@@ -3,7 +3,9 @@ import Navbar from "../../component/navbar/Navbar";
 import "./Register.css";
 import BtnFinish from "../../component/btn/BtnFinish";
 import { registerApi } from "../../API";
-import { ReactComponent as IconProfileBig } from "../../asset/allSvg/iconProfileBig.svg";
+import PictureIconProfile from "../../component/picture/PictureIconProfile";
+import Input from "../../component/input/Input";
+import InputSelect from "../../component/inputSelect/InputSelect";
 
 export default function Register({ history }) {
   // STATE
@@ -25,60 +27,22 @@ export default function Register({ history }) {
       <div className="container_register">
         <div className="wrapper_register">
           <p className="text_create_account_register">Créez un compte</p>
-          <div className="circle_icon_profile_register">
-            <IconProfileBig />
-          </div>
+          <PictureIconProfile width={99} height={99} />
           <p className="text_add_picture_register">Ajouter une photo</p>
-          <input
-            className="input_register"
-            type="text"
-            placeholder="Prénom"
-            style={{ marginBottom: 16 }}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input
-            className="input_register"
-            type="text"
-            placeholder="Nom"
-            style={{ marginBottom: 16 }}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <input
-            className="input_register"
-            type="text"
-            placeholder="Email"
-            style={{ marginBottom: 16 }}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className="input_register"
-            type="text"
-            placeholder="Mot de passe"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <Input placeholder="Prénom" marginBottom={16} />
+          <Input placeholder="Nom" marginBottom={16} />
+          <Input placeholder="Email" marginBottom={16} />
+          <Input placeholder="Mot de passe" marginBottom={6} />
           <p className="text_atleast8_register">
             Il doit contenir au moins 8 caractères.
           </p>
-          <input
-            className="input_register"
-            type="text"
-            placeholder="Mot de passe"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          <Input placeholder="Mot de passe" marginBottom={12} />
           <p className="text_you_are_register">Vous êtes</p>
-          <select
-            className="input_register"
-            style={{ marginBottom: 37 }}
-            onChange={(e) => {
-              e.target.value === "femme" ? setFemale(true) : setFemale(false);
-            }}
-          >
-            <option value="" selected disabled hidden>
-              Sélectionnez
-            </option>
-            <option value="homme">Homme</option>
-            <option value="femme">Femme</option>
-          </select>
+          <InputSelect
+            onChange={(e) =>
+              e.target.value === "femme" ? setFemale(true) : setFemale(false)
+            }
+          />
           <BtnFinish titleBtn="Terminer" onClick={() => handleRegister()} />
         </div>
       </div>
