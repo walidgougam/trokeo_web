@@ -15,7 +15,6 @@ export default function CardMessage({
 }) {
   return (
     <div
-      onClick={() => history.push(`/chat/${chatId}`)}
       className="container_cardmessage"
       style={{
         paddingTop: index === 0 ? 0 : 13,
@@ -23,7 +22,10 @@ export default function CardMessage({
         borderBottom: index < arrayLength - 1 ? "1px solid #979797" : null,
       }}
     >
-      <div className="container_image_cardmessage">
+      <div
+        className="container_image_cardmessage"
+        onClick={() => history.push(`/chat/${chatId}`)}
+      >
         {pictureProduct ? (
           <img src={pictureProduct} alt="msg picture" />
         ) : (

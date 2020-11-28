@@ -11,11 +11,12 @@ export default function BtnSetting({
   component,
   onClick,
   active,
+  marginBottom,
 }) {
   return (
     <div
       className="container_btnsetting"
-      style={{ paddingTop, borderTop, marginTop }}
+      style={{ paddingTop, borderTop, marginTop, marginBottom }}
     >
       {console.log(active, "active")}
       <div className="wrapper_title_btnsetting" onClick={onClick}>

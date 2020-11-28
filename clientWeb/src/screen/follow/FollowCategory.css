@@ -6,6 +6,13 @@
   align-items: center;
   margin-bottom: 93px;
 }
+.container_central_follow {
+  margin-top: 93px;
+  margin-bottom: 0px;
+  margin-right: 139px;
+  margin-left: 139px;
+  flex: 1;
+}
 .text_header_followcategory {
   color: white;
   font-size: 18px;

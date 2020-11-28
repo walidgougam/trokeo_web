@@ -3,15 +3,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px #979797;
   /* padding-bottom: 15px; */
 }
 
 .wrapper_unfollow_cardfollowcategory {
   margin: 0px 0px;
-  background-color: blue;
+  background-color: #0091ff;
   color: white;
-  border: solid 1px blue;
+  border: solid 1px #0091ff;
   border-radius: 5px;
   height: 29px;
   display: flex;
@@ -28,8 +27,8 @@
 .wrapper_follow_cardfollowcategory {
   margin: 0px 0px;
   background-color: white;
-  color: blue;
-  border: solid 1px blue;
+  color: #0091ff;
+  border: solid 1px #0091ff;
   border-radius: 5px;
   height: 29px;
   display: flex;

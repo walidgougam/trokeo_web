@@ -1,4 +1,5 @@
 import React from "react";
+// ICON GOODS
 import { ReactComponent as AnimauxIcon } from "./asset/iconGoods/animaux.svg";
 import { ReactComponent as BeauteBienetreIcon } from "./asset/iconGoods/beauteBienetre.svg";
 import { ReactComponent as DecorationIcon } from "./asset/iconGoods/decoration.svg";
@@ -11,6 +12,7 @@ import { ReactComponent as MaterielSportIcon } from "./asset/iconGoods/materielS
 import { ReactComponent as MeubleIcon } from "./asset/iconGoods/meuble.svg";
 import { ReactComponent as ModeAccessoireIcon } from "./asset/iconGoods/modeAccessoires.svg";
 
+// ICON SERVICE
 import { ReactComponent as BricolageTravauxIcon } from "./asset/iconServices/bricolageTravaux.svg";
 import { ReactComponent as CoursFormationIcon } from "./asset/iconServices/coursFormation.svg";
 import { ReactComponent as DemenagementManutentionIcon } from "./asset/iconServices/demenagmenetManutention.svg";
@@ -22,6 +24,17 @@ import { ReactComponent as ModeBeauteIcon } from "./asset/iconServices/modeBeaut
 import { ReactComponent as RestaurationReceptionIcon } from "./asset/iconServices/restaurationReception.svg";
 import { ReactComponent as SanteIcon } from "./asset/iconServices/sante.svg";
 import { ReactComponent as ServicePersonneIcon } from "./asset/iconServices/servicePersonne.svg";
+
+//OPTION PROFILE
+import { ReactComponent as About } from "./asset/iconProfile/about.svg";
+import { ReactComponent as Custom } from "./asset/iconProfile/custom.svg";
+import { ReactComponent as Custom2 } from "./asset/iconProfile/custom2.svg";
+import { ReactComponent as Great } from "./asset/iconProfile/great.svg";
+import { ReactComponent as Hands } from "./asset/iconProfile/hands.svg";
+import { ReactComponent as Heart } from "./asset/iconProfile/heart.svg";
+import { ReactComponent as Pencil } from "./asset/iconProfile/pencil.svg";
+import { ReactComponent as Question } from "./asset/iconProfile/question.svg";
+import { ReactComponent as Setting } from "./asset/iconProfile/setting.svg";
 
 import Shave from "./asset/allSvg/shave.jpg";
 
@@ -137,4 +150,16 @@ export const allMessage = [
     titleProduct: "shave",
     category: "Animaux",
   },
+];
+
+export const allOptionsProfile = [
+  { title: "Voir mon profil", icon: <Pencil /> },
+  { title: "Favoris", icon: <Heart /> },
+  { title: "Mode association", icon: <Hands /> },
+  { title: "Personnalisation", icon: <Custom /> },
+  { title: "Paramètres", icon: <Setting /> },
+  { title: "A propos de Trokéo", icon: <About /> },
+  { title: "Conditions d’utilisation", icon: <Custom2 /> },
+  { title: "Evaluer l’application", icon: <Great /> },
+  { title: "Centre d’aide", icon: <Question /> },
 ];
