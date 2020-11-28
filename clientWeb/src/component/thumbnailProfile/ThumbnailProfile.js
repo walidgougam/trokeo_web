@@ -13,7 +13,7 @@ function ThumbnailProfile({ history }) {
           <div className="wrapper_name_star_thumbnailProfile">
             <p className="name_thumbnailprofile">name</p>
             <p className="member_since_thumbnailprofile">
-              membre depuis le 08/01/2020
+              membre depuis le 08/01/2020 j
             </p>
             <div style={{ marginTop: 4 }}>
               <Star />
