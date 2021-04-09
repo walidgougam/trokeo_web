@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Organisation.css";
 import axios from "axios";
+import {getProductUrl} from "../../API/constants"
 
 //COMPONENT
 import HeaderGreenOrganization from "../../component/headerGreenOrganization/HeaderGreenOrganization";
@@ -16,9 +17,10 @@ export default function Organization({ location, history }) {
   const getProduct = () => {
     axios({
       method: "GET",
-      url: `http://localhost:5000/product/getproduct`,
+      url: getProductUrl,
     })
       .then((res) => {
+        console.log(res,"res get product")
         setAllProduct(res?.data?.product);
       })
       .catch((err) => {
@@ -63,7 +65,8 @@ export default function Organization({ location, history }) {
               <div style={{ width: 168, height: 146 }}>
                 <CardProduct
                   key={index}
-                  title={product}
+                  title={product.title}
+                  productPicture={product?.productPicture}
                   goToProductDetail={() =>
                     history.push(`/product/:${product._id}`)
                   }

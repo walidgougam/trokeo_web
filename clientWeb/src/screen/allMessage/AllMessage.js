@@ -5,7 +5,7 @@ import { allMessage } from "../../Helpers";
 import HeaderGreen from "../../component/headerGreen/HeaderGreen";
 import Navbar from "../../component/navbar/Navbar";
 import Footer from "../../component/footer/Footer";
-import CardMessage from "../../component/cardMessage/CardMessage";
+import CardReceiveMessage from "../../component/cardReceiveMessage/CardReceiveMessage";
 import NoImageProduct from "../../component/NoImageProduct.js/NoImageProduct";
 
 export default function AllMessage({ location, history }) {
@@ -18,7 +18,7 @@ export default function AllMessage({ location, history }) {
       <div className="container_card_message_allmessage" style={{ flex: "1" }}>
         {allMessage.map((msg, index) => {
           return (
-            <CardMessage
+            <CardReceiveMessage
               chatId={msg?._id}
               history={history}
               key={index}

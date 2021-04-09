@@ -6,9 +6,16 @@ import Footer from "../../component/footer/Footer";
 import FooterHome from "../../component/footer/FooterHome";
 import CardHomeSearch from "../../component/cardHomeSearch/CardHomeSearch";
 
+
+const Walid = () => {
+  return <button>click pas ici</button>
+}
+
+
 export default function Home({ location }) {
   return (
     <div>
+       <Walid/>
       <Navbar location={location} />
       <div className="wrapper_image_home">
         <div style={{ marginTop: 86, marginLeft: 99 }}>
@@ -21,6 +28,7 @@ export default function Home({ location }) {
         <CardHomeSearch />
       </div>
       <HowItWorks />
+    
       <FooterHome />
       <Footer />
     </div>

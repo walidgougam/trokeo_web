@@ -1,9 +1,9 @@
 import React from "react";
-import "./CardMessage.scss";
+import "./CardReceiveMessage.scss";
 //PICTURE
 import { ReactComponent as GreyDot } from "../../asset/allSvg/greyDot.svg";
 
-export default function CardMessage({
+function CardReceiveMessage({
   chatId,
   userName,
   titleProduct,
@@ -15,7 +15,7 @@ export default function CardMessage({
 }) {
   return (
     <div
-      className="container_cardmessage"
+      className="container_cardReceiveMessage"
       style={{
         paddingTop: index === 0 ? 0 : 13,
         paddingBottom: index < arrayLength - 1 ? 13 : 0,
@@ -23,7 +23,7 @@ export default function CardMessage({
       }}
     >
       <div
-        className="container_image_cardmessage"
+        className="container_image_cardReceiveMessage"
         onClick={() => history.push(`/chat/${chatId}`)}
       >
         {pictureProduct ? (
@@ -40,15 +40,15 @@ export default function CardMessage({
           }}
         >
           <div>
-            <p className="text_name_cardmessage">{userName}</p>
-            <p className="text_title_cardmessage">{titleProduct}</p>
+            <p className="text_name_cardReceiveMessage">{userName}</p>
+            <p className="text_title_cardReceiveMessage">{titleProduct}</p>
           </div>
-          <p className="text_lastmessage_cardmessage">
+          <p className="text_lastmessage_cardReceiveMessage">
             16:52 - first message first message first message
           </p>
         </div>
       </div>
-      <div className="wrapper_grey_dot_cardmessage">
+      <div className="wrapper_grey_dot_cardReceiveMessage">
         <div>
           <GreyDot />
           <GreyDot />
@@ -58,3 +58,5 @@ export default function CardMessage({
     </div>
   );
 }
+
+export default CardReceiveMessage

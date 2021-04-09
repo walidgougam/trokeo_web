@@ -3,14 +3,15 @@ import "./CardProduct.css";
 import { ReactComponent as IconLocation } from "../../asset/allSvg/icon_location.svg";
 import { ReactComponent as HeartEmpty } from "../../asset/allSvg/heart_empty.svg";
 import { ReactComponent as HeartFull } from "../../asset/allSvg/heart_full.svg";
+import { imageStatic } from "../../API/constants";
 
-export default function CardProduct({ goToProductDetail }) {
+export default function CardProduct({ goToProductDetail, title, productPicture }) {
   const [booked, setBooked] = useState(true);
   const [heart, setHeart] = useState(false);
   return (
     <div className="container_cardproduct">
       <img
-        src={require("../../asset/allSvg/shave.jpg")}
+        src={productPicture.length>0?imageStatic(productPicture[0]):require("../../asset/allSvg/shave.jpg")}
         alt="product_image"
         className="image_product_cardproduct"
         onClick={goToProductDetail}
@@ -28,7 +29,7 @@ export default function CardProduct({ goToProductDetail }) {
         style={{ cursor: "pointer" }}
         onClick={goToProductDetail}
       >
-        after shave
+        {title}
       </p>
       <div className="container_icon_cardproduct">
         <div className="wrapper_icon_cardproduct">
