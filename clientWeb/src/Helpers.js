@@ -163,3 +163,58 @@ export const allOptionsProfile = [
   { title: "Evaluer l’application", icon: <Great /> },
   { title: "Centre d’aide", icon: <Question /> },
 ];
+
+
+export const allChat = [
+  {
+    sender: "1",
+    reciever: "2",
+    product: "faire le ménage",
+    messages: [
+      {
+        _id: "100",
+        text: "bonjour comment allez vous?",
+        createdAt: "aujourd'hui, 12:34",
+        user: {
+          _id: "1",
+          name: "marion",
+          avatar: "hello",
+        },
+      },
+    ]
+  },
+  {
+    sender: "2",
+    reciever: "1",
+    product: "faire le ménage",
+    messages: [
+      {
+        _id: "100",
+        text: "bonjour comment allez vous?",
+        createdAt: "aujourd'hui, 12:38",
+        user: {
+          _id: "2",
+          name: "camille",
+          avatar: "hello",
+        },
+      },
+    ]
+  },
+  {
+    sender: "1",
+    reciever: "2",
+    product: "faire le ménage",
+    messages: [
+      {
+        _id: "100",
+        text: "bonjour comment allez vous?",
+        createdAt: "aujourd'hui, 12:40",
+        user: {
+          _id: "1",
+          name: "marion",
+          avatar: "hello",
+        },
+      },
+    ]
+  }
+]

@@ -22,8 +22,19 @@ import About from "./screen/about/About";
 import AllMessage from "./screen/allMessage/AllMessage";
 import Chat from "./screen/chat/Chat";
 import Profile from "./screen/profile/Profile";
+import {
+  getProductAction,
+  searchProductAction,
+} from './redux/actions/ProductAction';
+//REDUX
+import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
+
+const App = () => {
+  //REDUX
+  const getProduct = useSelector((state) => state.productReducer);
+
+  console.log(getProduct, "getProduct")
   return (
     <Router>
       <Switch>
