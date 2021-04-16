@@ -4,18 +4,28 @@ import { ReactComponent as IconLocation } from "../../asset/allSvg/icon_location
 import { ReactComponent as HeartEmpty } from "../../asset/allSvg/heart_empty.svg";
 import { ReactComponent as HeartFull } from "../../asset/allSvg/heart_full.svg";
 import { imageStatic } from "../../API/constants";
+import { showCategoryPicture } from "../../Helpers"
 
-export default function CardProduct({ goToProductDetail, title, productPicture }) {
+export default function CardProduct({ goToProductDetail, title, productPicture, category }) {
   const [booked, setBooked] = useState(true);
   const [heart, setHeart] = useState(false);
   return (
     <div className="container_cardproduct">
-      <img
-        src={productPicture.length>0?imageStatic(productPicture[0]):require("../../asset/allSvg/shave.jpg")}
-        alt="product_image"
-        className="image_product_cardproduct"
-        onClick={goToProductDetail}
-      />
+      {productPicture.length > 0 ?
+        <img
+          src={imageStatic(productPicture[0])}
+          alt="product_image"
+          className="image_product_cardproduct"
+          onClick={goToProductDetail}
+        /> :
+        <div style={{
+          display: "flex",
+          width: "168px",
+          height: "146px", backgroundColor: "grey", justifyContent: "center", alignItems: "center"
+        }}>
+          {showCategoryPicture(category)}
+        </div>
+      }
       <p
         className="text_booked_cardproduct"
         style={{

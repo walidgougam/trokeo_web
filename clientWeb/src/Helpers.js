@@ -95,30 +95,30 @@ export const serviceCategories = [
 
 export const allIcon = [
   { title: "Animaux", icon: <AnimauxIcon /> },
-  { title: "Beauté & bien être", icon: BeauteBienetreIcon },
-  { title: "Décoration", icon: DecorationIcon },
-  { title: "Entretien", icon: EntretientIcon },
-  { title: "Fêtes & évènements", icon: FeteEvenementIcon },
-  { title: "High tech & fournitures de bureau", icon: HightechIcon },
-  { title: "ferf", icon: LoisirIcon },
-  { title: "Matériel de jardin", icon: MaterielJardinIcon },
-  { title: "Matériel de sport", icon: MaterielSportIcon },
-  { title: "Meubles", icon: MeubleIcon },
-  { title: "Mode & accessoires", icon: ModeAccessoireIcon },
-  { title: "Outillage et travaux", icon: BricolageTravauxIcon },
-  { title: "frefr", icon: CoursFormationIcon },
-  { title: "Déménagement & manutention", icon: DemenagementManutentionIcon },
+  { title: "Beauté & bien être", icon: <BeauteBienetreIcon /> },
+  { title: "Décoration", icon: <DecorationIcon /> },
+  { title: "Entretien", icon: <EntretientIcon /> },
+  { title: "Fêtes & évènements", icon: <FeteEvenementIcon /> },
+  { title: "High tech & fournitures de bureau", icon: <HightechIcon /> },
+  { title: "ferf", icon: <LoisirIcon /> },
+  { title: "Matériel de jardin", icon: <MaterielJardinIcon /> },
+  { title: "Matériel de sport", icon: <MaterielSportIcon /> },
+  { title: "Meubles", icon: <MeubleIcon /> },
+  { title: "Mode & accessoires", icon: <ModeAccessoireIcon /> },
+  { title: "Outillage et travaux", icon: <BricolageTravauxIcon /> },
+  { title: "frefr", icon: <CoursFormationIcon /> },
+  { title: "Déménagement & manutention", icon: <DemenagementManutentionIcon /> },
   {
     title: "Dépannage & réparation de matériel",
-    icon: DepannageReparationIcon,
+    icon: <DepannageReparationIcon />,
   },
-  { title: "Garde/promenade d’animaux", icon: GardePromenadeIcon },
-  { title: "Jardinage & piscine", icon: JardinagePiscineIcon },
-  { title: "Ménage à domicile", icon: MenageIcon },
-  { title: "Mode/beauté", icon: ModeBeauteIcon },
-  { title: "Restauration & réception", icon: RestaurationReceptionIcon },
-  { title: "Santé & bien être", icon: SanteIcon },
-  { title: "Services à la personne", icon: ServicePersonneIcon },
+  { title: "Garde/promenade d’animaux", icon: <GardePromenadeIcon /> },
+  { title: "Jardinage & piscine", icon: <JardinagePiscineIcon /> },
+  { title: "Ménage à domicile", icon: <MenageIcon /> },
+  { title: "Mode/beauté", icon: <ModeBeauteIcon /> },
+  { title: "Restauration & réception", icon: <RestaurationReceptionIcon /> },
+  { title: "Santé & bien être", icon: <SanteIcon /> },
+  { title: "Services à la personne", icon: <ServicePersonneIcon /> },
 ];
 
 export const allMessage = [
@@ -218,3 +218,15 @@ export const allChat = [
     ]
   }
 ]
+
+
+export const showCategoryPicture = (category) => {
+  console.log(category, "category helopers")
+  for (let i = 0; i < allIcon.length; i++)
+  {
+    if (allIcon[i].title === category)
+    {
+      return allIcon[i].icon
+    }
+  }
+}

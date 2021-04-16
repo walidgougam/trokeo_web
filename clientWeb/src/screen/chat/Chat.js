@@ -8,8 +8,8 @@ import Footer from "../../component/footer/Footer"
 export default function Chat() {
   return <div className="container_chat">
     <Navbar />
-    <HeaderGreen title="Messages"/>
+    <HeaderGreen title="Messages" />
     <CardSendMessage />
     <Footer />
-    </div>
+  </div>
 }
