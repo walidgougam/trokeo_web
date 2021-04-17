@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from "react";
-import Navbar from "../../component/navbar/Navbar";
-import "./Login.scss";
-import BtnLogin from "../../component/btnLogin/BtnLogin";
-import BtnNext from "../../component/btn/BtnNext";
-import { loginApi } from "../../API";
+import React, {useState, useEffect} from 'react';
+import './Login.scss';
+// COMPONENT
+import Navbar from '../../component/navbar/Navbar';
+import BtnLogin from '../../component/btnLogin/BtnLogin';
+import BtnNext from '../../component/btn/BtnNext';
+// REDUX
+import {loginAction} from '../../redux/actions/AuthAction';
+import {useDispatch, useSelector} from 'react-redux';
 
-export default function Login({ history, location }) {
+export default function Login({history, location}) {
   // STATE
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // REDUX
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
-    loginApi(email, password, () => {
-      return history.push("/");
-    });
+    dispatch(
+      loginAction(email, password, () => {
+        return history.push('/');
+      }),
+    );
   };
   return (
     <div>
@@ -36,7 +43,7 @@ export default function Login({ history, location }) {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="wrapper_input_login" style={{ marginTop: 9 }}>
+          <div className="wrapper_input_login" style={{marginTop: 9}}>
             <label className="label_login">Votre mot de passe</label>
             <br />
             <input

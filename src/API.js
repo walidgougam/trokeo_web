@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 // import RNFetchBlob from "rn-fetch-blob";
 
 export const registerApi = async (
@@ -7,21 +7,21 @@ export const registerApi = async (
   firstName,
   lastName,
   female,
-  callback
+  callback,
 ) => {
   await axios({
-    method: "POST",
-    url: "http://localhost:5000/user/register",
-    data: { email, password, firstName, lastName, female },
+    method: 'POST',
+    url: 'http://localhost:5000/user/register',
+    data: {email, password, firstName, lastName, female},
   })
     .then((res) => {
-      console.log(res, "result register api ");
-      localStorage.setItem("userId", res.data.userData._id);
-      localStorage.setItem("userName", res.data.userData.firstName);
+      console.log(res, 'result register api ');
+      localStorage.setItem('userId', res.data.userData._id);
+      localStorage.setItem('userName', res.data.userData.firstName);
       callback();
     })
     .catch((err) => {
-      console.log(err, "error on register");
+      console.log(err, 'error on register');
     });
 };
 
@@ -30,39 +30,21 @@ export const registerGoogleApi = async (
   firstName,
   lastName,
   userPicture,
-  callback
+  callback,
 ) => {
   await axios({
-    method: "POST",
-    url: "http://localhost:5000/user/registergoogle",
-    data: { email, firstName, lastName, userPicture },
+    method: 'POST',
+    url: 'http://localhost:5000/user/registergoogle',
+    data: {email, firstName, lastName, userPicture},
   })
     .then((res) => {
-      console.log(res, "result register api google ");
-      localStorage.setItem("userId", res.data.userData._id);
-      localStorage.setItem("userName", res.data.userData.firstName);
+      console.log(res, 'result register api google ');
+      localStorage.setItem('userId', res.data.userData._id);
+      localStorage.setItem('userName', res.data.userData.firstName);
       callback();
     })
     .catch((err) => {
-      console.log(err, "error on register");
-    });
-};
-
-export const loginApi = (email, password, callback) => {
-  axios({
-    method: "POST",
-    url: "http://localhost:5000/user/login",
-    data: { email, password },
-  })
-    .then((res) => {
-      console.log(res, "---res login api----");
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("userId", res.data._id);
-      localStorage.setItem("userName", res.data.firstName);
-      callback();
-    })
-    .catch((err) => {
-      console.log(err, "error on loginAPi");
+      console.log(err, 'error on register');
     });
 };
 
@@ -96,12 +78,12 @@ export const createProductApi = async (
   isServices,
   isGoods,
   isFromOrganization,
-  callback
+  callback,
 ) => {
-  let userId = await localStorage.getItem("userId");
+  let userId = await localStorage.getItem('userId');
   axios({
-    method: "POST",
-    url: "http://localhost:5000/product/createproduct",
+    method: 'POST',
+    url: 'http://localhost:5000/product/createproduct',
     data: {
       title,
       description,
@@ -116,27 +98,27 @@ export const createProductApi = async (
     },
   })
     .then((res) => {
-      console.log("produit creer dans api.js");
+      console.log('produit creer dans api.js');
       callback();
     })
     .catch((err) => {
-      console.log(err, "error on loginAPi");
+      console.log(err, 'error on loginAPi');
       callback();
     });
 };
 
 export const getUserApi = async (dispatch) => {
-  let id = await localStorage.getItem("userId");
+  let id = await localStorage.getItem('userId');
   axios({
-    method: "GET",
+    method: 'GET',
     url: `http://localhost:5000/user/${id}`,
   })
     .then((res) => {
-      dispatch({ type: "GET_USER", payload: res.data.user });
-      console.log(res, "get user api");
+      dispatch({type: 'GET_USER', payload: res.data.user});
+      console.log(res, 'get user api');
     })
     .catch((err) => {
-      console.log(err, "error on get user api");
+      console.log(err, 'error on get user api');
     });
 };
 
@@ -148,12 +130,12 @@ export const editProfileUserApi = async (
   phoneNumber,
   female,
   userPicture,
-  callback
+  callback,
 ) => {
-  let userId = await localStorage.getItem("userId");
+  let userId = await localStorage.getItem('userId');
   axios({
-    method: "POST",
-    url: "http://localhost:5000/user/edit",
+    method: 'POST',
+    url: 'http://localhost:5000/user/edit',
     data: {
       userId,
       firstName,
@@ -166,10 +148,10 @@ export const editProfileUserApi = async (
     },
   })
     .then((res) => {
-      console.log(res.data, "edit user api");
+      console.log(res.data, 'edit user api');
       callback();
     })
     .catch((err) => {
-      console.log(err, "error on loginAPi");
+      console.log(err, 'error on loginAPi');
     });
 };

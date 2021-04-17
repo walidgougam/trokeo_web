@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from "react";
-import "./Navbar.css";
-import { ReactComponent as LogoTrokeo } from "../../asset/allSvg/logo.svg";
-import { ReactComponent as IconProfileLittle } from "../../asset/allSvg/iconProfileLittle.svg";
+import React, {useState, useEffect} from 'react';
+import './Navbar.css';
+// SVG
+import {ReactComponent as LogoTrokeo} from '../../asset/allSvg/logo.svg';
+import {ReactComponent as IconProfileLittle} from '../../asset/allSvg/iconProfileLittle.svg';
+// REDUX
+import {useDispatch, useSelector} from 'react-redux';
+import {getUserAction} from '../../redux/actions/UserAction';
 
-export default function Navbar({ params, history, location }) {
+export default function Navbar({params, history, location}) {
   //STATE
-  const [userId, setUserId] = useState("");
-  const [userName, setUserName] = useState("");
+  const [userid, setUserid] = useState();
+
+  // REDUX
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.userReducer);
 
   useEffect(() => {
     (async () => {
-      let userId = localStorage.getItem("userId");
-      let userName = localStorage.getItem("userName");
-      setUserId(userId);
-      setUserName(userName);
-      console.log(userName, "user name navbar");
-      console.log(location, "location");
+      const userId = await localStorage.getItem('userId');
+      setUserid(userId);
+      dispatch(getUserAction(userId));
     })();
   }, []);
 
   return (
     <div className="container_navbar">
       <div className="header_left_navbar">
-        <div style={{ margin: 0 }}>
-          <LogoTrokeo />
+        <div style={{margin: 0, cursor: 'pointer'}}>
+          <a href="/">
+            <LogoTrokeo />
+          </a>
         </div>
         <div className="wrapper_input_navbar">
           <input
@@ -32,7 +38,7 @@ export default function Navbar({ params, history, location }) {
             placeholder="Rechercher des mots clés"
           />
           <img
-            src={require("../../asset/allSvg/icon_search.svg")}
+            src={require('../../asset/allSvg/icon_search.svg')}
             alt="Logo"
             className="icon_search_navbar"
           />
@@ -40,7 +46,7 @@ export default function Navbar({ params, history, location }) {
 
         <div className="add_product_navbar">
           <img
-            src={require("../../asset/allSvg/icon_pencil.svg")}
+            src={require('../../asset/allSvg/icon_pencil.svg')}
             alt="stylo"
             className="pencil_icon_navbar"
           />
@@ -52,11 +58,10 @@ export default function Navbar({ params, history, location }) {
           <a
             href="/organization"
             style={{
-              paddingBottom: "3px",
+              paddingBottom: '3px',
               borderBottom:
-                location?.pathname === "/organization" && "2px #40CE6A solid",
-            }}
-          >
+                location?.pathname === '/organization' && '2px #40CE6A solid',
+            }}>
             Association
           </a>
         </li>
@@ -67,43 +72,39 @@ export default function Navbar({ params, history, location }) {
           <a
             href="/chat"
             style={{
-              paddingBottom: "3px",
+              paddingBottom: '3px',
               borderBottom:
-                location?.pathname === "/chat" && "2px #40CE6A solid",
-            }}
-          >
+                location?.pathname === '/chat' && '2px #40CE6A solid',
+            }}>
             Messages
           </a>
         </li>
         <li>
-          {userId ? (
+          {userid ? (
             <a
               style={{
-                cursor: " pointer",
+                cursor: ' pointer',
               }}
-              onClick={() => localStorage.clear()}
-            >
+              onClick={() => localStorage.clear()}>
               <span
                 style={{
                   marginRight: 10,
                   fontSize: 11,
-                  position: "relative",
+                  position: 'relative',
                   top: 2,
-                }}
-              >
+                }}>
                 <IconProfileLittle />
               </span>
-              {userName}
+              {userData?.firstName}
             </a>
           ) : (
             <a
               href="/login"
               style={{
-                paddingBottom: "3px",
+                paddingBottom: '3px',
                 borderBottom:
-                  location?.pathname === "/login" && "2px #40CE6A solid",
-              }}
-            >
+                  location?.pathname === '/login' && '2px #40CE6A solid',
+              }}>
               Se connecter
             </a>
           )}
