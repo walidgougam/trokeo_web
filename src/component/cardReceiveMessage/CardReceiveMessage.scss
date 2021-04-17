@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_cardReceiveMessage {
   display: flex;
   justify-content: space-between;
@@ -22,14 +24,14 @@
 .text_name_cardReceiveMessage {
   margin: 0px;
   font-size: 13;
-  color: #3a3a3a;
+  color: $black-light;
   //   font-family: Open Sans Bold;
 }
 
 .text_title_cardReceiveMessage {
   margin: 0px;
   font-size: 12px;
-  color: #3a3a3a;
+  color: $black-light;
   //   font-family: Open Sans Regular;
 }
 
@@ -37,7 +39,7 @@
   margin: 0px;
   margin-bottom: 6px;
   font-size: 12px;
-  color: #3a3a3a;
+  color: $black-light;
   //   font-family:Open Sans Regular ;
 }
 .wrapper_grey_dot_cardReceiveMessage {

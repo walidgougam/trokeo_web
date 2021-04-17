@@ -1,0 +1,19 @@
+@import '../../scss/colors';
+
+.container_btnchatheader {
+  border: solid 1px $green-light;
+  border-radius: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 17px;
+  width: 135px;
+  height: 37px;
+  padding: 0px;
+
+  p {
+    color: $green-light;
+    font-size: 10px;
+    line-height: 20px;
+  }
+}

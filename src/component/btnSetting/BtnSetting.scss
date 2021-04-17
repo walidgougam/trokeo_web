@@ -1,8 +1,10 @@
+@import '../../scss/colors';
+
 .container_btnsetting {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: solid 1px #bfbdbd;
+  border-bottom: solid 1px $grey-light;
 }
 
 .wrapper_title_btnsetting {
@@ -12,7 +14,7 @@
   padding-bottom: 40px;
 }
 .title_btnsetting {
-  color: #979797;
+  color: $grey-dark;
   margin-bottom: 0px;
   margin-top: 0px;
 }

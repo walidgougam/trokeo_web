@@ -1,5 +1,7 @@
+@import '../../scss/_colors.scss';
+
 .circle_icon_profile_pictureicon {
-  background-color: #bfbdbd;
+  background-color: $grey-light;
   border-radius: 50px;
   display: flex;
   justify-content: center;

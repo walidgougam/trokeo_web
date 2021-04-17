@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import Navbar from "../../component/navbar/Navbar";
-import "./Register.css";
-import BtnFinish from "../../component/btn/BtnFinish";
-import { registerApi } from "../../API";
-import PictureIconProfile from "../../component/picture/PictureIconProfile";
-import Input from "../../component/input/Input";
-import InputSelect from "../../component/inputSelect/InputSelect";
+import React, {useState} from 'react';
+import './Register.scss';
+import {registerApi} from '../../API';
+import BtnFinish from '../../component/btn/BtnFinish';
+import Navbar from '../../component/navbar/Navbar';
+import PictureIconProfile from '../../component/picture/PictureIconProfile';
+import Input from '../../component/input/Input';
+import InputSelect from '../../component/inputSelect/InputSelect';
 
-export default function Register({ history, location }) {
+export default function Register({history, location}) {
   // STATE
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [female, setFemale] = useState(false);
 
   const handleRegister = () => {
     registerApi(email, password, firstName, lastName, female, () => {
-      return history.push("/");
+      return history.push('/');
     });
   };
   return (
@@ -40,7 +40,7 @@ export default function Register({ history, location }) {
           <p className="text_you_are_register">Vous êtes</p>
           <InputSelect
             onChange={(e) =>
-              e.target.value === "femme" ? setFemale(true) : setFemale(false)
+              e.target.value === 'femme' ? setFemale(true) : setFemale(false)
             }
           />
           <BtnFinish titleBtn="Terminer" onClick={() => handleRegister()} />

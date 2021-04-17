@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_navbar {
   display: flex;
   flex-direction: row;
@@ -22,7 +24,7 @@
 .wrapper_input_navbar {
   width: 247px;
   height: 26px;
-  border: solid 1px #bfbdbd;
+  border: solid 1px $grey-light;
   border-radius: 13px;
   display: flex;
   flex-direction: row;
@@ -45,7 +47,7 @@
 }
 
 .input_search_word_navbar::placeholder {
-  color: #bfbdbd;
+  color: $grey-light;
 }
 .icon_search_navbar {
   width: 15px;

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormGroup from "@material-ui/core/FormGroup";
-import Switch from "@material-ui/core/Switch";
-import "./NotificationSetting.css";
-import { createMuiTheme } from "@material-ui/core/styles";
+import React, {useState} from 'react';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import Switch from '@material-ui/core/Switch';
+import './NotificationSetting.scss';
+import {createMuiTheme} from '@material-ui/core/styles';
 
 export default function NotificationSetting() {
   const [checked, setChecked] = useState(true);
@@ -51,11 +51,10 @@ export default function NotificationSetting() {
           />
         </FormGroup>
       </div>
-      <p style={{ borderTop: "solid 1px #979797", marginBottom: 0 }}></p>
+      <p style={{borderTop: 'solid 1px #979797', marginBottom: 0}}></p>
       <p
         className="title_notification_notificationsetting"
-        style={{ marginTop: 30 }}
-      >
+        style={{marginTop: 30}}>
         Notifications par e-mail
       </p>
       <p className="description_notification_notificationsetting">
@@ -87,8 +86,7 @@ export default function NotificationSetting() {
       </div>
       <div
         className="wrapper_notification_line_notificationsetting"
-        style={{ paddingBottom: "24px" }}
-      >
+        style={{paddingBottom: '24px'}}>
         <p>Nouveaux messages sur ma messagerie</p>
         <FormGroup>
           <FormControlLabel

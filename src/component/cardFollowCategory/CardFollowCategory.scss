@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_cardfollowcategory {
   display: flex;
   flex-direction: row;
@@ -8,9 +10,9 @@
 
 .wrapper_unfollow_cardfollowcategory {
   margin: 0px 0px;
-  background-color: #0091ff;
-  color: white;
-  border: solid 1px #0091ff;
+  background-color: $blue_msg;
+  color: $white_absolute;
+  border: solid 1px $blue_msg;
   border-radius: 5px;
   height: 29px;
   display: flex;
@@ -26,9 +28,9 @@
 
 .wrapper_follow_cardfollowcategory {
   margin: 0px 0px;
-  background-color: white;
-  color: #0091ff;
-  border: solid 1px #0091ff;
+  background-color: $white_absolute;
+  color: $blue_msg;
+  border: solid 1px $blue_msg;
   border-radius: 5px;
   height: 29px;
   display: flex;

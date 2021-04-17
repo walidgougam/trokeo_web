@@ -11,10 +11,9 @@ import {
 const initialState = {};
 
 export function productReducer(state = initialState, action) {
-  switch (action.type)
-  {
+  switch (action.type) {
     case GET_PRODUCT_LOADING:
-      return action.payload;
+      return {...state, isLoading: action.payload};
     case GET_PRODUCT_SUCCESS:
       return action.payload;
     case GET_PRODUCT_ERROR:
@@ -27,11 +26,9 @@ export function productReducer(state = initialState, action) {
 }
 
 export function searchProductReducer(state = initialState, action) {
-  switch (action.type)
-  {
+  switch (action.type) {
     case SEARCH_PRODUCT:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
         return action.payload;
       } else return {};
     default:

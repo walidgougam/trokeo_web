@@ -1,5 +1,5 @@
-import React from "react";
-import "./BtnFinish.css";
+import React from 'react';
+import './BtnFinish.scss';
 
 export default function BtnFinish({
   titleBtn,
@@ -11,10 +11,9 @@ export default function BtnFinish({
   return (
     <div
       className="container_btnfinish"
-      style={{ width, height }}
-      onClick={onClick}
-    >
-      <p className="text_btnfinish" style={{ fontSize }}>
+      style={{width, height}}
+      onClick={onClick}>
+      <p className="text_btnfinish" style={{fontSize}}>
         {titleBtn}
       </p>
     </div>

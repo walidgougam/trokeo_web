@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_message {
   display: flex;
   align-items: center;
@@ -8,7 +10,7 @@
 }
 
 .container_message > p {
-  background-color: green;
+  background-color: $blue_msg;
   font-size: medium;
   padding: 15px;
   border-radius: 20px;

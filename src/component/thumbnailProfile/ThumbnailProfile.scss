@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_thumbnailprofile {
   box-sizing: border-box;
   padding: 11px 20px 16px 20px;
@@ -26,11 +28,11 @@
         //   font-family:avenir-medium ;
         line-height: 20px;
         margin: 0px;
-        color: #3a3a3a;
+        color: $black-light;
       }
 
       .member_since_thumbnailprofile {
-        color: #3a3a3a;
+        color: $black-light;
         font-size: 11px;
         //   font-family:open sans regular ;
         margin: 4px 0px 0px 0px;
@@ -46,7 +48,7 @@
       //   font-family: "open-sans-regular";
       line-height: 20px;
       margin: 0;
-      color: #3a3a3a;
+      color: $black-light;
       margin-bottom: 11px;
     }
     .wrapper_review_thumbnailprofile {
@@ -60,9 +62,9 @@
       display: flex;
       flex-direction: row;
       p {
-        color: #3a3a3a;
+        color: $black-light;
         font-size: 9px;
-        color: #3a3a3a;
+        color: $black-light;
         text-align: center;
         // font-family: open-sans-regular;
       }
@@ -78,14 +80,14 @@
   .text_about_thumbnailprofile {
     // font-family: "open sans bold";
     font-size: 16px;
-    color: #3a3a3a;
+    color: $black-light;
     line-height: 20px;
   }
 
   .text_description_thumbnailprofile {
     // font-family: "open sans regular";
     font-size: 14px;
-    color: #3a3a3a;
+    color: $black-light;
     line-height: 20px;
   }
 }

@@ -1,5 +1,7 @@
+@import '../../scss/colors';
+
 .container_btnfinish {
-  background-color: #0091ff;
+  background-color: $blue_msg;
   border-radius: 26px;
   width: 252px;
   height: 42px;
@@ -9,7 +11,7 @@
   justify-content: center;
 }
 .text_btnfinish {
-  color: white;
+  color: $white_absolute;
   font-size: 12px;
   /* font-family: Open Sans Regular; */
 }

@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_about {
   background-color: hsl(0, 0%, 97%);
   padding-top: 31px;
@@ -17,7 +19,7 @@
 .wrapper_people_about {
   height: 261px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: $white_absolute;
   box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
   margin-left: 31px;
   margin-right: 31px;
@@ -38,7 +40,7 @@
 .wrapper_woman_pig_about {
   height: 261px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: $white_absolute;
   box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
   margin-left: 31px;
   margin-right: 31px;
@@ -60,7 +62,7 @@
 .wrapper_man_painting_about {
   height: 261px;
   box-sizing: border-box;
-  background-color: white;
+  background-color: $white_absolute;
   box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
   margin-left: 31px;
   margin-right: 31px;

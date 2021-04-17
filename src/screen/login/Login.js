@@ -1,29 +1,51 @@
 import React, {useState, useEffect} from 'react';
 import './Login.scss';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+import {loginUrl} from '../../API/constants';
 // COMPONENT
 import Navbar from '../../component/navbar/Navbar';
 import BtnLogin from '../../component/btnLogin/BtnLogin';
 import BtnNext from '../../component/btn/BtnNext';
+import Loader from 'react-loader';
 // REDUX
 import {loginAction} from '../../redux/actions/AuthAction';
 import {useDispatch, useSelector} from 'react-redux';
 
-export default function Login({history, location}) {
+function Login({history, location}) {
   // STATE
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // REDUX
   const dispatch = useDispatch();
+  const login = useSelector((state) => state.authReducer);
 
-  const handleLogin = () => {
-    dispatch(
-      loginAction(email, password, () => {
-        return history.push('/');
-      }),
-    );
+  const handleLogin = async () => {
+    axios({
+      method: 'POST',
+      url: loginUrl,
+      data: {email, password},
+    }).then((res) => {
+      const errors = res.data.errors;
+      console.log(errors, 'errors');
+      if (!errors) {
+        localStorage.setItem('userId', res.data.user);
+        history.push('/');
+      } else {
+        if (errors.email !== '') {
+          toast.error(errors.email);
+        }
+        if (errors.password !== '') {
+          toast.error(errors.password);
+        }
+      }
+    });
   };
+
   return (
     <div>
+      <ToastContainer />
       <Navbar location={location} />
       <div className="container_login">
         <div className="wrapper_login">
@@ -63,3 +85,5 @@ export default function Login({history, location}) {
     </div>
   );
 }
+
+export default Login;

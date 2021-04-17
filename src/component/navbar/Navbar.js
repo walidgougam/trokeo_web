@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './Navbar.css';
+import './Navbar.scss';
 // SVG
 import {ReactComponent as LogoTrokeo} from '../../asset/allSvg/logo.svg';
 import {ReactComponent as IconProfileLittle} from '../../asset/allSvg/iconProfileLittle.svg';
@@ -85,7 +85,7 @@ export default function Navbar({params, history, location}) {
               style={{
                 cursor: ' pointer',
               }}
-              onClick={() => localStorage.clear()}>
+              href="/profile">
               <span
                 style={{
                   marginRight: 10,

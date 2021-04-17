@@ -1,9 +1,11 @@
+@import '../../scss/colors';
+
 .container_chat_sidebar {
-  flex: 0.55;
+  flex: 0.15;
   height: 100vh;
   flex-direction: column;
   background-color: lightgrey;
-  border-right: 1px solid black;
+  border-right: 1px solid $black;
 }
 
 // .header_chat_sidebar {

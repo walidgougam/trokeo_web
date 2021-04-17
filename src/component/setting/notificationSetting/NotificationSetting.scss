@@ -1,7 +1,9 @@
+@import '../../../scss/colors';
+
 .title_notification_notificationsetting {
   font-size: 14px;
   /* font-family: open sans semi bold; */
-  color: #3a3a3a;
+  color: $black-light;
   margin-top: 0px;
   margin-bottom: 0px;
   line-height: 20px;
@@ -20,7 +22,7 @@
 }
 
 .wrapper_notification_line_notificationsetting p {
-  color: #3a3a3a;
+  color: $black-light;
   font-size: 13px;
   /* font-family: Open Sans Regular; */
   line-height: 20px;

@@ -1,5 +1,7 @@
+@import '../../scss/colors';
+
 .wrapper_header_followcategory {
-  background-color: #3ad06b;
+  background-color: $green-main;
   height: 89px;
   display: flex;
   justify-content: center;
@@ -14,7 +16,7 @@
   flex: 1;
 }
 .text_header_followcategory {
-  color: white;
+  color: $white_absolute;
   font-size: 18px;
   /* font-family: Open Sans Bold; */
   line-height: 24px;

@@ -1,40 +1,38 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   withRouter,
-} from "react-router-dom";
-import Home from "./screen/home/Home";
-import Login from "./screen/login/Login";
-import Register from "./screen/register/Register";
-import EditProfile from "./screen/editprofile/EditProfile";
-import Review from "./screen/review/Review";
-import Product from "./screen/product/Product";
-import FollowCategory from "./screen/follow/FollowCategory";
-import Setting from "./screen/setting/Setting";
-import Organization from "./screen/organization/Organization";
-import ProductDetail from "./screen/productDetail/ProductDetail";
-import About from "./screen/about/About";
-import AllMessage from "./screen/allMessage/AllMessage";
-import Chat from "./screen/chat/Chat";
-import Profile from "./screen/profile/Profile";
+} from 'react-router-dom';
+import Home from './screen/home/Home';
+import Login from './screen/login/Login';
+import Register from './screen/register/Register';
+import EditProfile from './screen/editprofile/EditProfile';
+import Review from './screen/review/Review';
+import Product from './screen/product/Product';
+import FollowCategory from './screen/follow/FollowCategory';
+import Setting from './screen/setting/Setting';
+import Organization from './screen/organization/Organization';
+import ProductDetail from './screen/productDetail/ProductDetail';
+import About from './screen/about/About';
+import AllMessage from './screen/allMessage/AllMessage';
+import Chat from './screen/chat/Chat';
+import Profile from './screen/profile/Profile';
 import {
   getProductAction,
   searchProductAction,
 } from './redux/actions/ProductAction';
 //REDUX
-import { useDispatch, useSelector } from 'react-redux';
-
+import {useDispatch, useSelector} from 'react-redux';
 
 const App = () => {
   //REDUX
   const getProduct = useSelector((state) => state.productReducer);
 
-  console.log(getProduct, "getProduct")
   return (
     <Router>
       <Switch>
@@ -56,6 +54,6 @@ const App = () => {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

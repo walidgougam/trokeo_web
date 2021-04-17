@@ -1,8 +1,10 @@
+@import '../../scss/colors';
+
 .input_inputselect {
   width: 360px;
   height: 48px;
   padding-left: 12px;
-  border: solid 1px #bfbdbd;
+  border: solid 1px $grey-light;
   border-radius: 1px;
 }
 select option:first-of-type {
@@ -10,5 +12,5 @@ select option:first-of-type {
 }
 
 select > option {
-  color: "green";
+  color: 'green';
 }

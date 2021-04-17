@@ -1,15 +1,15 @@
 import React from 'react';
-import './Home.css';
+import './Home.scss';
 import Navbar from '../../component/navbar/Navbar';
 import HowItWorks from '../../component/howitworks/HowItWorks';
 import Footer from '../../component/footer/Footer';
 import FooterHome from '../../component/footer/FooterHome';
 import CardHomeSearch from '../../component/cardHomeSearch/CardHomeSearch';
 
-export default function Home({location}) {
+export default function Home({location, history}) {
   return (
     <div>
-      <Navbar location={location} />
+      <Navbar location={location} history={history} />
       <div className="wrapper_image_home">
         <div style={{marginTop: 86, marginLeft: 99}}>
           <p className="text1_home">Le troc participatif et solidaire !</p>

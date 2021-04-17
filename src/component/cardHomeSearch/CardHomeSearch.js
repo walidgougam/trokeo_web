@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import "./CardHomeSearch.css";
-import { goodCategories, serviceCategories } from "../../Helpers";
+import React, {useState, useEffect} from 'react';
+import './CardHomeSearch.scss';
+import {goodCategories, serviceCategories} from '../../Helpers';
 
 export default function CardHomeSearch() {
   const [isServices, setIsServices] = useState(false);
@@ -16,7 +16,6 @@ export default function CardHomeSearch() {
 
   return (
     <div className="container_cardhomesearch">
-      {console.log(category, "category")}
       <div>
         <p className="question_cardhomesearch">Que recherchez vous ?</p>
         <div className="wrapper_input_cardhomesearch">

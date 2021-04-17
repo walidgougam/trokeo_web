@@ -1,10 +1,12 @@
+@import '../../scss/colors';
+
 .container_btnnext {
-  background-color: #0091ff;
+  background-color: $blue_msg;
   border-radius: 26px;
   cursor: pointer;
 }
 .text_btnnext {
-  color: white;
+  color: $white_absolute;
   font-size: 11px;
   /* font-family:"open sans regular" */
   height: 29px;

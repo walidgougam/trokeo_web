@@ -1,0 +1,54 @@
+@import '../../scss/colors';
+
+.container_chatheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 108px;
+  margin: 0px 26px;
+  .wrapper_product_chatheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .user_picture_chatheader {
+      width: 84px;
+      height: 68px;
+      border-radius: 5px;
+    }
+    .info_product_chatheader {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      .name_chatheader {
+        font-size: 13px;
+        line-height: 20px;
+        margin: 0px;
+      }
+      .product_name_chatheader {
+        font-size: 12px;
+        line-height: 20px;
+        margin: 0px;
+      }
+      .wrapper_location_chatheader {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        p {
+          font-size: 12px;
+          color: $grey-location;
+          padding-left: 11px;
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
+
+.line_separate_card_send_msg {
+  border: 1px solid $grey-dark;
+  margin: 0px 11px;
+}

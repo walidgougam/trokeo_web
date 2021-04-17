@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import "./FollowCategory.css";
-import { goodCategories, serviceCategories } from "../../Helpers";
+import React, {useState} from 'react';
+import './FollowCategory.scss';
+import {goodCategories, serviceCategories} from '../../Helpers';
 //COMPONENT
-import Navbar from "../../component/navbar/Navbar";
-import Footer from "../../component/footer/Footer";
-import CardFollowCategory from "../../component/cardFollowCategory/CardFollowCategory";
-import HeaderGreen from "../../component/headerGreen/HeaderGreen";
-import BtnSetting from "../../component/btnSetting/BtnSetting";
+import Navbar from '../../component/navbar/Navbar';
+import Footer from '../../component/footer/Footer';
+import CardFollowCategory from '../../component/cardFollowCategory/CardFollowCategory';
+import HeaderGreen from '../../component/headerGreen/HeaderGreen';
+import BtnSetting from '../../component/btnSetting/BtnSetting';
 
-export default function FollowCategory({ location }) {
+export default function FollowCategory({location}) {
   const [activeGoods, setActiveGoods] = useState(false);
   const [activeServices, setActiveServices] = useState(false);
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-    >
+    <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Navbar location={location} />
       <HeaderGreen title="Personnalisation" />
       <div className="container_central_follow">

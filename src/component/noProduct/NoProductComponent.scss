@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .no_product_noproductcomponent {
   display: flex;
   margin-top: 180px;
@@ -10,5 +12,5 @@
   width: 356px;
   font-size: 14px;
   /* font-family: "Open Sans Regular"; */
-  color: #3a3a3a;
+  color: $black-light;
 }

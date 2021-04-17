@@ -1,8 +1,10 @@
+@import '../../scss/colors';
+
 .container_input {
   width: 344px;
   height: 44px;
   padding-left: 12px;
-  border: solid 1px #bfbdbd;
+  border: solid 1px $grey-light;
   border-radius: 1px;
 }
 .container_input::placeholder {

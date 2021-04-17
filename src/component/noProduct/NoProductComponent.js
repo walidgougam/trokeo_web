@@ -1,7 +1,7 @@
-import React from "react";
-import "./NoProductComponent.css";
+import React from 'react';
+import './NoProductComponent.scss';
 //PICTURE
-import { ReactComponent as NoProduct } from "../../asset/allSvg/noProduct.svg";
+import {ReactComponent as NoProduct} from '../../asset/allSvg/noProduct.svg';
 
 export default function NoProductComponent() {
   return (

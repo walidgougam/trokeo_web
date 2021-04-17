@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .container_login {
   display: flex;
   justify-content: center;
@@ -48,7 +50,7 @@
 .register_login {
   font-size: 11px;
   // font-family:Open Sans Regular ;
-  color: #3a3a3a;
+  color: $black-light;
   text-decoration: underline;
   text-align: center;
   cursor: pointer;
