@@ -1,9 +1,11 @@
 @import '../../scss/_colors.scss';
 
-.circle_icon_profile_pictureicon {
+.picture_product_owner_pictureicon {
   background-color: $grey-light;
-  border-radius: 50px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 49px;
+  height: 49px;
 }

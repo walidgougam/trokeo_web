@@ -1,30 +1,32 @@
-import React, { useState } from "react";
-import "./ProductDetail.scss";
+import React, {useState} from 'react';
+import './ProductDetail.scss';
 //PICTURE
-import { ReactComponent as HeartEmpty } from "../../asset/allSvg/heart_empty.svg";
-import { ReactComponent as HeartFull } from "../../asset/allSvg/heart_full.svg";
-import { ReactComponent as IconLocation } from "../../asset/allSvg/icon_location.svg";
+import {ReactComponent as HeartEmpty} from '../../asset/allSvg/heart_empty.svg';
+import {ReactComponent as HeartFull} from '../../asset/allSvg/heart_full.svg';
+import {ReactComponent as IconLocation} from '../../asset/allSvg/icon_location.svg';
 //COMPONENT
-import Navbar from "../../component/navbar/Navbar";
-import Footer from "../../component/footer/Footer";
-import CardContactOwner from "../../component/cardContactOwner/CardContactOwner";
+import Navbar from '../../component/navbar/Navbar';
+import Footer from '../../component/footer/Footer';
+import CardContactOwner from '../../component/cardContactOwner/CardContactOwner';
 
 export default function ProductDetail() {
   const [heart, setHeart] = useState(true);
   return (
     <div>
       <Navbar />
-      <div style={{ marginLeft: 139, marginTop: 23, marginBottom: 12 }}>
+      <div style={{marginLeft: 139, marginTop: 23, marginBottom: 12}}>
         <span className="title_category_productdetail">Catégorie</span>
         <span className="detail_category_productdetail">
           Beauté & bien être > soin du visage
         </span>
       </div>
-      <div style={{ display: "flex", marginLeft: 139, marginRight: 139 }}>
-        <CardContactOwner />
+      <div style={{display: 'flex', marginLeft: 139, marginRight: 139}}>
+        <CardContactOwner
+          pictureProductOwner={'../../asset/allSvg/shave.jpg'}
+        />
         <div className="container_right_productdetail">
           <img
-            src={require("../../asset/allSvg/shave.jpg")}
+            src={require('../../asset/allSvg/shave.jpg')}
             alt="product_image"
             className="image_product_productdetail"
           />
@@ -32,10 +34,7 @@ export default function ProductDetail() {
             <p className="title_product_productdetail">
               Kit de rasage pour Homme
             </p>
-            <div
-              onClick={() => setHeart(!heart)}
-              style={{ cursor: "pointer " }}
-            >
+            <div onClick={() => setHeart(!heart)} style={{cursor: 'pointer '}}>
               {heart ? <HeartEmpty /> : <HeartFull />}
             </div>
           </div>

@@ -1,15 +1,19 @@
-import React from "react";
-import "./CardContactOwner.scss";
-import BtnFinish from "../btn/BtnFinish";
-import PictureIconProfile from "../picture/PictureIconProfile";
-import { ReactComponent as StarFull } from "../../asset/allSvg/star_full.svg";
-import { ReactComponent as StarEmpty } from "../../asset/allSvg/star_empty.svg";
+import React from 'react';
+import './CardContactOwner.scss';
+import BtnFinish from '../btn/BtnFinish';
+import PictureIconProfile from '../picture/PictureIconProfile';
+import {ReactComponent as StarFull} from '../../asset/allSvg/star_full.svg';
+import {ReactComponent as StarEmpty} from '../../asset/allSvg/star_empty.svg';
 
-export default function CardContactOwner() {
+export default function CardContactOwner({pictureProductOwner}) {
   return (
     <div className="container_cardcontactowner">
       <div className="wrapper_picture_owner_cardcontactowner">
-        <PictureIconProfile width={49} height={49} fromCardContactOwner />
+        <PictureIconProfile
+          style={{width: 49, height: 49}}
+          picture={pictureProductOwner}
+          fromCardContactOwner
+        />
         <div className="wrapper_name_owner_cardcontactowner">
           <p>marine_w</p>
           <div className="wrapper_star_cardcontactowner">
