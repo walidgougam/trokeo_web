@@ -5,30 +5,22 @@ import ChatHeader from '../chatHeader/ChatHeader';
 import Message from '../message/Message';
 import ChatFooter from '../chatFooter/ChatFooter';
 import {allChat} from '../../Helpers';
+import Input from '../a supprimer/Input/Input';
+import Messages from '../Messages/Messages';
 
 function CardSendMessage() {
   return (
-    <div className="container_card_send_msg">
-      <div>
+    <div className="outerContainer">
+      <div className="container">
         <ChatHeader
           name="marion_b"
           productName="cours de chant"
           location="5,8 km"
         />
-        {/* <ChatList /> */}
-        <div className="body_card_send_msg">
-          {allChat.map((msg, index) => {
-            return (
-              <Message
-                id={msg.messages[0]?.user._id}
-                message={msg.messages[0]?.text}
-                timestamp={msg.messages[0]?.createdAt}
-              />
-            );
-          })}
-        </div>
+        <Messages allChat={allChat} messages={['hello']} name={'walid'} />
+
+        <ChatFooter />
       </div>
-      <ChatFooter />
     </div>
   );
 }
