@@ -9,11 +9,15 @@
   padding: 9px 17px;
   width: 135px;
   height: 37px;
-  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  outline: none;
+  color: $green-light;
+  font-size: 10px;
+  line-height: 20px;
+}
 
-  p {
-    color: $green-light;
-    font-size: 10px;
-    line-height: 20px;
-  }
+.container_btnchatheader:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

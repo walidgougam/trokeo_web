@@ -10,7 +10,8 @@
 }
 
 .container_message > p {
-  background-color: $blue_msg;
+  background-color: beige;
+  color: black;
   font-size: medium;
   padding: 15px;
   border-radius: 20px;
@@ -40,6 +41,6 @@
 }
 
 .message_sender > p {
-  background-color: blue;
+  background-color: $blue_msg;
   color: white;
 }

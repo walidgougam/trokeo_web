@@ -3,8 +3,10 @@ import './BtnChatHeader.scss';
 
 export default function BtnChatHeader() {
   return (
-    <div className="container_btnchatheader">
-      <p>Finaliser l'échange</p>
-    </div>
+    <button
+      className="container_btnchatheader"
+      onClick={() => console.log('press')}>
+      Finaliser l'échange
+    </button>
   );
 }
