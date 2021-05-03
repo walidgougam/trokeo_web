@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Organisation.scss';
 import axios from 'axios';
-import {getProductUrl} from '../../API/constants';
+import { getProductUrl } from '../../API/constants';
 import Loader from 'react-loader';
 
 //COMPONENT
@@ -10,10 +10,10 @@ import Navbar from '../../component/navbar/Navbar';
 import NoProductComponent from '../../component/noProduct/NoProductComponent';
 import CardProduct from '../../component/cardProduct/CardProduct';
 //REDUX
-import {getProductAction} from '../../redux/actions/ProductAction';
-import {useDispatch, useSelector} from 'react-redux';
+import { getProductAction } from '../../redux/actions/ProductAction';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Organization({location, history}) {
+export default function Organization({ location, history }) {
   //STATE
   const [isService, setIsService] = useState(true);
   const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -27,20 +27,23 @@ export default function Organization({location, history}) {
   }, []);
 
   const renderProduct = () => {
-    if (getProduct.isLoading) {
+    if (getProduct.isLoading)
+    {
       return <Loader loaded={false} color="green" />;
-    } else if (!getProduct.length > 0) {
+    } else if (!getProduct.length > 0)
+    {
       return (
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <NoProductComponent />
         </div>
       );
-    } else {
+    } else
+    {
       return (
         <div className="wrapper_card">
           {getProduct.map((product, index) => {
             return (
-              <div style={{width: 168, height: 146}}>
+              <div style={{ width: 168, height: 146 }}>
                 <CardProduct
                   category={product.category}
                   key={index}

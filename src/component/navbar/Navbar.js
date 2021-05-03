@@ -24,7 +24,7 @@ export default function Navbar({params, history, location}) {
   }, []);
 
   return (
-    <div className="container_navbar">
+    <nav className="container_navbar">
       <div className="header_left_navbar">
         <div style={{margin: 0, cursor: 'pointer'}}>
           <a href="/">
@@ -110,6 +110,6 @@ export default function Navbar({params, history, location}) {
           )}
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
