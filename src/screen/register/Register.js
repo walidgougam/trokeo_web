@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Register.scss';
-import {registerApi} from '../../API';
+import { registerApi } from '../../API';
 import BtnFinish from '../../component/btn/BtnFinish';
 import Navbar from '../../component/navbar/Navbar';
-import PictureIconProfile from '../../component/picture/PictureIconProfile';
+import PictureIconProfile from '../../component/picture/picture/PictureIconProfile';
 import Input from '../../component/input/Input';
 import InputSelect from '../../component/inputSelect/InputSelect';
 
-export default function Register({history, location}) {
+export default function Register({ history, location }) {
   // STATE
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -23,7 +23,6 @@ export default function Register({history, location}) {
   };
   return (
     <>
-      <Navbar location={location} />
       <div className="container_register">
         <div className="wrapper_register">
           <p className="text_create_account_register">Créez un compte</p>

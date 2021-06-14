@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getProductUrl } from '../../API/constants';
+import {getProductUrl} from '../../API/constants';
 
 export const GET_PRODUCT_LOADING = 'GET_PRODUCT_LOADING';
 export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
@@ -12,25 +12,26 @@ export const CREATE_PRODUCT_ERROR = 'CREATE_PRODUC _ERROR';
 export const getProductLoading = (data) => {
   return {
     type: GET_PRODUCT_LOADING,
-    payload: data
-  }
-}
+    payload: data,
+  };
+};
 
 export const getProductAction = () => {
   let isLoading = true;
   return (dispatch) => {
-    dispatch(getProductLoading(isLoading))
+    dispatch(getProductLoading(isLoading));
     return axios({
       method: 'GET',
-      url: getProductUrl
+      url: getProductUrl,
+      headers: {Authorization: 'Bearer ' + localStorage.getItem('jwt')},
     })
       .then((res) => {
-        dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data.product });
-        isLoading = false
+        dispatch({type: GET_PRODUCT_SUCCESS, payload: res.data.product});
+        isLoading = false;
       })
       .catch((err) => {
-        dispatch({ type: GET_PRODUCT_ERROR, payload: err });
-        isLoading = false
+        dispatch({type: GET_PRODUCT_ERROR, payload: err});
+        isLoading = false;
       });
   };
 };
@@ -38,7 +39,7 @@ export const getProductAction = () => {
 export const searchProductAction = (res) => {
   console.log(res, 'res search product');
   return (dispatch) => {
-    dispatch({ type: SEARCH_PRODUCT, payload: res });
+    dispatch({type: SEARCH_PRODUCT, payload: res});
   };
 };
 
@@ -51,7 +52,7 @@ export const createProductAction = (
   return (dispatch) => {
     dispatch({
       type: CREATE_PRODUCT_SUCCESS,
-      payload: { title, description, conditionProduct, productPicture },
+      payload: {title, description, conditionProduct, productPicture},
     });
     // callback;
   };

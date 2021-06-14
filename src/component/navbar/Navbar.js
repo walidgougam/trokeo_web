@@ -1,13 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.scss';
+import {
+  Link,
+} from 'react-router-dom';
 // SVG
-import {ReactComponent as LogoTrokeo} from '../../asset/allSvg/logo.svg';
-import {ReactComponent as IconProfileLittle} from '../../asset/allSvg/iconProfileLittle.svg';
+import { ReactComponent as LogoTrokeo } from '../../asset/allSvg/logo.svg';
+import { ReactComponent as IconProfileLittle } from '../../asset/allSvg/iconProfileLittle.svg';
 // REDUX
-import {useDispatch, useSelector} from 'react-redux';
-import {getUserAction} from '../../redux/actions/UserAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAction } from '../../redux/actions/UserAction';
+import Wording from '../../constant/wording';
+import wording from '../../constant/wording';
 
-export default function Navbar({params, history, location}) {
+
+export default function Navbar({ params, history, location }) {
   //STATE
   const [userid, setUserid] = useState();
 
@@ -26,10 +32,10 @@ export default function Navbar({params, history, location}) {
   return (
     <nav className="container_navbar">
       <div className="header_left_navbar">
-        <div style={{margin: 0, cursor: 'pointer'}}>
-          <a href="/">
+        <div style={{ margin: 0, cursor: 'pointer' }}>
+          <Link to="/">
             <LogoTrokeo />
-          </a>
+          </Link>
         </div>
         <div className="wrapper_input_navbar">
           <input
@@ -50,13 +56,19 @@ export default function Navbar({params, history, location}) {
             alt="stylo"
             className="pencil_icon_navbar"
           />
-          <p className="text_add_product_navbar">Déposer une annonce</p>
+          <p className="text_add_product_navbar">
+            <a
+              href={Wording.CREATE_PRODUCT_URL}
+              className="create_product_title">
+              Déposer une annonce
+            </a>
+          </p>
         </div>
       </div>
       <ul className="wrapper_link_navbar">
         <li>
           <a
-            href="/organization"
+            href={wording.ORGANIZATION_URL}
             style={{
               paddingBottom: '3px',
               borderBottom:
@@ -66,7 +78,7 @@ export default function Navbar({params, history, location}) {
           </a>
         </li>
         <li>
-          <a href="">Favoris</a>
+          <Link to="">Favoris</Link>
         </li>
         <li>
           <a
@@ -77,6 +89,17 @@ export default function Navbar({params, history, location}) {
                 location?.pathname === '/chat' && '2px #40CE6A solid',
             }}>
             Messages
+          </a>
+        </li>
+        <li>
+          <a
+            href="/chat"
+            style={{
+              paddingBottom: '3px',
+              borderBottom:
+                location?.pathname === '/chat' && '2px #40CE6A solid',
+            }}>
+            Notifications
           </a>
         </li>
         <li>

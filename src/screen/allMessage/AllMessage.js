@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './AllMessage.scss';
 import { allMessage } from '../../Helpers';
-import axios from "axios"
+import axios from 'axios';
 //COMPONENT
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import Navbar from '../../component/navbar/Navbar';
 import Footer from '../../component/footer/Footer';
-import CardReceiveMessage from '../../component/cardReceiveMessage/CardReceiveMessage';
-import NoImageProduct from '../../component/NoImageProduct.js/NoImageProduct';
+import CardReceiveMessage from '../../component/card/cardReceiveMessage/CardReceiveMessage';
+import NoImageProduct from '../../component/picture/NoImageProduct.js/NoImageProduct';
 import Loader from 'react-loader';
 // REDUX
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,16 +15,16 @@ import { getConversationAction } from '../../redux/actions/ChatAction';
 
 export default function AllMessage({ location, history }) {
   // STATE
-  const [userId, setUserId] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
+  const [userId, setUserId] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   // REDUX
   const dispatch = useDispatch();
   const conversations = useSelector((state) => state.conversationReducer);
 
   useEffect(() => {
     (async () => {
-      const userId = await localStorage.getItem("userId");
-      setUserId(userId)
+      const userId = await localStorage.getItem('userId');
+      setUserId(userId);
     })();
   });
 
@@ -32,9 +32,9 @@ export default function AllMessage({ location, history }) {
     const getConversations = async () => {
       try
       {
-        const userId = await localStorage.getItem("userId");
-        await dispatch(getConversationAction(userId))
-        setIsLoading(false)
+        const userId = await localStorage.getItem('userId');
+        await dispatch(getConversationAction(userId));
+        setIsLoading(false);
       } catch (err)
       {
         console.log(err);
@@ -50,10 +50,9 @@ export default function AllMessage({ location, history }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar location={location} />
       <HeaderGreen title="Messages" />
       <div className="container_allmessage" style={{ flex: '1' }}>
-        {conversations?.map((msg, index) => {
+        {/* {conversations?.map((msg, index) => {
           return (
             <>
               <CardReceiveMessage
@@ -71,10 +70,8 @@ export default function AllMessage({ location, history }) {
               />
             </>
           );
-        })}
+        })} */}
       </div>
-
-      <Footer />
     </div>
   );
 }

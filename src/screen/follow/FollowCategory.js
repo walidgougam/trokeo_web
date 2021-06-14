@@ -1,19 +1,18 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './FollowCategory.scss';
-import {goodCategories, serviceCategories} from '../../Helpers';
+import { goodCategories, serviceCategories } from '../../Helpers';
 //COMPONENT
 import Navbar from '../../component/navbar/Navbar';
 import Footer from '../../component/footer/Footer';
-import CardFollowCategory from '../../component/cardFollowCategory/CardFollowCategory';
+import CardFollowCategory from '../../component/card/cardFollowCategory/CardFollowCategory';
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import BtnSetting from '../../component/btnSetting/BtnSetting';
+import BtnSetting from '../../component/btn/btnSetting/BtnSetting';
 
-export default function FollowCategory({location}) {
+export default function FollowCategory({ location }) {
   const [activeGoods, setActiveGoods] = useState(false);
   const [activeServices, setActiveServices] = useState(false);
   return (
-    <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
-      <Navbar location={location} />
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <HeaderGreen title="Personnalisation" />
       <div className="container_central_follow">
         <BtnSetting
@@ -51,8 +50,6 @@ export default function FollowCategory({location}) {
           })}
         />
       </div>
-
-      <Footer />
     </div>
   );
 }

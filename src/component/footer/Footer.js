@@ -1,8 +1,12 @@
-import React from "react";
-import { ReactComponent as LogoTrokeoBig } from "../../asset/allSvg/logo_trokeo_big.svg";
-import { ReactComponent as IconFacebook } from "../../asset/allSvg/icon_follow_facebook.svg";
-import { ReactComponent as IconGoogle } from "../../asset/allSvg/icon_follow_instagram.svg";
-import "./Footer.css";
+import React from 'react';
+import { ReactComponent as LogoTrokeoBig } from '../../asset/allSvg/logo_trokeo_big.svg';
+import { ReactComponent as IconFacebook } from '../../asset/allSvg/icon_follow_facebook.svg';
+import { ReactComponent as IconGoogle } from '../../asset/allSvg/icon_follow_instagram.svg';
+import './Footer.css';
+import wording from '../../constant/wording';
+import {
+  Link,
+} from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -16,10 +20,10 @@ export default function Footer() {
           <p className="title_footer">Découvrir Trokéo</p>
           <div className="ul_footer">
             <span>
-              <a href="/about">A propos </a>
+              <Link to={wording.ABOUT_URL}>A propos </Link>
             </span>
             <span>
-              <a href="">Questions fréquentes</a>
+              <Link to="/">Questions fréquentes</Link>
             </span>
           </div>
         </div>
@@ -27,22 +31,22 @@ export default function Footer() {
           <p className="title_footer">Informations légales</p>
           <div className="ul_footer">
             <span>
-              <a href="">CGU</a>
+              <Link to="/terms">CGU</Link>
             </span>
             <span>
-              <a href="">Politique de confidentialité </a>
+              <Link to="/">Politique de confidentialité </Link>
             </span>
             <span>
-              <a href="">Services interdits </a>
+              <Link to={wording.FORBIDDEN_SERVICES_URL}>Services interdits </Link>
             </span>
             <span>
-              <a href=""> Mentions légales </a>
+              <Link to="/"> Mentions légales </Link>
             </span>
           </div>
         </div>
         <div className="wrapper_followus_footer">
           <p className="title_footer">Suivez-nous </p>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div>
               <IconFacebook />
             </div>

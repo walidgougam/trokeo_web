@@ -1,0 +1,63 @@
+@import '../../scss/colors';
+
+.container_createproduct {
+  margin-left: 139px;
+  margin-right: 139px;
+  .container_icon_picture_createproduct {
+    display: flex;
+    flex-direction: row;
+    .wrapper_icon_picture_createproduct {
+      margin-top: 40px;
+      border: solid 1px black;
+      width: 94px;
+      height: 94px;
+      color: $grey-dark;
+      margin-right: 28px;
+    }
+  }
+  .separate_line_createproduct {
+    border-top: 1px solid #bfbdbd;
+    margin-bottom: 21px;
+    margin-top: 38px;
+  }
+  .wrapper_input_createproduct {
+    .label_createproduct {
+      font-size: 14px;
+      line-height: 20px;
+      display: block;
+      //   font-family: regular;
+      color: $black-light;
+      .input_createproduct {
+        box-sizing: border-box;
+        padding-left: 10px;
+        width: 344px;
+        display: block;
+        height: 42px;
+        margin-top: 10px;
+        border: 1px solid $grey-light;
+      }
+      .textarea_createproduct {
+        outline: none;
+        box-sizing: border-box;
+        padding-left: 10px;
+        width: 462px;
+        display: block;
+        height: 133px;
+        margin-top: 10px;
+        border: 1px solid $grey-light;
+      }
+    }
+  }
+  .text_annonce_createproduct {
+    font-size: 14px;
+    line-height: 20px;
+    //   font-family: regular;
+    color: $black-light;
+  }
+  .input_annonce_createproduct {
+    font-size: 12px;
+    line-height: 20px;
+    //   font-family: semi-bold;
+    color: $black-light;
+  }
+}

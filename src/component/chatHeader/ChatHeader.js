@@ -1,9 +1,9 @@
 import React from 'react';
 import './ChatHeader.scss';
-import {ReactComponent as IconLocation} from '../../asset/allSvg/icon_location.svg';
-import BtnChatHeader from '../btnChatHeader/BtnChatHeader';
+import { ReactComponent as IconLocation } from '../../asset/allSvg/icon_location.svg';
+import BtnChatHeader from '../btn/btnChatHeader/BtnChatHeader';
 
-function ChatHeader({name, productName, location}) {
+function ChatHeader({ name, productName, location, fromReview }) {
   return (
     <div>
       <div className="container_chatheader">
@@ -21,7 +21,9 @@ function ChatHeader({name, productName, location}) {
             </div>
           </div>
         </div>
-        <BtnChatHeader />
+        {
+          !fromReview && <BtnChatHeader />
+        }
       </div>
       <div className="line_separate_card_send_msg"></div>
     </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './ProductDetail.scss';
 import {
   GoogleMap,
@@ -7,13 +7,13 @@ import {
   InfoWindow,
 } from '@react-google-maps/api';
 //PICTURE
-import {ReactComponent as HeartEmpty} from '../../asset/allSvg/heart_empty.svg';
-import {ReactComponent as HeartFull} from '../../asset/allSvg/heart_full.svg';
-import {ReactComponent as IconLocation} from '../../asset/allSvg/icon_location.svg';
+import { ReactComponent as HeartEmpty } from '../../asset/allSvg/heart_empty.svg';
+import { ReactComponent as HeartFull } from '../../asset/allSvg/heart_full.svg';
+import { ReactComponent as IconLocation } from '../../asset/allSvg/icon_location.svg';
 //COMPONENT
 import Navbar from '../../component/navbar/Navbar';
 import Footer from '../../component/footer/Footer';
-import CardContactOwner from '../../component/cardContactOwner/CardContactOwner';
+import CardContactOwner from '../../component/card/cardContactOwner/CardContactOwner';
 
 const mapContainerStyle = {
   width: '479px',
@@ -29,7 +29,7 @@ export default function ProductDetail() {
   const [heart, setHeart] = useState(true);
 
   //GOOGLEMAP
-  const {isLoaded, loadError} = useLoadScript({
+  const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
 
@@ -37,7 +37,6 @@ export default function ProductDetail() {
   if (!isLoaded) return 'Loading Maps';
   return (
     <div className="container_productdetail">
-      <Navbar />
       <div
         style={{
           marginLeft: '13.9vw',
@@ -64,7 +63,7 @@ export default function ProductDetail() {
               </p>
               <div
                 onClick={() => setHeart(!heart)}
-                style={{cursor: 'pointer '}}>
+                style={{ cursor: 'pointer ' }}>
                 {heart ? <HeartEmpty /> : <HeartFull />}
               </div>
             </div>
@@ -90,8 +89,6 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

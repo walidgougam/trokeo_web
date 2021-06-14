@@ -9,7 +9,6 @@ import ThumbnailProfile from "../../component/thumbnailProfile/ThumbnailProfile"
 function Profile({ history }) {
   return (
     <div style={{ backgroundColor: "hsl(0, 0%, 98%)" }}>
-      <Navbar />
       <HeaderGreen />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <ThumbnailProfile history={history} />

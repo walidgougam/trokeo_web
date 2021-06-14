@@ -1,10 +1,12 @@
 import React from 'react';
 import './BtnNext.scss';
 
-export default function BtnNext({title, onClick}) {
+function BtnNext({ title, onClick, style }) {
   return (
-    <div className="container_btnnext" onClick={onClick}>
+    <div className="container_btnnext" style={style} onClick={onClick}>
       <p className="text_btnnext">{title}</p>
     </div>
   );
 }
+
+export default BtnNext

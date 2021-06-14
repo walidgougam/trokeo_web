@@ -1,0 +1,26 @@
+@import '../../../scss/colors';
+
+.container_cardnotification {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 13px;
+
+  .title_cardnotification {
+    font-size: 13px;
+    line-height: 20px;
+    // font-family: 'semi bold';
+    color: $black-light;
+    margin-top: 13px;
+    margin-bottom: 5px;
+  }
+  .createdAt_cardnotification {
+    margin-top: 0px;
+    font-size: 12px;
+    line-height: 20px;
+    // font-family: 'regular';
+    color: $grey-createdAt;
+  }
+  .separate_line_cardnotification {
+    border-top: 1px solid #bfbdbd;
+  }
+}

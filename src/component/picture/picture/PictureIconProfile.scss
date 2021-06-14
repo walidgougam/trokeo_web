@@ -1,0 +1,11 @@
+@import '../../../scss//colors';
+
+.picture_product_owner_pictureicon {
+  background-color: $grey-light;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 49px;
+  height: 49px;
+}

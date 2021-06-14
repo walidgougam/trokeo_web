@@ -1,0 +1,46 @@
+@import '../../../scss/colors';
+
+.container_cardcontactowner {
+  width: 251px;
+  height: 223px;
+  box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .wrapper_picture_owner_cardcontactowner {
+    display: flex;
+    margin-left: 15px;
+    .wrapper_name_owner_cardcontactowner {
+      margin-top: 18px;
+      p {
+        margin: 0px;
+        margin-left: 7px;
+        font-size: 13px;
+        /* font-family: Avenir Medium; */
+        color: $black-light;
+      }
+      .wrapper_star_cardcontactowner {
+        margin-left: 7px;
+      }
+    }
+  }
+  .container_btn_cardcontactowner {
+    margin-bottom: 49px;
+    align-self: center;
+    .btn_product_inline_cardcontactowner {
+      margin-top: 21px;
+      border: solid 1px $black-light;
+      border-radius: 19px;
+      width: 219px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        font-size: 13px;
+        //  font-family: Avenir Medium;
+        color: $black-light;
+      }
+    }
+  }
+}

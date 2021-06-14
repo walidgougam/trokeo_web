@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Setting.scss';
 
-//COMPONENT
+/** COMPONENT */
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import Navbar from '../../component/navbar/Navbar';
-import BtnSetting from '../../component/btnSetting/BtnSetting';
+import BtnSetting from '../../component/btn/btnSetting/BtnSetting';
 import Footer from '../../component/footer/Footer';
 import PaymentSetting from '../../component/setting/paymentSetting/PaymentSetting';
 import PasswordSetting from '../../component/setting/passwordSetting/PasswordSetting';
 import NotificationSetting from '../../component/setting/notificationSetting/NotificationSetting';
 
-export default function Setting({location}) {
+export default function Setting({ location }) {
+  /** STATE */
   const [activeNotification, setActiveNotification] = useState(false);
   const [activePersonalData, setActivePersonalData] = useState(false);
   const [activePayment, setActivePayment] = useState(false);
@@ -19,7 +20,6 @@ export default function Setting({location}) {
 
   return (
     <div>
-      <Navbar location={location} />
       <HeaderGreen title="Paramètres" />
       <div className="container_central_setting">
         <BtnSetting
@@ -55,7 +55,6 @@ export default function Setting({location}) {
           paddingTop={28}
         />
       </div>
-      <Footer />
     </div>
   );
 }

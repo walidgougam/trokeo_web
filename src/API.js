@@ -13,6 +13,7 @@ export const registerApi = async (
     method: 'POST',
     url: 'http://localhost:5000/user/register',
     data: {email, password, firstName, lastName, female},
+    headers: {Authorization: 'Bearer ' + localStorage.getItem('jwt')},
   })
     .then((res) => {
       console.log(res, 'result register api ');
@@ -96,6 +97,7 @@ export const createProductApi = async (
       isFromOrganization,
       userId,
     },
+    headers: {Authorization: 'Bearer ' + localStorage.getItem('jwt')},
   })
     .then((res) => {
       console.log('produit creer dans api.js');
@@ -112,6 +114,7 @@ export const getUserApi = async (dispatch) => {
   axios({
     method: 'GET',
     url: `http://localhost:5000/user/${id}`,
+    headers: {Authorization: 'Bearer ' + (await localStorage.getItem('jwt'))},
   })
     .then((res) => {
       dispatch({type: 'GET_USER', payload: res.data.user});
@@ -146,6 +149,7 @@ export const editProfileUserApi = async (
       female,
       userPicture,
     },
+    headers: {Authorization: 'Bearer ' + (await localStorage.getItem('jwt'))},
   })
     .then((res) => {
       console.log(res.data, 'edit user api');
