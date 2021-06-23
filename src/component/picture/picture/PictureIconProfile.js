@@ -1,6 +1,6 @@
 import React from 'react';
-import {ReactComponent as IconProfileBig} from '../../../asset/allSvg/iconProfileBig.svg';
-import {ReactComponent as IconProfileLittle} from '../../../asset/allSvg/iconProfileLittle.svg';
+import { ReactComponent as IconProfileBig } from '../../../asset/allSvg/iconProfileBig.svg';
+import { ReactComponent as IconProfileLittle } from '../../../asset/allSvg/iconProfileLittle.svg';
 import './PictureIconProfile.scss';
 
 function PictureIconProfile({
@@ -12,7 +12,7 @@ function PictureIconProfile({
 }) {
   return (
     <img
-      src={require('../../../asset/allSvg/shave.jpg')}
+      src={require('../../../asset/allSvg/iconProfileBig.svg')}
       alt="picture product owner"
       className="picture_product_owner_pictureicon"
       style={style}

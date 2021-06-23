@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './CardProduct.scss';
-import {ReactComponent as IconLocation} from '../../../asset/allSvg/icon_location.svg';
-import {ReactComponent as HeartEmpty} from '../../../asset/allSvg/heart_empty.svg';
-import {ReactComponent as HeartFull} from '../../../asset/allSvg/heart_full.svg';
-import {imageStatic} from '../../../API/constants';
-import {showCategoryPicture} from '../../../Helpers';
+import { ReactComponent as IconLocation } from '../../../asset/allSvg/icon_location.svg';
+import { ReactComponent as HeartEmpty } from '../../../asset/allSvg/heart_empty.svg';
+import { ReactComponent as HeartFull } from '../../../asset/allSvg/heart_full.svg';
+import { imageStatic } from '../../../API/constant';
+import { showCategoryPicture } from '../../../Helpers';
 
 export default function CardProduct({
   goToProductDetail,
@@ -37,7 +37,7 @@ export default function CardProduct({
       </p>
       <p
         className="title_product_cardproduct"
-        style={{cursor: 'pointer'}}
+        style={{ cursor: 'pointer' }}
         onClick={goToProductDetail}>
         {title}
       </p>
@@ -48,7 +48,7 @@ export default function CardProduct({
         </div>
         <div
           className="wrapper_icon_cardproduct"
-          style={{cursor: 'pointer'}}
+          style={{ cursor: 'pointer' }}
           onClick={() => setHeart(!heart)}>
           <div>{heart ? <HeartEmpty /> : <HeartFull />}</div>
           <span className="text_icon_cardproduct">12</span>

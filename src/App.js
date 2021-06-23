@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -8,10 +8,12 @@ import {
   Link,
   withRouter,
 } from 'react-router-dom';
+/** SCREEN */
 import Login from './screen/login/Login';
 import Register from './screen/register/Register';
 import Home from './screen/home/Home';
 import EditProfile from './screen/editprofile/EditProfile';
+import FavoritesScreen from './screen/favoritesScreen/FavoritesScreen';
 import Review from './screen/review/Review';
 import Product from './screen/product/Product';
 import CreateProduct from './screen/createProduct/CreateProduct';
@@ -29,50 +31,48 @@ import About from './screen/footer/about/About';
 import ForbiddenServices from './screen/footer/forbiddenServices/ForbiddenServices';
 import Notification from './screen/notification/Notification';
 import Terms from "./screen/footer/terms/Terms"
+import Navbar from './component/navbar/Navbar';
+import ProtectedRoute from './ProtectedRoute';
+/** REDUX */
 import {
   getProductAction,
   searchProductAction,
 } from './redux/actions/ProductAction';
-import Navbar from './component/navbar/Navbar';
-
-//REDUX
 import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
-  //REDUX
-  const getProduct = useSelector((state) => state.productReducer);
+  /** REDUX */
+  const productStore = useSelector((state) => state.productReducer);
+  const userStore = useSelector((state) => state.authReducer)
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar location={window.location} />
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/profile/edit" component={EditProfile} />
-        <Route exact path="/review/:id" component={Review} />
-        <Route exact path="/product" component={Product} />
-        <Route exact path="/product/organization" component={Organization} />
-        <Route exact path="/product/createproduct" component={CreateProduct} />
-        <Route exact path="/product/edit/:id" component={EditProduct} />
-        <Route exact path="/product/:id" component={ProductDetail} />
-        <Route exact path="/setting" component={Setting} />
-        <Route exact path="/followcategory" component={FollowCategory} />
-        <Route exact path="/followcategory/edit" component={FollowCategory} />
-        <Route exact path="/chat" component={AllMessage} />
-        <Route exact path="/chat/:id" component={Chat} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/terms" component={Terms} />
-        <Route exact path="/payment" component={Payment} />
-        <Route exact path="/notification" component={Notification} />
-        <Route
-          exact
-          path={'/forbiddenservices'}
-          component={ForbiddenServices}
-        />
+        <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/profile" component={Profile} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/profile/edit" component={EditProfile} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/review/:id" component={Review} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/product" component={Product} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/product/organization" component={Organization} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/product/createproduct" component={CreateProduct} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/product/edit/:id" component={EditProduct} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/product/:id" component={ProductDetail} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/setting" component={Setting} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/followcategory" component={FollowCategory} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/followcategory/edit" component={FollowCategory} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/chat" component={AllMessage} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/chat/:id" component={Chat} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/about" component={About} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/terms" component={Terms} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/payment" component={Payment} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/notification" component={Notification} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
       </Switch>
-      <Footer />
+
     </BrowserRouter>
   );
 };

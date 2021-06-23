@@ -48,7 +48,7 @@ export default function CardHomeSearch() {
         </select>
         <p className="question_cardhomesearch">Choississez la localisation ?</p>
         <input
-          placeholder="Entrez une ville"
+          placeholder={wording.CITY_PLACEHOLDER}
           className="input_entercity_cardhomesearch"
         />
       </div>

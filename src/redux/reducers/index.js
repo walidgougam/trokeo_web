@@ -1,14 +1,37 @@
-import { combineReducers } from 'redux';
-import authReducer from './AuthReducer';
-import { productReducer, searchProductReducer } from './ProductReducer';
-import { userReducer } from './UserReducer';
-import { messageReducer, conversationReducer } from "./ChatReducer";
-
-export default combineReducers({
-  authReducer,
+import { combineReducers } from "redux";
+import authReducer from "./AuthReducer";
+import {
   productReducer,
+  createProductCategoryReducer,
   searchProductReducer,
-  userReducer,
-  messageReducer,
-  conversationReducer
-});
+} from "./ProductReducer";
+import uploadPictureReducer from "./UploadReducer";
+import { userReducer } from "./UserReducer";
+import { chatReducer } from "./ChatReducer";
+import { categoryReducer } from "./CategoryReducer";
+
+// export default combineReducers({
+//   chatReducer,
+//   authReducer,
+//   productReducer,
+//   createProductCategoryReducer,
+//   searchProductReducer,
+//   uploadPictureReducer,
+//   userReducer,
+//   categoryReducer
+// });
+
+export default function createReducer() {
+  const rootReducer = combineReducers({
+    chatReducer,
+    authReducer,
+    productReducer,
+    createProductCategoryReducer,
+    searchProductReducer,
+    uploadPictureReducer,
+    userReducer,
+    categoryReducer,
+  });
+
+  return rootReducer;
+}

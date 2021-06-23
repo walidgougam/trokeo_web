@@ -4,24 +4,102 @@ import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import Navbar from '../../component/navbar/Navbar';
 import IconTakePicture from '../../component/picture/iconTakePicture/IconTakePicture';
 import './CreateProduct.scss';
+import { goodsCondition, goodCategories, serviceCategories } from '../../Helpers'
+/** COMPONENT */
 import BtnNext from '../../component/btn/BtnNext';
+import Footer from '../../component/footer/Footer';
+import wording from '../../constant/wording';
 
 function CreateProduct({ location }) {
   /** STATE */
-  const [isService, setIsService] = useState();
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [condition, setCondition] = useState();
-  const [category, setCategory] = useState();
-  const [isRequestProduct, setIsRequestProduct] = useState();
+  const [state, setState] = useState({
+    isService: false,
+    title: "",
+    description: "",
+    condition: '',
+    category: '',
+    isRequestProduct: ''
+  })
 
-  const handleCreateProduct = () => { };
+  /** REDUX */
+
+
+
+  const handleState = (event) => {
+    const value = event.target.value;
+    setState({ ...state, [event.target.name]: value })
+  }
+
+  // const prepareData = (productPicture, body) => {
+  //   const data = new FormData()
+  //   if (productPicture)
+  //   {
+  //     productPicture?.map((item) => {
+  //       data.append('photos', {
+  //         name: item.fileName,
+  //         type: item.type,
+  //         uri:
+  //           Platform.OS === 'android'
+  //             ? item?.uri
+  //             : item?.uri.replace('file://', ''),
+  //       })
+  //     })
+  //     Object.keys(body).forEach((key) => {
+  //       data.append(key, body[key])
+  //     })
+  //     return data
+  //   } else
+  //   {
+  //     setErrorOnCreateProduct('true')
+  //   }
+  // }
+
+  // const handleCreateProduct = () => {
+  //   const userId = userStore.user._id
+  //   axios
+  //     .post(
+  //       createProductUrl,
+  //       prepareData(productPicture, {
+  //         title,
+  //         description,
+  //         condition,
+  //         category: createProductCategoryStore.id,
+  //         userId,
+  //         type: goods ? 'bien' : 'service',
+  //         isFromOrganization: false,
+  //         longitude: locationStore.longitude,
+  //         latitude: locationStore.latitude
+  //       }),
+  //       {
+  //         headers: {
+  //           'content-type': 'multipart/form-data',
+  //           Authorization: 'Bearer ' + userStore.token,
+  //         },
+  //       },
+  //     )
+  //     .then(async (res) => {
+  //       await refreshUser(userStore.user._id, (res) => {
+  //         dispatch(userRefreshAction(res))
+  //       }, (err) => { console.log("ERROR TO HANDLE", err.response) })
+  //       dispatch(getSpecificProductAction(res?.data))
+  //       cleanStateOfScreen()
+  //       navigation.navigate(constant.HOME_STACK, {
+  //         screen: constant.PRODUCT_DETAIL,
+  //         params: { product: res?.data?.product }
+  //       })
+  //     })
+  //     .catch((err) => {
+  //       console.log('ERROR', err.response.data.error)
+  //       setErrorOnCreateProduct('true')
+  //     })
+  // };
+
   return (
     <div>
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService
-        onChange={() => setIsService(!isService)}
-        isService={isService}
+        onChange={(e) => setState({ ...state, isService: !state.isService })}
+        isService={state.isService}
       />
       <div className="container_createproduct">
         <div className="container_icon_picture_createproduct">
@@ -37,9 +115,10 @@ function CreateProduct({ location }) {
             <input
               className="input_createproduct"
               type="text"
-              value={title}
-              onChange={(e) => setTitle(e)}
-              placeholder="Titre: lampe, écahelle, cadre…"
+              name='title'
+              value={state.title}
+              onChange={(e) => handleState(e)}
+              placeholder={wording.TITLE_PLACEHOLDER}
             />
           </label>
         </div>
@@ -48,9 +127,10 @@ function CreateProduct({ location }) {
             Description
             <textarea
               className="textarea_createproduct"
-              value={description}
-              onChange={(e) => setDescription(e)}
-              placeholder="Donner les caractéristiques du bien proposé (taille, couleur, dimensions …)"
+              value={state.description}
+              onChange={(e) => handleState(e)}
+              name="description"
+              placeholder={wording.DESCRIPTION_PLACEHOLDER}
             />
           </label>
         </div>
@@ -58,24 +138,28 @@ function CreateProduct({ location }) {
         <div className="wrapper_input_createproduct">
           <label className="label_createproduct">
             Etat du bien
-            <input
-              className="input_createproduct"
-              type="text"
-              value={condition}
-              onChange={(e) => setCondition(e)}
-            />
+            <select className="input_createproduct" onChange={(e) => setState({ ...state, condition: e.target.value })}>
+              <option value="" disabled selected>Select your option</option>
+              {goodsCondition.map((condition, index) => {
+                return (
+                  <option value={condition}>{condition}</option>
+                )
+              })}
+            </select>
           </label>
         </div>
         <div className="separate_line_createproduct"></div>
         <div className="wrapper_input_createproduct">
           <label className="label_createproduct">
             Catégorie
-            <input
-              className="input_createproduct"
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e)}
-            />
+            <select className="input_createproduct" onChange={(e) => setState({ ...state, category: e.target.value })}>
+              <option value="" disabled selected>Select your option</option>
+              {(state.isService ? serviceCategories : goodCategories).map((category, index) => {
+                return (
+                  <option value={category.titleCategory}>{category.titleCategory}</option>
+                )
+              })}
+            </select>
           </label>
         </div>
         <div className="separate_line_createproduct"></div>
@@ -84,9 +168,10 @@ function CreateProduct({ location }) {
           <div style={{ display: "flex", alignItems: "center" }}>
             <input
               type="radio"
-              value={!isRequestProduct}
-              name="gender"
+              value={!state.isRequestProduct}
+              name="isRequestProduct"
               style={{ width: 22, height: 22 }}
+              onChange={() => setState({ ...state, isRequestProduct: false })}
             />
             <label className="input_annonce_createproduct">
               offres
@@ -95,8 +180,9 @@ function CreateProduct({ location }) {
           <div style={{ display: "flex", alignItems: "center", marginTop: 11 }}>
             <input
               type="radio"
-              value={!isRequestProduct}
-              name="gender"
+              value={state.isRequestProduct}
+              name="isRequestProduct"
+              onChange={() => setState({ ...state, isRequestProduct: true })}
               style={{ width: 22, height: 22, alignItems: "center" }}
             />
             <label className="input_annonce_createproduct">
@@ -113,11 +199,12 @@ function CreateProduct({ location }) {
           }}>
           <BtnNext
             title="Enregistrez"
-            onClick={() => handleCreateProduct()}
+            onClick={() => console.log('handleCreateProduct')}
             style={{ width: 252, height: 42 }}
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

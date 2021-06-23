@@ -1,41 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.scss';
 import {
-  Link,
+  NavLink,
 } from 'react-router-dom';
 // SVG
 import { ReactComponent as LogoTrokeo } from '../../asset/allSvg/logo.svg';
 import { ReactComponent as IconProfileLittle } from '../../asset/allSvg/iconProfileLittle.svg';
 // REDUX
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAction } from '../../redux/actions/UserAction';
+// import { getUserAction } from '../../redux/actions/UserAction';
 import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
 
 export default function Navbar({ params, history, location }) {
-  //STATE
-  const [userid, setUserid] = useState();
-
-  // REDUX
+  /** REDUX */
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userReducer);
+  const userStore = useSelector((state) => state.authReducer);
 
-  useEffect(() => {
-    (async () => {
-      const userId = await localStorage.getItem('userId');
-      setUserid(userId);
-      dispatch(getUserAction(userId));
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const userId = await localStorage.getItem('userId');
+  //     setUserid(userId);
+  //     dispatch(getUserAction(userId));
+  //   })();
+  // }, []);
 
+  const isNavtitleSelected = '2px #40CE6A solid';
   return (
     <nav className="container_navbar">
       <div className="header_left_navbar">
         <div style={{ margin: 0, cursor: 'pointer' }}>
-          <Link to="/">
+          <NavLink to="/">
             <LogoTrokeo />
-          </Link>
+          </NavLink>
         </div>
         <div className="wrapper_input_navbar">
           <input
@@ -57,58 +55,73 @@ export default function Navbar({ params, history, location }) {
             className="pencil_icon_navbar"
           />
           <p className="text_add_product_navbar">
-            <a
-              href={Wording.CREATE_PRODUCT_URL}
-              className="create_product_title">
+            <NavLink to={wording.CREATE_PRODUCT_URL} className="create_product_title">
               Déposer une annonce
-            </a>
+            </NavLink>
           </p>
         </div>
       </div>
       <ul className="wrapper_link_navbar">
+        {
+          userStore.isConnected &&
+          <>
+            <li>
+              <NavLink to={wording.ORGANIZATION_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}>
+                Association
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={wording.FAVORITES_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}>
+                Favoris
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={wording.CHAT_URL}
+                style={{
+                  paddingBottom: '3px',
+                }}>
+                Messages
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={wording.NOTIFICATION_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+              >
+                Notifications
+              </NavLink>
+            </li>
+          </>
+        }
         <li>
-          <a
-            href={wording.ORGANIZATION_URL}
-            style={{
-              paddingBottom: '3px',
-              borderBottom:
-                location?.pathname === '/organization' && '2px #40CE6A solid',
-            }}>
-            Association
-          </a>
-        </li>
-        <li>
-          <Link to="">Favoris</Link>
-        </li>
-        <li>
-          <a
-            href="/chat"
-            style={{
-              paddingBottom: '3px',
-              borderBottom:
-                location?.pathname === '/chat' && '2px #40CE6A solid',
-            }}>
-            Messages
-          </a>
-        </li>
-        <li>
-          <a
-            href="/chat"
-            style={{
-              paddingBottom: '3px',
-              borderBottom:
-                location?.pathname === '/chat' && '2px #40CE6A solid',
-            }}>
-            Notifications
-          </a>
-        </li>
-        <li>
-          {userid ? (
-            <a
+          {userStore.isConnected ? (
+            <NavLink
               style={{
                 cursor: ' pointer',
               }}
-              href="/profile">
+              to="/profile"
+              activeStyle={{
+                borderBottom: isNavtitleSelected,
+                paddingBottom: 2
+              }}
+            >
               <span
                 style={{
                   marginRight: 10,
@@ -118,18 +131,19 @@ export default function Navbar({ params, history, location }) {
                 }}>
                 <IconProfileLittle />
               </span>
-              {userData?.firstName}
-            </a>
+              {userStore?.user.firstName}
+            </NavLink>
           ) : (
-            <a
-              href="/login"
+            <NavLink
+              to="/login"
+              activeStyle={{
+                borderBottom: isNavtitleSelected
+              }}
               style={{
                 paddingBottom: '3px',
-                borderBottom:
-                  location?.pathname === '/login' && '2px #40CE6A solid',
               }}>
               Se connecter
-            </a>
+            </NavLink>
           )}
         </li>
       </ul>

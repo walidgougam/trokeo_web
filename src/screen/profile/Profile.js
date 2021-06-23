@@ -1,28 +1,26 @@
 import React from "react";
 import "./Profile.scss";
-//COMPONENT
+/** COMPONENT */
 import ProfileOption from "../../component/profileOption/ProfileOption";
 import Navbar from "../../component/navbar/Navbar";
 import HeaderGreen from "../../component/headerGreen/HeaderGreen";
 import ThumbnailProfile from "../../component/thumbnailProfile/ThumbnailProfile";
+/** REDUX */
+import { useDispatch, useSelector } from 'react-redux';
 
 function Profile({ history }) {
-  return (
-    <div style={{ backgroundColor: "hsl(0, 0%, 98%)" }}>
-      <HeaderGreen />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <ThumbnailProfile history={history} />
-      </div>
+  /** REDUX */
+  const userStore = useSelector((state) => state.authReducer)
 
-      <div
-        style={{
-          paddingRight: "139px",
-          paddingLeft: "139px",
-        }}
-      >
+  const name = `${userStore.user.firstName}_${userStore.user.lastName.charAt(0)}`
+  return (
+    <>
+      <HeaderGreen />
+      <div style={{ marginLeft: '13.5%', marginRight: '13.5%' }}>
+        <ThumbnailProfile history={history} name={name} createdProfileAt={userStore.user.createdAt} />
         <ProfileOption />
       </div>
-    </div>
+    </>
   );
 }
 

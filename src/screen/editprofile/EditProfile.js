@@ -8,9 +8,10 @@ import Switch from '@material-ui/core/Switch';
 import Footer from '../../component/footer/Footer';
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import Navbar from '../../component/navbar/Navbar.js';
-import Input from '../../component/input/Input';
+import InputForms from '../../component/input/InputForms';
 import PictureIconProfile from '../../component/picture/picture/PictureIconProfile';
 import BtnFinish from '../../component/btn/BtnFinish';
+import wording from '../../constant/wording';
 
 export default function EditProfile() {
   const [lastName, setLastName] = useState('');
@@ -30,51 +31,51 @@ export default function EditProfile() {
           <p>Changer ma photo de profil</p>
         </div>
         <p className="label_input_editprofile" style={{ marginTop: 37 }}>
-          Nom
+          {wording.LAST_NAME}
         </p>
-        <Input
-          placeholder="Nom"
+        <InputForms
+          placeholder={wording.LAST_NAME}
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <p className="label_input_editprofile" style={{ marginTop: 20 }}>
-          Prénom
+          {wording.FIRST_NAME}
         </p>
-        <Input
+        <InputForms
           placeholder="Prénom"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
-          A propos
+          {wording.ABOUT}
         </p>
         <textarea
           value={about}
           style={{ width: 344, height: 145, borderColor: '#BFBDBD' }}></textarea>
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
-          Email
+          {wording.EMAIL}
         </p>
-        <Input
-          placeholder="Email"
+        <InputForms
+          placeholder={wording.EMAIL}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
-          Téléphone
+          {wording.PHONE}
         </p>
-        <Input
+        <InputForms
           placeholder="Téléphone"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
-          Genre
+          {wording.GENDER}
         </p>
-        <Input
+        <InputForms
           placeholder="Genre"
           value={female}
           onChange={(e) => setFemale(e.target.value)}
@@ -108,6 +109,7 @@ export default function EditProfile() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

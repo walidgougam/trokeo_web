@@ -6,6 +6,7 @@ import { ReactComponent as StarFull } from '../../asset/allSvg/star_full.svg';
 /** COMPONENT */
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import ChatHeader from "../../component/chatHeader/ChatHeader"
+import Footer from "../../component/footer/Footer";
 
 function Review() {
   return <>
@@ -20,6 +21,7 @@ function Review() {
         <StarEmpty />
       </div>
     </div>
+    <Footer />
   </>;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Organisation.scss';
 import axios from 'axios';
-import { getProductUrl } from '../../API/constants';
+import { getProductUrl } from '../../API/constant';
 import Loader from 'react-loader';
 
 /** COMPONENT */
@@ -13,6 +13,7 @@ import CardProduct from '../../component/card/cardProduct/CardProduct';
 import { getProductAction } from '../../redux/actions/ProductAction';
 import { useDispatch, useSelector } from 'react-redux';
 import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
+import Footer from '../../component/footer/Footer';
 
 export default function Organization({ location, history }) {
   /** STATE */
@@ -72,6 +73,7 @@ export default function Organization({ location, history }) {
         isService={isService}
       />
       {renderProduct()}
+      <Footer />
     </div>
   );
 }

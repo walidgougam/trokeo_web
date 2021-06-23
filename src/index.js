@@ -12,13 +12,12 @@ import {
   getProductAction,
   searchProductAction,
 } from './redux/actions/ProductAction';
+import { loginSuccessAction } from './redux/actions/AuthAction'
+import createdStore from './store/index';
 
-const store = createStore(
-  reducers,
-  composeWithDevTools(applyMiddleware(thunk)),
-);
-
-store.dispatch(getProductAction());
+const { store } = createdStore()
+// store.dispatch(getProductAction());
+// store.dispatch(loginSuccessAction());
 
 ReactDOM.render(
   <Provider store={store}>

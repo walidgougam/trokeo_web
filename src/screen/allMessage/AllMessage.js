@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './AllMessage.scss';
 import { allMessage } from '../../Helpers';
 import axios from 'axios';
-//COMPONENT
+/** COMPONENT */
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import Navbar from '../../component/navbar/Navbar';
 import Footer from '../../component/footer/Footer';
 import CardReceiveMessage from '../../component/card/cardReceiveMessage/CardReceiveMessage';
 import NoImageProduct from '../../component/picture/NoImageProduct.js/NoImageProduct';
 import Loader from 'react-loader';
-// REDUX
+/** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 import { getConversationAction } from '../../redux/actions/ChatAction';
 
@@ -28,20 +28,20 @@ export default function AllMessage({ location, history }) {
     })();
   });
 
-  useEffect(() => {
-    const getConversations = async () => {
-      try
-      {
-        const userId = await localStorage.getItem('userId');
-        await dispatch(getConversationAction(userId));
-        setIsLoading(false);
-      } catch (err)
-      {
-        console.log(err);
-      }
-    };
-    getConversations();
-  }, [userId]);
+  // useEffect(() => {
+  //   const getConversations = async () => {
+  //     try
+  //     {
+  //       const userId = await localStorage.getItem('userId');
+  //       await dispatch(getConversationAction(userId));
+  //       setIsLoading(false);
+  //     } catch (err)
+  //     {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getConversations();
+  // }, [userId]);
 
   if (conversations?.isLoading || Object.keys(conversations).length === 0)
   {
@@ -52,7 +52,7 @@ export default function AllMessage({ location, history }) {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <HeaderGreen title="Messages" />
       <div className="container_allmessage" style={{ flex: '1' }}>
-        {/* {conversations?.map((msg, index) => {
+        {conversations?.map((msg, index) => {
           return (
             <>
               <CardReceiveMessage
@@ -70,8 +70,9 @@ export default function AllMessage({ location, history }) {
               />
             </>
           );
-        })} */}
+        })}
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { EDIT_PROFILE_SUCCESS } from '../actions/ProductAction';
+import { EDIT_PROFILE_SUCCESS } from 'store/actions/ProductAction';
 
 const initialState = {};
 

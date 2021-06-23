@@ -1,10 +1,9 @@
 import React from 'react'
-import { Fragment } from 'react'
 import './CardNotification.scss'
 
 export default function CardNotification({ picture, title, createdAt, index, lastIndex }) {
     return (
-        <Fragment>
+        <>
             <div className="container_cardnotification" style={{ marginTop: index === 0 ? 35 : 13 }}>
                 <img
                     src={require('../../../asset/allSvg/shave.jpg')}
@@ -17,6 +16,6 @@ export default function CardNotification({ picture, title, createdAt, index, las
             </div>
             {console.log(lastIndex, "index length")}
             {index !== lastIndex && <div style={{ borderTop: '1px solid #bfbdbd' }}></div>}
-        </Fragment>
+        </>
     )
 }

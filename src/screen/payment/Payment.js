@@ -9,6 +9,7 @@ import { ReactComponent as IconSecurity } from '../../asset/allSvg/icon_security
 import { ReactComponent as IconCb } from '../../asset/allSvg/icon_cb.svg';
 import { ReactComponent as IconMatercard } from '../../asset/allSvg/icon_mastercard.svg';
 import { ReactComponent as IconVisa } from '../../asset/allSvg/icon_visa.svg';
+import Footer from '../../component/footer/Footer';
 
 function Payment() {
     const [price, setPrice] = useState('2,99');
@@ -66,7 +67,7 @@ function Payment() {
                                     type="text"
                                     value={cardName}
                                     onChange={() => console.log('change')}
-                                    placeholder="Nom écrit sur la carte"
+                                    placeholder={wording.NAME_CARD_PLACEHOLDER}
                                 />
                             </label>
                         </div>
@@ -85,7 +86,7 @@ function Payment() {
                                     type="text"
                                     value={cardLimitDate}
                                     onChange={() => console.log('change')}
-                                    placeholder="MM/AA"
+                                    placeholder={wording.DATE_CARD_PLACEHOLDER}
                                 />
                             </label>
                         </div>
@@ -97,7 +98,7 @@ function Payment() {
                                     type="text"
                                     value={cardCryptoNumber}
                                     onChange={() => console.log('change')}
-                                    placeholder="Exemple: 123"
+                                    placeholder={wording.CARD_EXAMPLE_PLACEHOLDER}
                                 />
                             </label>
                         </div>
@@ -115,6 +116,7 @@ function Payment() {
                     <BtnNext title="Confirmer" onClick={() => handlePayment()} style={{ width: 252, height: 42 }} />
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

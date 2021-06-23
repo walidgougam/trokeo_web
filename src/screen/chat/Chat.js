@@ -10,6 +10,7 @@ export default function Chat(props, { history }) {
     <div className="container_chat">
       <HeaderGreen title="Messages" />
       <CardSendMessage props={props} />
+      <Footer />
     </div>
   );
 }

@@ -14,7 +14,6 @@
   align-items: center;
   width: 579px;
   height: 737px;
-  width: 579px;
   box-shadow: 1px 3px 3px 3px rgba(216, 216, 216, 0.5);
   box-sizing: border-box;
 }
@@ -30,6 +29,7 @@
   /* font-family: Open Sans Regular; */
   line-height: 19px;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 .forms_register {
   display: flex;

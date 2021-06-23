@@ -2,6 +2,7 @@ import React from 'react'
 import './Notification.scss'
 import HeaderGreen from '../../component/headerGreen/HeaderGreen';
 import CardNotification from '../../component/card/cardNotification/CardNotification';
+import Footer from '../../component/footer/Footer';
 
 function Notification() {
 
@@ -67,7 +68,7 @@ function Notification() {
                     )
                 })}
             </div>
-
+            <Footer />
         </div>
     )
 }

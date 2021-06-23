@@ -6,7 +6,8 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { loginUrl } from '../../API/constants';
+import { loginUrl } from '../../API/constant';
+import wording from '../../constant/wording';
 /** COMPONENT */
 import Navbar from '../../component/navbar/Navbar';
 import BtnLogin from '../../component/btn/btnLogin/BtnLogin';
@@ -15,42 +16,82 @@ import Loader from 'react-loader';
 /** REDUX */
 import { loginAction } from '../../redux/actions/AuthAction';
 import { useDispatch, useSelector } from 'react-redux';
-import wording from '../../constant/wording';
+import { userLogin } from '../../services/userService'
+import { loginSuccessAction, isGuestAction } from "../../redux/actions/AuthAction";
+import { categorySuccessAction } from "../../redux/actions/CategoryAction";
+import { getCategories } from "../../services/categoryService";
 
 function Login({ history, location }) {
   /** STATE */
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorOnLogin, setErrorOnLogin] = useState()
+  const [errorMessage, setErrorMessage] = useState()
   /** REDUX */
   const dispatch = useDispatch();
   const login = useSelector((state) => state.authReducer);
 
+  // const handleLogin = async () => {
+  //   axios({
+  //     method: 'POST',
+  //     url: loginUrl,
+  //     data: { email, password },
+  //     headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') },
+  //   }).then((res) => {
+  //     const errors = res.data.errors;
+  //     console.log(errors, 'errors');
+  //     if (!errors)
+  //     {
+  //       localStorage.setItem('userId', res.data.user);
+  //       history.push('/');
+  //     } else
+  //     {
+  //       if (errors.email !== '')
+  //       {
+  //         toast.error(errors.email);
+  //       }
+  //       if (errors.password !== '')
+  //       {
+  //         toast.error(errors.password);
+  //       }
+  //     }
+  //   });
+  // };
+
   const handleLogin = async () => {
-    axios({
-      method: 'POST',
-      url: loginUrl,
-      data: { email, password },
-      headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') },
-    }).then((res) => {
-      const errors = res.data.errors;
-      console.log(errors, 'errors');
-      if (!errors)
-      {
-        localStorage.setItem('userId', res.data.user);
+    await userLogin(
+      email,
+      password,
+      async (resp) => {
+        // when auth success get all categories
+        console.log('je suis dedans')
+        await getCategories(
+          (resp) => {
+            dispatch(
+              categorySuccessAction({ categories: resp.data.categories })
+            );
+          },
+          (err) => {
+            setErrorOnLogin(true);
+            setErrorMessage(
+              err.status === 500 ? "Something went wrong!" : err.data.error
+            );
+          }
+        );
+        dispatch(
+          loginSuccessAction({ user: resp.data.user, token: resp.data.token })
+        );
         history.push('/');
-      } else
-      {
-        if (errors.email !== '')
-        {
-          toast.error(errors.email);
-        }
-        if (errors.password !== '')
-        {
-          toast.error(errors.password);
-        }
+      },
+      (resp) => {
+        setErrorOnLogin(true);
+        setErrorMessage(
+          resp.status === 500 ? "Something went wrong!" : resp.data.error
+        );
       }
-    });
-  };
+    );
+
+  }
 
   return (
     <div>

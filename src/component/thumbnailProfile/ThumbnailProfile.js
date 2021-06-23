@@ -1,21 +1,22 @@
 import React from 'react';
 import './ThumbnailProfile.scss';
 import PictureIconProfile from '../picture/picture/PictureIconProfile';
-import {ReactComponent as Star} from '../../asset/allSvg/star_full.svg';
-import {ReactComponent as ArrowRight} from '../../asset/allSvg/arrow_right.svg';
+import { ReactComponent as Star } from '../../asset/allSvg/star_full.svg';
+import { ReactComponent as ArrowRight } from '../../asset/allSvg/arrow_right.svg';
+import moment from 'moment';
 
-function ThumbnailProfile({history}) {
+function ThumbnailProfile({ history, name, createdProfileAt }) {
   return (
     <div className="container_thumbnailprofile">
       <div className="wrapper_top_thumbnail_thumbnailprofile">
         <div className="wrapper_left_thumbnailprofile">
-          <PictureIconProfile style={{width: 89, height: 86}} />
+          <PictureIconProfile style={{ width: 89, height: 86 }} />
           <div className="wrapper_name_star_thumbnailProfile">
-            <p className="name_thumbnailprofile">name</p>
+            <p className="name_thumbnailprofile">{name}</p>
             <p className="member_since_thumbnailprofile">
-              membre depuis le 08/01/2020 j
+              membre depuis le {moment(createdProfileAt).format('DD-MM-YYYY')}
             </p>
-            <div style={{marginTop: 4}}>
+            <div style={{ marginTop: 4 }}>
               <Star />
               <Star />
               <Star />

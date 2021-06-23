@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './CardReceiveMessage.scss';
 import Loader from 'react-loader';
 //PICTURE
-import {ReactComponent as GreyDot} from '../../../asset/allSvg/greyDot.svg';
+import { ReactComponent as GreyDot } from '../../../asset/allSvg/greyDot.svg';
 import axios from 'axios';
 // REDUX
-import {useDispatch, useSelector} from 'react-redux';
-import {getUserAction} from '../../../redux/actions/UserAction';
+import { useDispatch, useSelector } from 'react-redux';
+// import { getUserAction } from '../../../redux/actions/UserAction';
 
 function CardReceiveMessage({
   conversation,
@@ -22,22 +22,25 @@ function CardReceiveMessage({
 }) {
   // REDUX
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userReducer);
+  const userStore = useSelector((state) => state.userReducer);
 
-  useEffect(() => {
-    const friendId = conversation.members.find((m) => m !== currentUser._id);
+  // useEffect(() => {
+  //   const friendId = conversation.members.find((m) => m !== currentUser._id);
 
-    const getUser = async () => {
-      try {
-        dispatch(getUserAction(friendId));
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUser();
-  }, [currentUser, conversation]);
+  //   const getUser = async () => {
+  //     try
+  //     {
+  //       dispatch(getUserAction(friendId));
+  //     } catch (err)
+  //     {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getUser();
+  // }, [currentUser, conversation]);
 
-  if (userData.isLoading === true || Object.keys(userData).length === 0) {
+  if (userStore.isLoading === true || Object.keys(userStore).length === 0)
+  {
     return <Loader loaded={false} color="green" />;
   }
 
@@ -66,7 +69,7 @@ function CardReceiveMessage({
           }}>
           <div>
             <p className="text_name_cardReceiveMessage">
-              {userData?.firstName}
+              {userStore?.firstName}
             </p>
             <p className="text_title_cardReceiveMessage">{titleProduct}</p>
           </div>

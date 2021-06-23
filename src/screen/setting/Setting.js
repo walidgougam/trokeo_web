@@ -55,6 +55,7 @@ export default function Setting({ location }) {
           paddingTop={28}
         />
       </div>
+      <Footer />
     </div>
   );
 }

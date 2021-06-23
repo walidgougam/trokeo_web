@@ -50,6 +50,7 @@ export default function FollowCategory({ location }) {
           })}
         />
       </div>
+      <Footer />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import Navbar from '../../component/navbar/Navbar';
 import IconTakePicture from '../../component/picture/iconTakePicture/IconTakePicture';
 import './CreateProduct.scss';
 import BtnNext from '../../component/btn/BtnNext';
+import Footer from '../../component/footer/Footer';
 
 function EditProduct({ location }) {
     /** STATE */
@@ -118,6 +119,7 @@ function EditProduct({ location }) {
                     />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

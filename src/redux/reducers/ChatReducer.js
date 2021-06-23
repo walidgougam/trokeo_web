@@ -1,41 +1,23 @@
 import {
-    MESSAGE_SUCCESS,
-    MESSAGE_ERROR,
-    CONVERSATION_LOADING,
-    CONVERSATION_SUCCESS,
-    CONVERSATION_ERROR,
+    SEND_MESSAGE,
 } from '../actions/ChatAction';
 
-const initialState = {};
+const initialState = {
+    messages: []
+};
 
-export function messageReducer(state = initialState, action) {
+export function chatReducer(state = initialState, action) {
     switch (action.type)
     {
-        case MESSAGE_SUCCESS:
-            return action.payload;
-        case MESSAGE_ERROR:
-            return action.payload;
+        case SEND_MESSAGE:
+            return {
+                ...state,
+                messages: [...state.messages, action.payload],
+                // activeRoomMsgs: [...state.activeRoomMsgs, payload]
+            }
         default:
             return state;
     }
 }
 
-export function conversationReducer(state = initialState, action) {
-    switch (action.type)
-    {
-        case CONVERSATION_LOADING:
-            return { ...state, isLoading: action.payload };
-        case CONVERSATION_SUCCESS:
-            return action.payload;
-        case CONVERSATION_ERROR:
-            return action.payload;
-        default:
-            return state;
-    }
-}
-
-
-
-
-// pour stocket currentChat
 
