@@ -3,9 +3,7 @@ import './FavoritesScreen.scss';
 import axios from 'axios';
 import { getProductUrl } from '../../API/constant';
 import Loader from 'react-loader';
-
 /** COMPONENT */
-import HeaderGreenOrganization from '../../component/headerGreenOrganization/HeaderGreenOrganization';
 import Navbar from '../../component/navbar/Navbar';
 import NoProductComponent from '../../component/noProduct/NoProductComponent';
 import CardProduct from '../../component/card/cardProduct/CardProduct';
@@ -15,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
 import Footer from '../../component/footer/Footer';
 
-function FavoritesScreen({ location, history }) {
+function FavoritesScreen(props) {
     /** STATE */
     const [isService, setIsService] = useState(true);
     const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -44,7 +42,6 @@ function FavoritesScreen({ location, history }) {
         {
             return (
                 <div className="wrapper_card">
-                    {console.log(window.innerHeight, "window.innerHeight")}
                     {getProduct.map((product, index) => {
                         return (
                             <div style={{ width: 168, height: 146 }}>
@@ -54,7 +51,7 @@ function FavoritesScreen({ location, history }) {
                                     title={product.title}
                                     productPicture={product?.productPicture}
                                     goToProductDetail={() =>
-                                        history.push(`/product/:${product._id}`)
+                                        props.history.push(`/product/:${product._id}`)
                                     }
                                 />
                             </div>
@@ -67,6 +64,7 @@ function FavoritesScreen({ location, history }) {
 
     return (
         <div>
+            <Navbar props={props} />
             <HeaderChooseGoodOrService
                 onChange={() => setIsService(!isService)}
                 isService={isService}

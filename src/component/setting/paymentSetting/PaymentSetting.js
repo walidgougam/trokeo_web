@@ -10,7 +10,7 @@ import CardSetting from "../cardSetting/CardSetting";
 
 export default function PaymentSetting() {
   return (
-    <div>
+    <>
       <p className="text_visibility_paymentsetting">
         Gagnez en visibilité et multipliez vos chances de troquer !
       </p>
@@ -42,6 +42,6 @@ export default function PaymentSetting() {
         />
         <BtnFinish width={324} height={47} fontSize={16} titleBtn="18,99€/an" />
       </div>
-    </div>
+    </>
   );
 }

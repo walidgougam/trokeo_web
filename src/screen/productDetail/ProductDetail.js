@@ -6,14 +6,12 @@ import {
   Marker,
   InfoWindow,
 } from '@react-google-maps/api';
-//PICTURE
+/** PICTURE */
 import { ReactComponent as HeartEmpty } from '../../asset/allSvg/heart_empty.svg';
 import { ReactComponent as HeartFull } from '../../asset/allSvg/heart_full.svg';
 import { ReactComponent as IconLocation } from '../../asset/allSvg/icon_location.svg';
-//COMPONENT
-import Navbar from '../../component/navbar/Navbar';
-import Footer from '../../component/footer/Footer';
-import CardContactOwner from '../../component/card/cardContactOwner/CardContactOwner';
+/** COMPONENT */
+import { Navbar, Footer, CardContactOwner } from '../../component/index'
 
 const mapContainerStyle = {
   width: '479px',
@@ -25,8 +23,11 @@ const center = {
   lng: -79.383186,
 };
 
-export default function ProductDetail() {
-  const [heart, setHeart] = useState(true);
+function ProductDetail() {
+
+  const [state, setState] = ({
+    heart: true
+  })
 
   //GOOGLEMAP
   const { isLoaded, loadError } = useLoadScript({
@@ -62,9 +63,9 @@ export default function ProductDetail() {
                 Kit de rasage pour Homme
               </p>
               <div
-                onClick={() => setHeart(!heart)}
+                onClick={() => setState({ ...state, heart: !state.heart })}
                 style={{ cursor: 'pointer ' }}>
-                {heart ? <HeartEmpty /> : <HeartFull />}
+                {state.heart ? <HeartEmpty /> : <HeartFull />}
               </div>
             </div>
             <p className="title_section_productdetail">Etat</p>
@@ -92,3 +93,5 @@ export default function ProductDetail() {
     </div>
   );
 }
+
+export default ProductDetail

@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import './Setting.scss';
 
 /** COMPONENT */
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import Navbar from '../../component/navbar/Navbar';
-import BtnSetting from '../../component/btn/btnSetting/BtnSetting';
-import Footer from '../../component/footer/Footer';
-import PaymentSetting from '../../component/setting/paymentSetting/PaymentSetting';
-import PasswordSetting from '../../component/setting/passwordSetting/PasswordSetting';
-import NotificationSetting from '../../component/setting/notificationSetting/NotificationSetting';
+import {
+  HeaderGreen,
+  Navbar,
+  BtnSetting,
+  Footer,
+  PaymentSetting,
+  PasswordSetting,
+  NotificationSetting,
+} from '../../component/index';
 
 export default function Setting({ location }) {
   /** STATE */

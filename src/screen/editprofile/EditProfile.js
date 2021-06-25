@@ -3,27 +3,37 @@ import './EditProfile.scss';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
-
-//COMPONENT
-import Footer from '../../component/footer/Footer';
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import Navbar from '../../component/navbar/Navbar.js';
-import InputForms from '../../component/input/InputForms';
-import PictureIconProfile from '../../component/picture/picture/PictureIconProfile';
-import BtnFinish from '../../component/btn/BtnFinish';
 import wording from '../../constant/wording';
+/** COMPONENT */
+import {
+  Footer,
+  HeaderGreen,
+  Navbar,
+  InputForms,
+  PictureIconProfile,
+  BtnFinish,
+} from '../../component/index';
 
-export default function EditProfile() {
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [about, setAbout] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [female, setFemale] = useState('');
-  const [location, setLocation] = useState('');
-  const [checked, setChecked] = useState('');
+function EditProfile() {
+  const [state, setState] = useState({
+    lastName: '',
+    firstName: '',
+    about: '',
+    email: '',
+    phoneNumber: '',
+    female: false,
+    location: '',
+    checked: '',
+  });
+
+  const handleState = (event) => {
+    const value = event.target.value;
+    setState({ ...state, [event.target.name]: value });
+  };
+
   return (
     <div>
+      {console.log(state, 'state')}
       <HeaderGreen title="Mise à jour du profil" />
       <div style={{ marginLeft: 139, marginRight: 139 }}>
         <div className="wrapper_picture_editprofile">
@@ -35,32 +45,37 @@ export default function EditProfile() {
         </p>
         <InputForms
           placeholder={wording.LAST_NAME}
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          value={state.lastName}
+          name="lastName"
+          onChange={(e) => handleState(e.target.value)}
         />
         <p className="label_input_editprofile" style={{ marginTop: 20 }}>
           {wording.FIRST_NAME}
         </p>
         <InputForms
           placeholder="Prénom"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          value={state.firstName}
+          name="firstName"
+          onChange={(e) => handleState(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
           {wording.ABOUT}
         </p>
         <textarea
-          value={about}
-          style={{ width: 344, height: 145, borderColor: '#BFBDBD' }}></textarea>
+          value={state.about}
+          name="about"
+          style={{ width: 344, height: 145, borderColor: '#BFBDBD' }}
+          onChange={(e) => handleState(e.target.value)}></textarea>
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
           {wording.EMAIL}
         </p>
         <InputForms
           placeholder={wording.EMAIL}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={state.email}
+          name="email"
+          onChange={(e) => handleState(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
@@ -68,8 +83,9 @@ export default function EditProfile() {
         </p>
         <InputForms
           placeholder="Téléphone"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={state.phoneNumber}
+          name="phoneNumber"
+          onChange={(e) => handleState(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
@@ -77,8 +93,9 @@ export default function EditProfile() {
         </p>
         <InputForms
           placeholder="Genre"
-          value={female}
-          onChange={(e) => setFemale(e.target.value)}
+          value={state.female}
+          name="female"
+          onChange={(e) => handleState(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <div className="wrapper_location_editprofile">
@@ -87,7 +104,7 @@ export default function EditProfile() {
             <FormControlLabel
               style={{ margin: 0 }}
               control={
-                <Switch checked={checked} onChange={() => setChecked(true)} />
+                <Switch checked={state.checked} onChange={() => setState({ ...state, checked: true })} />
               }
             />
           </FormGroup>
@@ -113,3 +130,5 @@ export default function EditProfile() {
     </div>
   );
 }
+
+export default EditProfile;

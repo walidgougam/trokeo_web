@@ -21,6 +21,13 @@
   }
 }
 
+.wrapper_cardReceiveMessage {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .text_name_cardReceiveMessage {
   margin: 0px;
   font-size: 13;

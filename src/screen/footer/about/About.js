@@ -5,31 +5,31 @@ import { ReactComponent as ImagePeopleHeartBig } from '../../../asset/allSvg/peo
 import { ReactComponent as ImageWomanPigMoney } from '../../../asset/allSvg/woman_pig_money.svg';
 import { ReactComponent as ImageManPainting } from '../../../asset/allSvg/man_painting.svg';
 /** COMPONENT */
-import HeaderGreen from '../../../component/headerGreen/HeaderGreen';
-import Navbar from '../../../component/navbar/Navbar';
-import Footer from '../../../component/footer/Footer';
+import {
+  HeaderGreen, Navbar, Footer
+} from '../../../component/index'
+import wording from '../../../constant/wording';
 
-function About() {
+function About(props) {
   return (
-    <div>
+    <>
+      <Navbar props={props} />
       <HeaderGreen title="A propos de Trokéo" />
       <div className="container_about">
         <div className="wrapper_people_about">
           <ImagePeopleHeartBig />
           <div>
-            <p className="title_about">Le geste eco-citoyen</p>
+            <p className="title_about">{wording.ABOUT_SCREEN_TITLE1}</p>
             <p className="text_about">
-              Lutter contre la consommation de masse c’est possible avec Trokéo
-              n’achetez plus, échangez !
+              {wording.ABOUT_SCREEN_DESCRIPTION1}
             </p>
           </div>
         </div>
         <div className="wrapper_woman_pig_about">
           <div style={{}}>
-            <p className="title_about">Economisez de l’argent</p>
+            <p className="title_about">{wording.ABOUT_SCREEN_TITLE2}</p>
             <p className="text_about">
-              Le troc vous permettra d’accéder à des offres répondant à vos
-              besoins tout en vous libérant d’objets encombrants
+              {wording.ABOUT_SCREEN_DESCRIPTION2}
             </p>
           </div>
           <ImageWomanPigMoney />
@@ -37,15 +37,15 @@ function About() {
         <div className="wrapper_man_painting_about">
           <ImageManPainting />
           <div>
-            <p className="title_about">Faite partagez votre savoir faire</p>
+            <p className="title_about">{wording.ABOUT_SCREEN_TITLE3}</p>
             <p className="text_about">
-              Proposer vos prestations contre un service ou un objet auprès de
-              la communauté de trokeurs.
+              {wording.ABOUT_SCREEN_DESCRIPTION3}
             </p>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

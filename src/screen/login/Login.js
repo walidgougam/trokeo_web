@@ -5,14 +5,12 @@ import {
 } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from 'react-loader';
 import axios from 'axios';
 import { loginUrl } from '../../API/constant';
 import wording from '../../constant/wording';
 /** COMPONENT */
-import Navbar from '../../component/navbar/Navbar';
-import BtnLogin from '../../component/btn/btnLogin/BtnLogin';
-import BtnNext from '../../component/btn/BtnNext';
-import Loader from 'react-loader';
+import { Navbar, BtnLogin, BtnNext } from '../../component/index'
 /** REDUX */
 import { loginAction } from '../../redux/actions/AuthAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,10 +21,12 @@ import { getCategories } from "../../services/categoryService";
 
 function Login({ history, location }) {
   /** STATE */
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorOnLogin, setErrorOnLogin] = useState()
-  const [errorMessage, setErrorMessage] = useState()
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+    errorOnLogin: '',
+    errorMessage: ''
+  })
   /** REDUX */
   const dispatch = useDispatch();
   const login = useSelector((state) => state.authReducer);
@@ -58,10 +58,15 @@ function Login({ history, location }) {
   //   });
   // };
 
+  const handleState = (event) => {
+    const value = event.target.value;
+    setState({ ...state, [event.target.name]: value })
+  }
+
   const handleLogin = async () => {
     await userLogin(
-      email,
-      password,
+      state.email,
+      state.password,
       async (resp) => {
         // when auth success get all categories
         console.log('je suis dedans')
@@ -72,10 +77,8 @@ function Login({ history, location }) {
             );
           },
           (err) => {
-            setErrorOnLogin(true);
-            setErrorMessage(
-              err.status === 500 ? "Something went wrong!" : err.data.error
-            );
+            setState({ ...state, errorOnLogin: true })
+            setState({ ...state, errorMessage: err.status === 500 ? "Something went wrong!" : err.data.error })
           }
         );
         dispatch(
@@ -84,10 +87,8 @@ function Login({ history, location }) {
         history.push('/');
       },
       (resp) => {
-        setErrorOnLogin(true);
-        setErrorMessage(
-          resp.status === 500 ? "Something went wrong!" : resp.data.error
-        );
+        setState({ ...state, errorOnLogin: true })
+        setState({ ...state, errorMessage: resp.status === 500 ? "Something went wrong!" : resp.data.error })
       }
     );
 
@@ -111,7 +112,8 @@ function Login({ history, location }) {
             <input
               className="input_login"
               type="text"
-              onChange={(e) => setEmail(e.target.value)}
+              name='email'
+              onChange={(e) => handleState(e.target.value)}
             />
           </div>
           <div className="wrapper_input_login" style={{ marginTop: 9 }}>
@@ -120,7 +122,8 @@ function Login({ history, location }) {
             <input
               className="input_login"
               type="text"
-              onChange={(e) => setPassword(e.target.value)}
+              name='password'
+              onChange={(e) => handleState(e.target.value)}
             />
           </div>
 

@@ -5,17 +5,14 @@ import { getProductUrl } from '../../API/constant';
 import Loader from 'react-loader';
 
 /** COMPONENT */
-import HeaderGreenOrganization from '../../component/headerGreenOrganization/HeaderGreenOrganization';
-import Navbar from '../../component/navbar/Navbar';
-import NoProductComponent from '../../component/noProduct/NoProductComponent';
-import CardProduct from '../../component/card/cardProduct/CardProduct';
+import { HeaderGreenOrganization, Navbar, NoProductComponent, CardProduct } from '../../component/index'
 /** REDUX */
 import { getProductAction } from '../../redux/actions/ProductAction';
 import { useDispatch, useSelector } from 'react-redux';
 import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
 import Footer from '../../component/footer/Footer';
 
-export default function Organization({ location, history }) {
+function Organization(props) {
   /** STATE */
   const [isService, setIsService] = useState(true);
   const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -54,7 +51,7 @@ export default function Organization({ location, history }) {
                   title={product.title}
                   productPicture={product?.productPicture}
                   goToProductDetail={() =>
-                    history.push(`/product/:${product._id}`)
+                    props.history.push(`/product/:${product._id}`)
                   }
                 />
               </div>
@@ -66,7 +63,8 @@ export default function Organization({ location, history }) {
   };
 
   return (
-    <div>
+    <>
+      <Navbar props={props} />
       <HeaderGreenOrganization title="Dons demandés par les associations" />
       <HeaderChooseGoodOrService
         onChange={() => setIsService(!isService)}
@@ -74,6 +72,9 @@ export default function Organization({ location, history }) {
       />
       {renderProduct()}
       <Footer />
-    </div>
+    </>
   );
 }
+
+
+export default Organization

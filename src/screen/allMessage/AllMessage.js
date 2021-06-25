@@ -2,31 +2,37 @@ import React, { useEffect, useState } from 'react';
 import './AllMessage.scss';
 import { allMessage } from '../../Helpers';
 import axios from 'axios';
-/** COMPONENT */
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import Navbar from '../../component/navbar/Navbar';
-import Footer from '../../component/footer/Footer';
-import CardReceiveMessage from '../../component/card/cardReceiveMessage/CardReceiveMessage';
-import NoImageProduct from '../../component/picture/NoImageProduct.js/NoImageProduct';
 import Loader from 'react-loader';
+/** COMPONENT */
+import { HeaderGreen, Navbar, Footer, CardReceiveMessage, NoImageProduct } from '../../component/index';
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 import { getConversationAction } from '../../redux/actions/ChatAction';
+/** SERVICES */
+import { GetConversations } from "../../services/chatService";
 
-export default function AllMessage({ location, history }) {
-  // STATE
-  const [userId, setUserId] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  // REDUX
+export default function AllMessage(props) {
+  /** STATE */
+  const [state, setState] = useState({
+    userId: '',
+    conversations: [],
+    isLoading: true
+  })
+  /** REDUX */
   const dispatch = useDispatch();
-  const conversations = useSelector((state) => state.conversationReducer);
+  // const conversations = useSelector((state) => state.conversationReducer);
 
   useEffect(() => {
-    (async () => {
-      const userId = await localStorage.getItem('userId');
-      setUserId(userId);
-    })();
-  });
+    // get conversationList
+    GetConversations()
+      .then((res) => {
+        setState({ ...state, conversations: res })
+        setState({ ...state, isLoading: false })
+      })
+      .catch((err) => {
+        // handle erros setErros
+      });
+  }, []);
 
   // useEffect(() => {
   //   const getConversations = async () => {
@@ -43,36 +49,49 @@ export default function AllMessage({ location, history }) {
   //   getConversations();
   // }, [userId]);
 
-  if (conversations?.isLoading || Object.keys(conversations).length === 0)
+  if (state.isLoading)
   {
     return <Loader loaded={false} color="green" />;
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <HeaderGreen title="Messages" />
-      <div className="container_allmessage" style={{ flex: '1' }}>
-        {conversations?.map((msg, index) => {
-          return (
-            <>
-              <CardReceiveMessage
-                conversation={msg}
-                chatId={msg?._id}
-                currentUser={userId}
-                history={history}
-                key={index}
-                pictureProduct={msg?.pictureProduct}
-                titleProduct={msg?.titleProduct}
-                userName={msg?.userName}
-                index={index}
-                arrayLength={allMessage?.length}
-                iconNoImage={<NoImageProduct icon={msg?.category} />}
-              />
-            </>
-          );
-        })}
+    <>
+      <Navbar props={props} />
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <HeaderGreen title="Messages" />
+        <div className="container_allmessage" style={{ flex: '1' }}>
+          {state.conversations?.map((msg, index) => {
+            return (
+              <>
+                <CardReceiveMessage
+                  // deleteMessage={() => {
+                  //   getAllRecieverChat();
+                  //   setDeletedMessage(true);
+                  // }}
+                  product={msg.product}
+                  sender={msg?.reciever?.firstName}
+                  message={msg?.messages[0]?.text}
+                  picture={msg?.product?.productPicture[0].picture}
+                  createdAt={msg?.createdAt}
+                  recieverId={msg?.reciever?._id}
+                  category={msg?.product?.category}
+                // conversation={msg}
+                // chatId={msg?._id}
+                // currentUser={userId}
+                // history={history}
+                // key={index}
+                // pictureProduct={msg?.pictureProduct}
+                // titleProduct={msg?.titleProduct}
+                // userName={msg?.userName}
+                // index={index}
+                // arrayLength={allMessage?.length}
+                // iconNoImage={<NoImageProduct icon={msg?.category} />}
+                />
+              </>
+            );
+          })}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
+    </>)
 }

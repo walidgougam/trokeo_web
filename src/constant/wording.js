@@ -57,5 +57,19 @@ export default {
   EMAIL: 'Email',
   PHONE: 'Téléphone',
   GENDER: 'Genre',
-  ABOUT: 'A propos'
+  ABOUT: 'A propos',
+
+  /** ABOUT SCREEN */
+  ABOUT_SCREEN_TITLE1: 'Le geste eco-citoyen',
+  ABOUT_SCREEN_TITLE2: 'Economisez de l’argent',
+  ABOUT_SCREEN_TITLE3: 'Faite partagez votre savoir faire',
+  ABOUT_SCREEN_DESCRIPTION1: 'Lutter contre la consommation de masse c’est possible avec Trokéo n’achetez plus, échangez !',
+  ABOUT_SCREEN_DESCRIPTION2: 'Le troc vous permettra d’accéder à des offres répondant à vos besoins tout en vous libérant d’objets encombrants',
+  ABOUT_SCREEN_DESCRIPTION3: 'Proposer vos prestations contre un service ou un objet auprès de la communauté de trokeurs.',
+  /** PAYMENT SCREEN */
+  NUMBER_CARD_PAYMENT: 'Numéro de carte',
+  CARD_OWNER_PAYMENT: 'Titulaire de la carte',
+  LIMIT_DATE_PAYMENT: 'Date d’expiration',
+  CRYPTO_PAYMENT: 'Cryptogramme',
+  DESCRIPTION_PAYMENT: ' Vous êtes sur un serveur de paiement sécurisé par les normes ssl (https) et pcidss de nos partenaires bancaires. Vos données sont encryptées pour plus de sécurité.'
 };

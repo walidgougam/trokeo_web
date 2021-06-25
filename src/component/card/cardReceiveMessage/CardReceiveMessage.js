@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './CardReceiveMessage.scss';
 import Loader from 'react-loader';
-//PICTURE
+import moment from 'moment';
+/** PICTURE */
 import { ReactComponent as GreyDot } from '../../../asset/allSvg/greyDot.svg';
 import axios from 'axios';
-// REDUX
+/** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 // import { getUserAction } from '../../../redux/actions/UserAction';
 
 function CardReceiveMessage({
+  sender,
+  message,
+  createdAt,
+  picture,
+  product,
   conversation,
   chatId,
   currentUser,
@@ -23,6 +29,10 @@ function CardReceiveMessage({
   // REDUX
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.userReducer);
+
+  const displayHour = () => {
+    return moment(createdAt).format('HH:mm');
+  };
 
   // useEffect(() => {
   //   const friendId = conversation.members.find((m) => m !== currentUser._id);
@@ -39,10 +49,10 @@ function CardReceiveMessage({
   //   getUser();
   // }, [currentUser, conversation]);
 
-  if (userStore.isLoading === true || Object.keys(userStore).length === 0)
-  {
-    return <Loader loaded={false} color="green" />;
-  }
+  // if (userStore.isLoading === true || Object.keys(userStore).length === 0)
+  // {
+  //   return <Loader loaded={false} color="green" />;
+  // }
 
   return (
     <div
@@ -55,26 +65,23 @@ function CardReceiveMessage({
       <div
         className="container_image_cardReceiveMessage"
         onClick={() => history.push(`/chat/${chatId}`)}>
-        {pictureProduct ? (
-          <img src={pictureProduct} alt="msg picture" />
+        {picture ? (
+          <img
+            src={
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwLV6l8UzTWhIhHBYxM801tLHtKTzHAjhzxQ&usqp=CAU'
+            }
+            alt="msg picture"
+          /> // replace url by 'picture'
         ) : (
           iconNoImage
         )}
-        <div
-          style={{
-            marginLeft: 10,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}>
+        <div className="wrapper_cardReceiveMessage">
           <div>
-            <p className="text_name_cardReceiveMessage">
-              {userStore?.firstName}
-            </p>
-            <p className="text_title_cardReceiveMessage">{titleProduct}</p>
+            <p className="text_name_cardReceiveMessage">{sender}</p>
+            <p className="text_title_cardReceiveMessage">{product?.title}</p>
           </div>
           <p className="text_lastmessage_cardReceiveMessage">
-            16:52 - first message first message first message
+            {`${displayHour()} - ${message}`}
           </p>
         </div>
       </div>

@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import Navbar from '../../component/navbar/Navbar';
-import IconTakePicture from '../../component/picture/iconTakePicture/IconTakePicture';
 import './CreateProduct.scss';
 import { goodsCondition, goodCategories, serviceCategories } from '../../Helpers'
-/** COMPONENT */
-import BtnNext from '../../component/btn/BtnNext';
-import Footer from '../../component/footer/Footer';
 import wording from '../../constant/wording';
+/** COMPONENT */
+import { HeaderChooseGoodOrService, HeaderGreen, Navbar, IconTakePicture, BtnNext, Footer } from '../../component/index';
 
-function CreateProduct({ location }) {
+function CreateProduct(props) {
   /** STATE */
   const [state, setState] = useState({
     isService: false,
@@ -95,7 +90,8 @@ function CreateProduct({ location }) {
   // };
 
   return (
-    <div>
+    <>
+      <Navbar props={props} />
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService
         onChange={(e) => setState({ ...state, isService: !state.isService })}
@@ -205,7 +201,7 @@ function CreateProduct({ location }) {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,8 +1,6 @@
 import React from 'react';
 /** COMPONENT */
-import Footer from '../../../component/footer/Footer';
-import HeaderGreen from '../../../component/headerGreen/HeaderGreen';
-import Navbar from '../../../component/navbar/Navbar';
+import { Footer, HeaderGreen, Navbar } from '../../../component/index'
 import wording from '../../../constant/wording';
 import './ForbiddenServices.scss';
 

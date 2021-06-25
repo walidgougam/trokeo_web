@@ -1,11 +1,13 @@
 import React from 'react';
 import './ThumbnailProfile.scss';
-import PictureIconProfile from '../picture/picture/PictureIconProfile';
+/** COMPONENT*/
+import { PictureIconProfile } from '../index';
+/** SVG */
 import { ReactComponent as Star } from '../../asset/allSvg/star_full.svg';
 import { ReactComponent as ArrowRight } from '../../asset/allSvg/arrow_right.svg';
 import moment from 'moment';
 
-function ThumbnailProfile({ history, name, createdProfileAt }) {
+function ThumbnailProfile({ props, name, createdProfileAt }) {
   return (
     <div className="container_thumbnailprofile">
       <div className="wrapper_top_thumbnail_thumbnailprofile">
@@ -28,7 +30,8 @@ function ThumbnailProfile({ history, name, createdProfileAt }) {
           <p className="text_city_thumbnailprofile">haut de seine france</p>
           <div
             className="wrapper_review_thumbnailprofile"
-            onPress={() => history.push('/review/2')}>
+            onClick={() => props.history.push('/allreview/2')}
+          >
             <p>voir les avis</p>
             <div>
               <ArrowRight />

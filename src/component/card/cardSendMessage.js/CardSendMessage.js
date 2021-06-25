@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './CardSendMessage.scss';
 import './ChatFooter.scss';
-import ChatHeader from '../../chatHeader/ChatHeader';
-// import ChatList from '../chatList/ChatList';
-import Message from '../../message/Message';
-import { allChat } from '../../../Helpers';
-import Messages from '../../Messages/Messages';
-import { ReactComponent as SelectPicture } from '../../../asset/allSvg/hide_password.svg';
 import axios from 'axios';
 import io from 'socket.io-client';
 import { getMessageUrl } from '../../../API/constant';
-//REDUX
+import { allChat } from '../../../Helpers';
+/** SVG */
+import { ReactComponent as SelectPicture } from '../../../asset/allSvg/hide_password.svg';
+/** COMPONENT */
+import ChatHeader from '../../chatHeader/ChatHeader';
+// import ChatList from '../chatList/ChatList';
+import Message from '../../message/Message';
+import Messages from '../../messages/Messages';
+/** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 import { getMessageAction } from '../../../redux/actions/ChatAction';
 

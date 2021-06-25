@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import wording from '../../constant/wording';
 import './Payment.scss';
 /** COMPOENENT */
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import BtnNext from '../../component/btn/BtnNext';
+import { HeaderGreen, BtnNext } from '../../component/index'
 /** PICTURE */
 import { ReactComponent as IconSecurity } from '../../asset/allSvg/icon_securitypayment.svg';
 import { ReactComponent as IconCb } from '../../asset/allSvg/icon_cb.svg';
@@ -12,26 +11,34 @@ import { ReactComponent as IconVisa } from '../../asset/allSvg/icon_visa.svg';
 import Footer from '../../component/footer/Footer';
 
 function Payment() {
-    const [price, setPrice] = useState('2,99');
-    const [cardNumber, setCardNumber] = useState('');
-    const [cardName, setCardName] = useState('');
-    const [cardLimitDate, setCardLimitDate] = useState('');
-    const [cardCryptoNumber, setCardCryptoNumber] = useState('');
+
+    const [state, setState] = ({
+        price: '2,99',
+        cardNumber: '',
+        cardName: '',
+        cardLimitDate: '',
+        cardCryptoNumber: ''
+    })
 
     const handlePayment = () => {
         console.log('payment');
     };
+
+    const handleState = (event) => {
+        const value = event.target.value;
+        setState({ ...state, [event.target.name]: value })
+    }
     return (
         <>
             <HeaderGreen title={wording.PAYMENT} />
             <div className="container_payment">
                 <div className="wrapper_amount_payment">
                     <p className="amout_payment">
-                        Montant à payer: <span>{`${price}€`}</span>
+                        Montant à payer: <span>{`${state.price}€`}</span>
                     </p>
                     <div style={{ borderTop: "1px solid #BFBDBD" }}></div>
                     <p className="subscription_payment">
-                        Abonnement à {price}€/mois renouvelé automatiquement.
+                        Abonnement à {state.price}€/mois renouvelé automatiquement.
                     </p>
                 </div>
                 <div className="wrapper_icon_payment">
@@ -50,23 +57,25 @@ function Payment() {
                         }}>
                         <div className="wrapper_input_payment">
                             <label className="label_payment">
-                                <span>*</span>Numéro de carte
+                                <span>*</span>{wording.NUMBER_CARD_PAYMENT}
                                 <input
                                     className="input_payment"
                                     type="text"
-                                    value={cardNumber}
-                                    onChange={() => console.log('change')}
+                                    name='cardNumber'
+                                    value={state.cardNumber}
+                                    onChange={(e) => handleState(e)}
                                 />
                             </label>
                         </div>
                         <div className="wrapper_input_payment">
                             <label className="label_payment">
-                                <span>*</span>Titulaire de la carte
+                                <span>*</span>{wording.CARD_OWNER_PAYMENT}
                                 <input
                                     className="input_payment"
                                     type="text"
-                                    value={cardName}
-                                    onChange={() => console.log('change')}
+                                    name="cardName"
+                                    value={state.cardName}
+                                    onChange={(e) => handleState(e)}
                                     placeholder={wording.NAME_CARD_PLACEHOLDER}
                                 />
                             </label>
@@ -80,24 +89,26 @@ function Payment() {
                         }}>
                         <div className="wrapper_input_payment">
                             <label className="label_payment">
-                                <span>*</span>Date d’expiration
+                                <span>*</span>{wording.LIMIT_DATE_PAYMENT}
                                 <input
                                     className="input_payment"
                                     type="text"
-                                    value={cardLimitDate}
-                                    onChange={() => console.log('change')}
+                                    name="cardLimitDate"
+                                    value={state.cardLimitDate}
+                                    onChange={(e) => handleState(e)}
                                     placeholder={wording.DATE_CARD_PLACEHOLDER}
                                 />
                             </label>
                         </div>
                         <div className="wrapper_input_payment">
                             <label className="label_payment">
-                                <span>*</span>Cryptogramme
+                                <span>*</span>{wording.CRYPTO_PAYMENT}
                                 <input
                                     className="input_payment"
                                     type="text"
-                                    value={cardCryptoNumber}
-                                    onChange={() => console.log('change')}
+                                    name="cardCryptoNumber"
+                                    value={state.cardCryptoNumber}
+                                    onChange={(e) => handleState(e)}
                                     placeholder={wording.CARD_EXAMPLE_PLACEHOLDER}
                                 />
                             </label>
@@ -107,12 +118,10 @@ function Payment() {
                 <div className="text_bottom_payment">
                     <p>*Champ obligatoire</p>
                     <p>
-                        Vous êtes sur un serveur de paiement sécurisé par les normes ssl
-                        (https) et pcidss de nos partenaires bancaires. Vos données sont
-                        encryptées pour plus de sécurité.
+                        {wording.DESCRIPTION_PAYMENT}
                     </p>
                 </div>
-                <div style={{ display: "flex", justifyContent: 'center', marginTop: 42, marginBottom: 164 }}>
+                <div className="wrapper_btn_payment">
                     <BtnNext title="Confirmer" onClick={() => handlePayment()} style={{ width: 252, height: 42 }} />
                 </div>
             </div>

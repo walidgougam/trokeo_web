@@ -1,14 +1,17 @@
 @import '../../scss/colors';
 
-.container_review {
+.container_givereview {
   display: flex;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 40px;
-  .wrapper_card_review {
+  .wrapper_card_givereview {
     width: 568px;
     height: 618px;
     border: solid 1px $grey-light;
-    // display: flex;
+    .wrapper_givereview {
+      margin-left: 26px;
+      margin-right: 31px;
+    }
   }
 }

@@ -1,29 +1,39 @@
 import React, { useState } from 'react';
-import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import Navbar from '../../component/navbar/Navbar';
-import IconTakePicture from '../../component/picture/iconTakePicture/IconTakePicture';
 import './CreateProduct.scss';
-import BtnNext from '../../component/btn/BtnNext';
-import Footer from '../../component/footer/Footer';
+/** COMPONENT */
+import {
+    HeaderChooseGoodOrService,
+    HeaderGreen,
+    Navbar,
+    IconTakePicture,
+    BtnNext,
+    Footer,
+} from '../../component/index';
 
 function EditProduct({ location }) {
     /** STATE */
-    const [isService, setIsService] = useState();
-    const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
-    const [condition, setCondition] = useState();
-    const [category, setCategory] = useState();
-    const [isRequestProduct, setIsRequestProduct] = useState();
+    const [state, setState] = useState({
+        isService: '',
+        title: '',
+        description: '',
+        condition: '',
+        category: '',
+        isRequestProduct: '',
+    });
+    const handleState = (event) => {
+        const value = event.target.value;
+        setState({ ...state, [event.target.name]: value });
+    };
 
     const handleCreateProduct = () => { };
     return (
-        <div>
+        <>
             <HeaderGreen title="Modifier l’annonce" />
             <HeaderChooseGoodOrService
-                onChange={() => setIsService(!isService)}
-                isService={isService}
+                onChange={() => setState({ ...state, isService: !state.isService })}
+                isService={state.isService}
             />
+            {console.log(state, 'state edit product')}
             <div className="container_createproduct">
                 <div className="container_icon_picture_createproduct">
                     <div className="wrapper_icon_picture_createproduct"></div>
@@ -38,8 +48,9 @@ function EditProduct({ location }) {
                         <input
                             className="input_createproduct"
                             type="text"
-                            value={title}
-                            onChange={(e) => setTitle(e)}
+                            value={state.title}
+                            name="title"
+                            onChange={(e) => handleState(e)}
                             placeholder="Titre: lampe, écahelle, cadre…"
                         />
                     </label>
@@ -49,8 +60,9 @@ function EditProduct({ location }) {
                         Description
                         <textarea
                             className="textarea_createproduct"
-                            value={description}
-                            onChange={(e) => setDescription(e)}
+                            value={state.description}
+                            name="description"
+                            onChange={(e) => handleState(e)}
                             placeholder="Donner les caractéristiques du bien proposé (taille, couleur, dimensions …)"
                         />
                     </label>
@@ -62,8 +74,9 @@ function EditProduct({ location }) {
                         <input
                             className="input_createproduct"
                             type="text"
-                            value={condition}
-                            onChange={(e) => setCondition(e)}
+                            value={state.condition}
+                            name="condition"
+                            onChange={(e) => handleState(e)}
                         />
                     </label>
                 </div>
@@ -74,35 +87,32 @@ function EditProduct({ location }) {
                         <input
                             className="input_createproduct"
                             type="text"
-                            value={category}
-                            onChange={(e) => setCategory(e)}
+                            name="category"
+                            value={state.category}
+                            onChange={(e) => handleState(e)}
                         />
                     </label>
                 </div>
                 <div className="separate_line_createproduct"></div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <p className="text_annonce_createproduct">Type d'annonce</p>
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
                         <input
                             type="radio"
-                            value={!isRequestProduct}
+                            value={!state.isRequestProduct}
                             name="gender"
                             style={{ width: 22, height: 22 }}
                         />
-                        <label className="input_annonce_createproduct">
-                            offres
-                        </label>
+                        <label className="input_annonce_createproduct">offres</label>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center", marginTop: 11 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginTop: 11 }}>
                         <input
                             type="radio"
-                            value={!isRequestProduct}
+                            value={!state.isRequestProduct}
                             name="gender"
-                            style={{ width: 22, height: 22, alignItems: "center" }}
+                            style={{ width: 22, height: 22, alignItems: 'center' }}
                         />
-                        <label className="input_annonce_createproduct">
-                            demandes
-                        </label>
+                        <label className="input_annonce_createproduct">demandes</label>
                     </div>
                 </div>
                 <div
@@ -120,7 +130,7 @@ function EditProduct({ location }) {
                 </div>
             </div>
             <Footer />
-        </div>
+        </>
     );
 }
 

@@ -14,7 +14,6 @@ export default function CardNotification({ picture, title, createdAt, index, las
                     <p className="createdAt_cardnotification">il y a {createdAt}</p>
                 </div>
             </div>
-            {console.log(lastIndex, "index length")}
             {index !== lastIndex && <div style={{ borderTop: '1px solid #bfbdbd' }}></div>}
         </>
     )

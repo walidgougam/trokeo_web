@@ -16,9 +16,9 @@ export default function CardProduct({
   const [heart, setHeart] = useState(false);
   return (
     <div className="container_cardproduct">
-      {productPicture?.length > 0 ? (
+      {!productPicture?.length > 0 ? (
         <img
-          src={imageStatic(productPicture[0])}
+          src={productPicture}
           alt="product_image"
           className="image_product_cardproduct"
           onClick={goToProductDetail}

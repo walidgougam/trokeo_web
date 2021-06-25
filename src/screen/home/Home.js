@@ -1,27 +1,29 @@
 import React from 'react';
 import './Home.scss';
-import Navbar from '../../component/navbar/Navbar';
-import HowItWorks from '../../component/howitworks/HowItWorks';
-import Footer from '../../component/footer/Footer';
-import FooterHome from '../../component/footer/FooterHome';
-import CardHomeSearch from '../../component/card/cardHomeSearch/CardHomeSearch';
+/** COMPONENT */
+import { Navbar, HowItWorks, Footer, FooterHome, CardHomeSearch } from '../../component/index'
 
-export default function Home({ location, history }) {
+function Home(props) {
   return (
-    <div>
-      <div className="wrapper_image_home">
-        <div style={{ marginTop: 86, marginLeft: 99 }}>
-          <p className="text1_home">Le troc participatif et solidaire !</p>
-          <p className="text2_home">
-            Recherchez autour de vous ce dont vous avez besoin et faites de
-            place dans vos placards !
-          </p>
+    <>
+      <Navbar props={props} />
+      <div>
+        <div className="wrapper_image_home">
+          <div style={{ marginTop: 86, marginLeft: 99 }}>
+            <p className="text1_home">Le troc participatif et solidaire !</p>
+            <p className="text2_home">
+              Recherchez autour de vous ce dont vous avez besoin et faites de
+              place dans vos placards !
+            </p>
+          </div>
+          <CardHomeSearch props={props} />
         </div>
-        <CardHomeSearch />
+        <HowItWorks />
+        <FooterHome />
+        <Footer />
       </div>
-      <HowItWorks />
-
-      <FooterHome />
-    </div>
+    </>
   );
 }
+
+export default Home

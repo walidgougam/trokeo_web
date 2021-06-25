@@ -6,19 +6,29 @@ import {
   Link,
 } from 'react-router-dom';
 
-export default function CardHomeSearch() {
-  const [isServices, setIsServices] = useState(false);
-  const [category, setCategory] = useState();
+function CardHomeSearch({ props }) {
+  /** STATE */
+
+  const [state, setState] = useState({
+    isServices: false,
+    category: [],
+    city: ''
+  })
+
+  const handleResearch = () => {
+    console.log("research")
+    props.history.push(wording.PRODUCT_URL)
+  }
 
   useEffect(() => {
-    if (!isServices)
+    if (!state.isServices)
     {
-      setCategory(goodCategories);
+      setState({ ...state, category: goodCategories });
     } else
     {
-      setCategory(serviceCategories);
+      setState({ ...state, category: serviceCategories });
     }
-  }, [isServices]);
+  }, [state.isServices]);
 
   return (
     <div className="container_cardhomesearch">
@@ -27,14 +37,14 @@ export default function CardHomeSearch() {
         <div className="wrapper_input_cardhomesearch">
           <input
             type="radio"
-            checked={!isServices}
-            onChange={() => setIsServices(false)}
+            checked={!state.isServices}
+            onChange={() => setState({ ...state, isServices: false })}
           />
           <span>un bien</span>
           <input
             type="radio"
-            checked={isServices}
-            onChange={() => setIsServices(true)}
+            checked={state.isServices}
+            onChange={() => setState({ ...state, isServices: true })}
           />
           <span>un service</span>
         </div>
@@ -42,21 +52,26 @@ export default function CardHomeSearch() {
           Sélectionner la/les catégorie(s) associée(s)
         </p>
         <select className="input_category_cardhomesearch">
-          {category?.map((category, index) => {
+          <option style={{ color: "grey" }} value="" selected disabled>Catégories</option>
+          {state.category?.map((category, index) => {
             return <option key={index}>{category.titleCategory}</option>;
           })}
         </select>
         <p className="question_cardhomesearch">Choississez la localisation ?</p>
         <input
+          value={state.city}
+          onChange={(e) => setState({ ...state, city: e.target.value })}
           placeholder={wording.CITY_PLACEHOLDER}
           className="input_entercity_cardhomesearch"
         />
       </div>
-      <div className="wrapper_btn_cardhomesearch">
-        <Link to={wording.PRODUCT_URL} style={{ textDecoration: 'none' }}>
-          Lancer la recherche
-        </Link>
+      {/* <Link to={wording.PRODUCT_URL} style={{ textDecoration: 'none' }}> */}
+      <div className="wrapper_btn_cardhomesearch" onClick={() => handleResearch()}>
+        <p>Lancer la recherche</p>
       </div>
+      {/* </Link> */}
     </div>
   );
 }
+
+export default CardHomeSearch

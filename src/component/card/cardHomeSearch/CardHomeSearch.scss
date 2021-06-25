@@ -45,17 +45,22 @@
   padding: 7px 14px;
   width: 196px;
 }
+input::placeholder {
+  font-size: 10px;
+  color: #979797;
+  font-family: 'open sans regular';
+}
 .wrapper_btn_cardhomesearch {
+  width: 243px;
+  height: 37px;
   border: solid 1px #00d65b;
   background-color: $white-absolute;
   border-radius: 26px;
-  p:hover {
-    cursor: pointer;
-  }
 }
 .wrapper_btn_cardhomesearch p {
   color: #00d65b;
   text-align: center;
   font-size: 10px;
+  cursor: pointer;
   /* font-family:Open Sans SemiBold ; */
 }

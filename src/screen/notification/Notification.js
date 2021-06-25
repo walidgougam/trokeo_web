@@ -1,10 +1,9 @@
 import React from 'react'
 import './Notification.scss'
-import HeaderGreen from '../../component/headerGreen/HeaderGreen';
-import CardNotification from '../../component/card/cardNotification/CardNotification';
-import Footer from '../../component/footer/Footer';
+import { HeaderGreen, CardNotification, Footer } from '../../component/index';
+import { Navbar } from '../../component';
 
-function Notification() {
+function Notification({ props }) {
 
     const cardProduct = [
         {
@@ -54,6 +53,7 @@ function Notification() {
     ]
     return (
         <div>
+            <Navbar props={props} />
             <HeaderGreen title="Notifications" />
             <div style={{ marginLeft: 139, marginRight: 139 }}>
                 {cardProduct.map((card, index) => {

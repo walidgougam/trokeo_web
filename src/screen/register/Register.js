@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import './Register.scss';
 import { registerApi } from '../../API';
-import BtnFinish from '../../component/btn/BtnFinish';
-import Navbar from '../../component/navbar/Navbar';
-import PictureIconProfile from '../../component/picture/picture/PictureIconProfile';
-import InputForms from '../../component/input/InputForms';
-import InputSelect from '../../component/inputSelect/InputSelect';
 import wording from '../../constant/wording';
+/** COMPONENT */
+import { BtnFinish, Navbar, PictureIconProfile, InputForms, InputSelect } from '../../component/index'
 
-export default function Register({ history, location }) {
-  // STATE
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [female, setFemale] = useState(false);
+function Register({ history, location }) {
+  /** STATE */
+
+  const [state, setState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    female: false
+  })
 
   const handleRegister = () => {
-    registerApi(email, password, firstName, lastName, female, () => {
+    registerApi(state.email, state.password, state.firstName, state.lastName, state.female, () => {
       return history.push('/');
     });
   };
@@ -44,7 +44,7 @@ export default function Register({ history, location }) {
           <p className="text_you_are_register">Vous êtes</p>
           <InputSelect
             onChange={(e) =>
-              e.target.value === 'femme' ? setFemale(true) : setFemale(false)
+              e.target.value === 'femme' ? setState({ ...state, female: true }) : setState({ ...state, female: false })
             }
           />
           <BtnFinish titleBtn="Terminer" onClick={() => handleRegister()} />
@@ -53,3 +53,5 @@ export default function Register({ history, location }) {
     </>
   );
 }
+
+export default Register

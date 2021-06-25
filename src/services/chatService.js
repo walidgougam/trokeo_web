@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getConversationUrl, getOneConversationUrl } from 'api/constant';
+import { getConversationUrl, getOneConversationUrl } from '../API/constant';
 
 const adaptedMessages = (conversation) => {
     return {

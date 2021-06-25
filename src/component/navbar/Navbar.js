@@ -13,22 +13,24 @@ import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
 
-export default function Navbar({ params, history, location }) {
+function Navbar({ props }) {
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
+  const { history } = props
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const userId = await localStorage.getItem('userId');
-  //     setUserid(userId);
-  //     dispatch(getUserAction(userId));
-  //   })();
-  // }, []);
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter')
+    {
+      { console.log(props, "props") }
+      history.push('/product')
+    }
+  }
 
   const isNavtitleSelected = '2px #40CE6A solid';
   return (
     <nav className="container_navbar">
+      {console.log(props, "props navbar")}
       <div className="header_left_navbar">
         <div style={{ margin: 0, cursor: 'pointer' }}>
           <NavLink to="/">
@@ -40,6 +42,7 @@ export default function Navbar({ params, history, location }) {
             type="text"
             className="input_search_word_navbar"
             placeholder="Rechercher des mots clés"
+            onKeyDown={handleKeyDown}
           />
           <img
             src={require('../../asset/allSvg/icon_search.svg')}
@@ -150,3 +153,6 @@ export default function Navbar({ params, history, location }) {
     </nav>
   );
 }
+
+
+export default Navbar

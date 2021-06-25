@@ -1,11 +1,14 @@
 import React from 'react';
 import './ChatHeader.scss';
 import { ReactComponent as IconLocation } from '../../asset/allSvg/icon_location.svg';
+/** COMPONENT */
 import BtnChatHeader from '../btn/btnChatHeader/BtnChatHeader';
+import Navbar from '../../component/navbar/Navbar';
 
-function ChatHeader({ name, productName, location, fromReview }) {
+function ChatHeader(props, { name, productName, location, fromReview }) {
   return (
     <div>
+      <Navbar props={props} />
       <div className="container_chatheader">
         <div className="wrapper_product_chatheader">
           <img
