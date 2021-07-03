@@ -36,6 +36,12 @@
         margin-top: 10px;
         border: 1px solid $grey-light;
       }
+      .input_createproduct::placeholder {
+        font-size: 14px;
+        line-height: 20px;
+        color: #9a9999;
+        // font-family: open sans regular;
+      }
       .textarea_createproduct {
         outline: none;
         box-sizing: border-box;
@@ -45,6 +51,12 @@
         height: 133px;
         margin-top: 10px;
         border: 1px solid $grey-light;
+      }
+      .textarea_createproduct::placeholder {
+        font-size: 14px;
+        line-height: 20px;
+        color: #9a9999;
+        // font-family: open sans regular;
       }
     }
   }

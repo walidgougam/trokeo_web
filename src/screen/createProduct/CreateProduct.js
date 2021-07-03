@@ -89,6 +89,10 @@ function CreateProduct(props) {
   //     })
   // };
 
+  const handleCreateProduct = () => {
+    console.log(state, "state")
+  }
+
   return (
     <>
       <Navbar props={props} />
@@ -195,7 +199,7 @@ function CreateProduct(props) {
           }}>
           <BtnNext
             title="Enregistrez"
-            onClick={() => console.log('handleCreateProduct')}
+            onClick={() => handleCreateProduct()}
             style={{ width: 252, height: 42 }}
           />
         </div>

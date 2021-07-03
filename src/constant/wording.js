@@ -29,6 +29,14 @@ export default {
   GIVE_REVIEW: 'Laissez un avis',
   CREATE_PRODUCT: 'Créer une annonce',
   PAYMENT: 'Paiements',
+  CGU: 'Conditions d’utilisation',
+
+  /** PROFILE OPTION */
+  SEE_PROFILE: 'Voir mon profil',
+  FAVORITES: 'Favoris',
+  ORGANIZATION_MODE: 'Mode association',
+  EVALUATE_APP: 'Evaluer l’application',
+  HELP_CENTER: 'Centre d’aide',
 
   /** AUTRE */
   RESEARCH: 'Lancer la recherche',
@@ -41,19 +49,20 @@ export default {
   PASSABLE: 'Passable',
 
   /** PLACEHOLDER */
-  DESCRIPTION_PLACEHOLDER: "Donner les caractéristiques du bien proposé (taille, couleur, dimensions …)",
-  TITLE_PLACEHOLDER: "Titre: lampe, écahelle, cadre…",
-  CITY_PLACEHOLDER: "Entrez une ville",
-  PASSWORD: "Mot de passe",
-  NEW_PASSWORD_PLACEHOLDER: "Nouveau mot de passe",
-  FORMER_PASSWORD_PLACEHOLDER: "Ancien mot de passe",
-  NAME_CARD_PLACEHOLDER: "Nom écrit sur la carte",
-  DATE_CARD_PLACEHOLDER: "MM/AA",
-  CARD_EXAMPLE_PLACEHOLDER: "Exemple: 123",
+  DESCRIPTION_PLACEHOLDER:
+    'Donner les caractéristiques du bien proposé (taille, couleur, dimensions …)',
+  TITLE_PLACEHOLDER: 'Titre: lampe, écahelle, cadre…',
+  CITY_PLACEHOLDER: 'Entrez une ville',
+  PASSWORD: 'Mot de passe',
+  NEW_PASSWORD_PLACEHOLDER: 'Nouveau mot de passe',
+  FORMER_PASSWORD_PLACEHOLDER: 'Ancien mot de passe',
+  NAME_CARD_PLACEHOLDER: 'Nom écrit sur la carte',
+  DATE_CARD_PLACEHOLDER: 'MM/AA',
+  CARD_EXAMPLE_PLACEHOLDER: 'Exemple: 123',
 
   /** USER */
   FIRST_NAME: 'Prénom',
-  LAST_NAME: "Nom",
+  LAST_NAME: 'Nom',
   EMAIL: 'Email',
   PHONE: 'Téléphone',
   GENDER: 'Genre',
@@ -63,13 +72,17 @@ export default {
   ABOUT_SCREEN_TITLE1: 'Le geste eco-citoyen',
   ABOUT_SCREEN_TITLE2: 'Economisez de l’argent',
   ABOUT_SCREEN_TITLE3: 'Faite partagez votre savoir faire',
-  ABOUT_SCREEN_DESCRIPTION1: 'Lutter contre la consommation de masse c’est possible avec Trokéo n’achetez plus, échangez !',
-  ABOUT_SCREEN_DESCRIPTION2: 'Le troc vous permettra d’accéder à des offres répondant à vos besoins tout en vous libérant d’objets encombrants',
-  ABOUT_SCREEN_DESCRIPTION3: 'Proposer vos prestations contre un service ou un objet auprès de la communauté de trokeurs.',
+  ABOUT_SCREEN_DESCRIPTION1:
+    'Lutter contre la consommation de masse c’est possible avec Trokéo n’achetez plus, échangez !',
+  ABOUT_SCREEN_DESCRIPTION2:
+    'Le troc vous permettra d’accéder à des offres répondant à vos besoins tout en vous libérant d’objets encombrants',
+  ABOUT_SCREEN_DESCRIPTION3:
+    'Proposer vos prestations contre un service ou un objet auprès de la communauté de trokeurs.',
   /** PAYMENT SCREEN */
   NUMBER_CARD_PAYMENT: 'Numéro de carte',
   CARD_OWNER_PAYMENT: 'Titulaire de la carte',
   LIMIT_DATE_PAYMENT: 'Date d’expiration',
   CRYPTO_PAYMENT: 'Cryptogramme',
-  DESCRIPTION_PAYMENT: ' Vous êtes sur un serveur de paiement sécurisé par les normes ssl (https) et pcidss de nos partenaires bancaires. Vos données sont encryptées pour plus de sécurité.'
+  DESCRIPTION_PAYMENT:
+    ' Vous êtes sur un serveur de paiement sécurisé par les normes ssl (https) et pcidss de nos partenaires bancaires. Vos données sont encryptées pour plus de sécurité.',
 };
