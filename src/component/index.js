@@ -21,7 +21,7 @@ import HowItWorks from './howitworks/HowItWorks';
 import InputForms from './inputForms/InputForms';
 import InputSelect from './inputSelect/InputSelect';
 import Message from './message/Message';
-import Messages from './messages/Messages';
+import Messages from './messages/Messages.js';
 import Navbar from './navbar/Navbar';
 import NoProductComponent from './noProduct/NoProductComponent';
 import IconTakePicture from './picture/iconTakePicture/IconTakePicture';
