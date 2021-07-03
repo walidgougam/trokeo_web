@@ -8,10 +8,7 @@ import { allChat } from '../../../Helpers';
 /** SVG */
 import { ReactComponent as SelectPicture } from '../../../asset/allSvg/hide_password.svg';
 /** COMPONENT */
-import ChatHeader from '../../chatHeader/ChatHeader';
-// import ChatList from '../chatList/ChatList';
-import Message from '../../message/Message';
-import Messages from '../../index';
+import { Messages, Message, ChatHeader } from '../../index';
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 import { getMessageAction } from '../../../redux/actions/ChatAction';

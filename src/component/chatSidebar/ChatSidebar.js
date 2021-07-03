@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import "./ChatSidebar.scss"
-import Message from '../message/Message';
+import { Message } from '../index';
 
 export default function ChatSidebar() {
     return (

@@ -1,10 +1,8 @@
 import React from 'react';
-
-import Message from '../message/Message';
-
+import { Message } from '../index';
 import './Messages.css';
 
-const Messages = ({allChat}) => (
+const Messages = ({ allChat }) => (
   <div className="messages">
     {allChat.map((msg, index) => {
       return (
