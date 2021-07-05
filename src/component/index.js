@@ -34,6 +34,12 @@ import PasswordSetting from './setting/passwordSetting/PasswordSetting';
 import PaymentSetting from './setting/paymentSetting/PaymentSetting';
 import ThumbnailProfile from './thumbnailProfile/ThumbnailProfile';
 import Sidebar from './sidebar/Sidebar'
+import ConnexionHelpCenter from './helpCenter/connexionHelpCenter/ConnexionHelpCenter'
+import ExchangeHelpCenter from './helpCenter/exchangeHelpCenter/ExchangeHelpCenter'
+import ProposeGoodHelpCenter from './helpCenter/proposeGoodHelpCenter/ProposeGoodHelpCenter'
+import ResearchHelpCenter from './helpCenter/researchHelpCenter/ResearchHelpCenter'
+import SubscribeHelpCenter from './helpCenter/subscribeHelpCenter/SubscribeHelpCenter'
+
 
 export {
     BtnChatHeader,
@@ -45,31 +51,36 @@ export {
     CardFollowCategory,
     CardHomeSearch,
     CardNotification,
+    CardSetting,
     CardProduct,
     CardReceiveMessage,
     CardReview,
     CardSendMessage,
     ChatHeader,
+    ConnexionHelpCenter,
+    ExchangeHelpCenter,
     Footer,
     FooterHome,
     HeaderChooseGoodOrService,
     HeaderGreen,
     HeaderGreenOrganization,
     HowItWorks,
+    IconTakePicture,
     InputForms,
     InputSelect,
     Message,
     Messages,
     Navbar,
     NoProductComponent,
-    IconTakePicture,
     NoImageProduct,
+    NotificationSetting,
     PictureIconProfile,
     ProfileOption,
-    CardSetting,
-    NotificationSetting,
+    ProposeGoodHelpCenter,
     PasswordSetting,
     PaymentSetting,
+    ResearchHelpCenter,
+    Sidebar,
+    SubscribeHelpCenter,
     ThumbnailProfile,
-    Sidebar
 };

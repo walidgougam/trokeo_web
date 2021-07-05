@@ -85,4 +85,9 @@ export default {
   CRYPTO_PAYMENT: 'Cryptogramme',
   DESCRIPTION_PAYMENT:
     ' Vous êtes sur un serveur de paiement sécurisé par les normes ssl (https) et pcidss de nos partenaires bancaires. Vos données sont encryptées pour plus de sécurité.',
+  /** BTN */
+  NOTIFICATION_BTN: 'Notifications',
+  PERSONAL_DATA_BTN: 'Données personnelles',
+  PASSWORD_BTN: 'Mot de passe',
+  DISCONNECT_BTN: 'Déconnection',
 };

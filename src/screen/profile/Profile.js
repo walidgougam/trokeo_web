@@ -1,21 +1,32 @@
-import React from "react";
-import "./Profile.scss";
+import React from 'react';
+import './Profile.scss';
 /** COMPONENT */
-import { ProfileOption, Navbar, HeaderGreen, ThumbnailProfile, Footer } from '../../component/index'
+import {
+  ProfileOption,
+  Navbar,
+  HeaderGreen,
+  ThumbnailProfile,
+  Footer,
+} from '../../component/index';
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 
-function Profile({ props }) {
+const Profile = ({ props }) => {
   /** REDUX */
-  const userStore = useSelector((state) => state.authReducer)
-
-  const name = `${userStore.user.firstName}_${userStore.user.lastName.charAt(0)}`
+  const userStore = useSelector((state) => state.authReducer);
+  const name = `${userStore.user.firstName}_${userStore.user.lastName.charAt(
+    0,
+  )}`;
   return (
     <>
       <HeaderGreen />
       <div style={{ marginLeft: '13.5%', marginRight: '13.5%' }}>
-        <ThumbnailProfile props={props} name={name} createdProfileAt={userStore.user.createdAt} />
-        <ProfileOption />
+        <ThumbnailProfile
+          props={props}
+          name={name}
+          createdProfileAt={userStore.user.createdAt}
+        />
+        <ProfileOption props={props} />
       </div>
       <Footer />
     </>

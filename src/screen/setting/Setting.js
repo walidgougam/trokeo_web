@@ -11,6 +11,7 @@ import {
   PasswordSetting,
   NotificationSetting,
 } from '../../component/index';
+import wording from '../../constant/wording';
 
 export default function Setting({ location }) {
   /** STATE */
@@ -27,33 +28,33 @@ export default function Setting({ location }) {
         <BtnSetting
           active={activeNotification}
           onClick={() => setActiveNotification(!activeNotification)}
-          titleBtn="Notifications"
+          titleBtn={wording.NOTIFICATION_BTN}
           component={<NotificationSetting />}
         />
         <BtnSetting
           active={activePersonalData}
           onClick={() => setActivePersonalData(!activePersonalData)}
-          titleBtn="Données personnelles"
+          titleBtn={wording.PERSONAL_DATA_BTN}
           paddingTop={28}
         />
         <BtnSetting
           active={activePassword}
           onClick={() => setActivePassword(!activePassword)}
-          titleBtn="Mot de passe"
+          titleBtn={wording.PASSWORD_BTN}
           paddingTop={28}
           component={<PasswordSetting />}
         />
         <BtnSetting
           active={activePayment}
           onClick={() => setActivePayment(!activePayment)}
-          titleBtn="Paiements"
+          titleBtn={wording.PAYMENT}
           paddingTop={28}
           component={<PaymentSetting />}
         />
         <BtnSetting
           active={activeDeconnection}
           onClick={() => setActiveDeconnection(!activeDeconnection)}
-          titleBtn="Déconnection"
+          titleBtn={wording.DISCONNECT_BTN}
           paddingTop={28}
         />
       </div>

@@ -9,16 +9,16 @@ import {
 import {
   AllMessage,
   AllReview,
+  About,
   Chat,
   CreateProduct,
   EditProfile,
   EditProduct,
   FavoritesScreen,
   FollowCategory,
-  About,
   ForbiddenServices,
-  Terms,
   GiveReview,
+  HelpCenter,
   Home,
   Login,
   Notification,
@@ -29,6 +29,7 @@ import {
   Profile,
   Register,
   Setting,
+  Terms,
 } from './screen/index'
 import { Footer, Navbar } from './component/index';
 import ProtectedRoute from './ProtectedRoute';
@@ -65,6 +66,7 @@ const App = ({ history }) => {
         <ProtectedRoute exact path="/payment" component={Payment} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/notification" component={Notification} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />
       </Switch>
     </BrowserRouter>
   );

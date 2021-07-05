@@ -11,7 +11,7 @@ import { getConversationAction } from '../../redux/actions/ChatAction';
 /** SERVICES */
 import { GetConversations } from "../../services/chatService";
 
-export default function AllMessage(props) {
+function AllMessage(props) {
   /** STATE */
   const [state, setState] = useState({
     userId: '',
@@ -20,12 +20,14 @@ export default function AllMessage(props) {
   })
   /** REDUX */
   const dispatch = useDispatch();
-  // const conversations = useSelector((state) => state.conversationReducer);
+  const userStore = useSelector((state) => state.authReducer);
 
   useEffect(() => {
+    console.log(userStore.user._id, "ZONE")
     // get conversationList
-    GetConversations()
+    GetConversations(userStore.user._id, userStore.token)
       .then((res) => {
+        console.log(res, "resresres")
         setState({ ...state, conversations: res })
         setState({ ...state, isLoading: false })
       })
@@ -57,6 +59,7 @@ export default function AllMessage(props) {
   return (
     <>
       <Navbar props={props} />
+      {console.log(state.conversations, "state conversations")}
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Messages" />
         <div className="container_allmessage" style={{ flex: '1' }}>
@@ -95,3 +98,5 @@ export default function AllMessage(props) {
       </div>
     </>)
 }
+
+export default AllMessage

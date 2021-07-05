@@ -21,14 +21,13 @@ const adaptedMessages = (conversation) => {
     }
 }
 // get conversation List
-export const GetConversations = async () => {
-    const userid = await localStorage.getItem('userId')
+export const GetConversations = async (userid, token) => {
     try
     {
         const res = await axios({
             method: 'GET',
             url: getConversationUrl(userid),
-            headers: { Authorization: 'Bearer ' + await localStorage.getItem('jwt') }
+            headers: { Authorization: 'Bearer ' + token }
         });
 
         return res && res.data.map(adaptedMessages)

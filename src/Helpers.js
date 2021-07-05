@@ -163,15 +163,15 @@ export const allMessage = [
 ];
 
 export const allOptionsProfile = [
-  { title: 'Voir mon profil', icon: <Pencil /> },
-  { title: 'Favoris', icon: <Heart /> },
-  { title: 'Mode association', icon: <Hands /> },
-  { title: 'Personnalisation', icon: <Custom /> },
-  { title: 'Paramètres', icon: <Setting /> },
-  { title: 'A propos de Trokéo', icon: <About /> },
-  { title: 'Conditions d’utilisation', icon: <Custom2 /> },
-  { title: 'Evaluer l’application', icon: <Great /> },
-  { title: 'Centre d’aide', icon: <Question /> },
+  { title: wording.SEE_PROFILE, icon: <Pencil /> },
+  { title: wording.FAVORITES, icon: <Heart /> },
+  { title: wording.ORGANIZATION_MODE, icon: <Hands /> },
+  { title: wording.CUSTOMIZATION, icon: <Custom /> },
+  { title: wording.SETTINGS, icon: <Setting /> },
+  { title: wording.ABOUT_TROKEO, icon: <About /> },
+  { title: wording.CGU, icon: <Custom2 /> },
+  { title: wording.EVALUATE_APP, icon: <Great /> },
+  { title: wording.HELP_CENTER, icon: <Question /> },
 ];
 
 export const allChat = [

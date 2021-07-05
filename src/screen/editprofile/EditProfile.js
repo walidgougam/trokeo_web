@@ -14,7 +14,7 @@ import {
   BtnFinish,
 } from '../../component/index';
 
-function EditProfile() {
+function EditProfile(props) {
   const [state, setState] = useState({
     lastName: '',
     firstName: '',
@@ -32,8 +32,8 @@ function EditProfile() {
   };
 
   return (
-    <div>
-      {console.log(state, 'state')}
+    <>
+      <Navbar props={props} />
       <HeaderGreen title="Mise à jour du profil" />
       <div style={{ marginLeft: 139, marginRight: 139 }}>
         <div className="wrapper_picture_editprofile">
@@ -127,7 +127,7 @@ function EditProfile() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
