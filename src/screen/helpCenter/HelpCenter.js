@@ -16,6 +16,7 @@ import {
     ResearchHelpCenter,
     SubscribeHelpCenter,
 } from '../../component/index';
+import StickyFooter from 'react-sticky-footer';
 
 function HelpCenter(props) {
     /** STATE */
@@ -26,7 +27,7 @@ function HelpCenter(props) {
     const [subscribe, setSubscribe] = useState(false);
 
     return (
-        <div>
+        <div className="container_helpcenter">
             <Navbar props={props} />
             <HeaderGreen title="Centre d'aide" />
             <div className="container_central_setting">
@@ -65,7 +66,19 @@ function HelpCenter(props) {
                     component={<SubscribeHelpCenter />}
                 />
             </div>
-            <Footer />
+            <StickyFooter
+                bottomThreshold={200}
+                normalStyles={{
+                    backgroundColor: "white",
+                    padding: "2rem"
+                }}
+                stickyStyles={{
+                    backgroundColor: "rgba(255,255,255,.8)",
+                    padding: "2rem"
+                }}
+            >
+                <Footer />
+            </StickyFooter>
         </div>
     );
 }

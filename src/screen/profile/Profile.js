@@ -18,7 +18,8 @@ const Profile = ({ props }) => {
     0,
   )}`;
   return (
-    <>
+    <div className='container_profile'>
+      <Navbar props={props} />
       <HeaderGreen />
       <div style={{ marginLeft: '13.5%', marginRight: '13.5%' }}>
         <ThumbnailProfile
@@ -29,7 +30,7 @@ const Profile = ({ props }) => {
         <ProfileOption props={props} />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -16,7 +16,7 @@ function AllMessage(props) {
   const [state, setState] = useState({
     userId: '',
     conversations: [],
-    isLoading: true
+    isLoading: false
   })
   /** REDUX */
   const dispatch = useDispatch();
@@ -59,7 +59,6 @@ function AllMessage(props) {
   return (
     <>
       <Navbar props={props} />
-      {console.log(state.conversations, "state conversations")}
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Messages" />
         <div className="container_allmessage" style={{ flex: '1' }}>

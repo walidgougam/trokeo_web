@@ -12,13 +12,13 @@ function ProfileOption({ props }) {
             case wording.SEE_PROFILE:
                 return props.history.push('/profile/edit');
             case wording.FAVORITES:
-                return props.history.push('/hello');
+                return props.history.push('/favorites');
             case wording.ORGANIZATION_MODE:
                 return props.history.push('/hello');
             case wording.CUSTOMIZATION:
                 return props.history.push('/hello');
             case wording.SETTINGS:
-                return props.history.push('/hello');
+                return props.history.push('/setting');
             case wording.ABOUT_TROKEO:
                 return props.history.push('/about');
             case wording.CGU:

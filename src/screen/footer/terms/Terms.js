@@ -24,64 +24,64 @@ function Terms() {
                 </p>
                 <p className="title_terms">ARTICLE 1 – Définitions</p>
                 <p className="text_terms">
-                    <span style={{ fontWeight: 'bold' }}>Application trokeo</span> Désigne
+                    <span style={{ fontWeight: 'bold' }}>Application trokeo</span> désigne
                     l’application mobile trokeo déclinée sous les systèmes d’exploitation
                     Android et iOS et WEB et disponible en téléchargement sur l’Apple
                     Store et Google Play. Elle permet aux Utilisateurs de réaliser des
                     Échanges.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Association</span> Désigne un type de Page créé par le représentant
+                    <br /> <span style={{ fontWeight: 'bold' }}>Association</span> désigne un type de Page créé par le représentant
                     légal d’une association soumise à la loi de 1901 (ou toute autre
                     personnes dûment habilitée à cet effet), légalement constituée,
                     utilisatrice de l’Application trokeo pour leur propre compte et à des
                     fins non-professionnelles.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Bien</span> Désigne les objets mobiliers demandés ou proposés par un
+                    <br /> <span style={{ fontWeight: 'bold' }}>Bien</span> désigne les objets mobiliers demandés ou proposés par un
                     Utilisateur dans le cadre d’une Demande ou d’une Offre sur
                     l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Personnalisation</span> Désignent des groupes de catégories de Biens
+                    <br /> <span style={{ fontWeight: 'bold' }}>Personnalisation</span> désigne des groupes de catégories de Biens
                     et de Services renseignés par l’Utilisateur et lui permettant de
                     recevoir des annonces suggérées au regard des critères renseignés.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Chat</span>Désigne le service de messagerie instantanée mis à la
+                    <br /> <span style={{ fontWeight: 'bold' }}>Chat</span> désigne le service de messagerie instantanée mis à la
                     disposition des Utilisateurs de l’Application trokeo. Le Chat a pour
                     vocation de simplifier les Échanges entre Utilisateurs, et de les
                     aider à planifier leurs rencontres.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Clients</span> Désigne toute personne ayant souscrit un contrat de
+                    <br /> <span style={{ fontWeight: 'bold' }}>Clients</span> désigne toute personne ayant souscrit un contrat de
                     prestation de services avec trokeo portant sur l’utilisation de
                     l’Application trokeo ou du Dashboard.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Compte</span> Désigne le compte qui doit être créé par les
+                    <br /> <span style={{ fontWeight: 'bold' }}>Compte</span> désigne le compte qui doit être créé par les
                     Utilisateurs, obligatoire pour l’utilisation de l’Application trokeo.
                     Le Compte rassemble l’ensemble des données relatives à l’Utilisateur
                     permettant notamment l’accès aux services de l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>CGU</span> ou Conditions Générales d’Utilisation Désigne les présentes
+                    <br /> <span style={{ fontWeight: 'bold' }}>CGU</span> ou Conditions Générales d’Utilisation désigne les présentes
                     conditions générales d’utilisation de l’Application Trokéo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Demande</span> Désigne un besoin de Bien ou de Service exprimé sur
+                    <br /> <span style={{ fontWeight: 'bold' }}>Demande</span> désigne un besoin de Bien ou de Service exprimé sur
                     l’Application trokeo par un Utilisateur ou la réponse à une
                     proposition de mise à disposition d’un Bien ou offre de Service faite
                     sur l’Application trokeo par un Utilisateur.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Demandeur</span> Désigne un Utilisateur qui a exprimé une Demande sur
+                    <br /> <span style={{ fontWeight: 'bold' }}>Demandeur</span> désigne un Utilisateur qui a exprimé une Demande sur
                     l’Application trokeo. Le Demandeur peut également être un Utilisateur
                     qui répond à une proposition de Bien ou de Service déjà en ligne sur
                     l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Echange</span> Désigne l’opération par laquelle les Utilisateurs
+                    <br /> <span style={{ fontWeight: 'bold' }}>Echange</span> désigne l’opération par laquelle les Utilisateurs
                     s’échangent des Biens ou des Services à la suite d’une Demande ou
                     d’une Offre faite sur l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Offrant</span> Désigne l’Utilisateur ou la Page qui propose un Bien ou
+                    <br /> <span style={{ fontWeight: 'bold' }}>Offrant</span> désigne l’Utilisateur ou la Page qui propose un Bien ou
                     un Service sur l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Offre</span> Désigne une proposition de Bien ou de service mise en
+                    <br /> <span style={{ fontWeight: 'bold' }}>Offre</span> désigne une proposition de Bien ou de service mise en
                     ligne par un Utilisateur ou une Page sur l’Application trokeo.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Identifiants</span> Désignent les informations suivantes : nom,
+                    <br /> <span style={{ fontWeight: 'bold' }}>Identifiants</span> désigne les informations suivantes : nom,
                     pseudonyme, et mot de passe choisis par l’Utilisateur, lui permettant
                     de créer un Compte pour accéder à l’Application trokeo. Pour créer un
                     Compte, un Utilisateur peut également se servir de son profil
@@ -91,16 +91,16 @@ function Terms() {
                     compte Facebook.
                     <br />
                     <br />
-                    <span style={{ fontWeight: 'bold' }}>Identifiants</span> de la Page Désignent les informations suivantes :
+                    <span style={{ fontWeight: 'bold' }}>Identifiants</span> de la Page désignent les informations suivantes :
                     identifiants et mot de passe choisis par l’administrateur de la Page
                     et lui permettant d’ajouter d’autres administrateurs de la Page.
                     <br />
-                    <br /> <span style={{ fontWeight: 'bold' }}>Service</span> Désigne la ou les prestations demandées ou proposées
+                    <br /> <span style={{ fontWeight: 'bold' }}>Service</span> désigne la ou les prestations demandées ou proposées
                     par un Utilisateur dans le cadre d’une Demande ou d’une Offre sur
                     l’Application trokeo.
                     <br />
                     <br />
-                    <span style={{ fontWeight: 'bold' }}>Utilisateur</span> Désigne toute personne physique, Entreprise, Association,
+                    <span style={{ fontWeight: 'bold' }}>Utilisateur</span> désigne toute personne physique, Entreprise, Association,
                     Organisme Public ou toute autre entité inscrite, disposant d’un Compte
                     ou d’une Page et utilisant l’Application trokeo, de manière régulière
                     ou occasionnelle, à titre non professionnel. Pour être en mesure
