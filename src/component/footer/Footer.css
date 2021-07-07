@@ -67,7 +67,7 @@
 }
 
 /* IPHONE */
-@media screen and (min-width: 0px) and (max-width: 375px) {
+@media screen and (min-width: 0px) and (max-width: 400px) {
   .wrapper_footer {
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@
 }
 
 /* IPAD */
-@media screen and (min-width: 0px) and (max-width: 769px) {
+@media screen and (min-width: 401px) and (max-width: 769px) {
   .ul_footer span {
     font-size: 15px;
     /* font-family: Open Sans SemiBold; */
