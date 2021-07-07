@@ -22,7 +22,7 @@ import InputForms from './inputForms/InputForms';
 import InputSelect from './inputSelect/InputSelect';
 import Modal from './modal/Modal';
 import Message from './message/Message';
-import Messages from './messages/Messages.js';
+import Messages from './messages/Messages';
 import Navbar from './navbar/Navbar';
 import NoProductComponent from './noProduct/NoProductComponent';
 import IconTakePicture from './picture/iconTakePicture/IconTakePicture';
