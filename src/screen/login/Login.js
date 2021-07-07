@@ -19,7 +19,7 @@ import { loginSuccessAction, isGuestAction } from "../../redux/actions/AuthActio
 import { categorySuccessAction } from "../../redux/actions/CategoryAction";
 import { getCategories } from "../../services/categoryService";
 
-function Login({ history, location }) {
+function Login(props) {
   /** STATE */
   const [state, setState] = useState({
     email: '',
@@ -84,7 +84,7 @@ function Login({ history, location }) {
         dispatch(
           loginSuccessAction({ user: resp.data.user, token: resp.data.token })
         );
-        history.push('/');
+        props.history.push('/');
       },
       (resp) => {
         setState({ ...state, errorOnLogin: true })
@@ -96,6 +96,7 @@ function Login({ history, location }) {
 
   return (
     <div>
+      <Navbar props={props} />
       <ToastContainer />
       <div className="container_login">
         <div className="wrapper_login">
@@ -130,7 +131,7 @@ function Login({ history, location }) {
           <p className="forget_password_login">Mot de passe oublié</p>
           <BtnNext title="Continuer" onClick={() => handleLogin()} />
           <p className="register_login">
-            <Link to={wording.REGISTER_URL}>M'inscrire</Link>
+            <Link to={wording.REGISTER_URL} style={{ color: "black" }}>M'inscrire</Link>
           </p>
         </div>
       </div>

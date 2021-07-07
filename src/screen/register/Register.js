@@ -3,9 +3,9 @@ import './Register.scss';
 import { registerApi } from '../../API';
 import wording from '../../constant/wording';
 /** COMPONENT */
-import { BtnFinish, Navbar, PictureIconProfile, InputForms, InputSelect } from '../../component/index'
+import { BtnFinish, PictureIconProfile, InputForms, InputSelect, Navbar } from '../../component/index'
 
-function Register({ history, location }) {
+function Register(props) {
   /** STATE */
 
   const [state, setState] = useState({
@@ -19,7 +19,7 @@ function Register({ history, location }) {
 
   const handleRegister = () => {
     registerApi(state.email, state.password, state.firstName, state.lastName, state.female, () => {
-      return history.push('/');
+      return props.history.push('/');
     });
   };
 
@@ -28,6 +28,7 @@ function Register({ history, location }) {
   }
   return (
     <>
+      <Navbar props={props} />
       <div className="container_register">
         <div className="wrapper_register">
           <p className="text_create_account_register">Créez un compte</p>

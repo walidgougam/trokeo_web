@@ -20,11 +20,22 @@ export default function Setting({ location }) {
   const [activePayment, setActivePayment] = useState(false);
   const [activePassword, setActivePassword] = useState(false);
   const [activeDeconnection, setActiveDeconnection] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
     console.log('close');
   };
+
+  const handleDeconnection = () => {
+    setActiveDeconnection(!activeDeconnection)
+    setIsOpen(true)
+  }
+
+  const confirmDelete = () => {
+    console.log("confirm delete")
+    localStorage.clear()
+    setIsOpen(false)
+  }
 
   return (
     <div>
@@ -58,14 +69,14 @@ export default function Setting({ location }) {
         />
         <BtnSetting
           active={activeDeconnection}
-          onClick={() => setActiveDeconnection(!activeDeconnection)}
+          onClick={() => handleDeconnection()}
           titleBtn={wording.DISCONNECT_BTN}
           paddingTop={28}
         />
       </div>
       <Modal
         open={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => confirmDelete()}
         title="Supprimer l'annonce"
         description="Etes-vous sûr de bien vouloir supprimer l'annonce"
         btnTitle="Confirmer"
