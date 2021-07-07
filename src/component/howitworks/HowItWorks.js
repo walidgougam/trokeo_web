@@ -42,11 +42,7 @@ export default function HowItWorks() {
               style={{ display: "flex", flexDirection: "column" }}
             >
               <div
-                style={{
-                  backgroundColor: "white",
-                  padding: "9px 4px",
-                  borderRadius: "5px",
-                }}
+                className="card_hiw"
               >
                 {img.picture}
               </div>

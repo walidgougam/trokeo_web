@@ -31,33 +31,6 @@ function Login(props) {
   const dispatch = useDispatch();
   const login = useSelector((state) => state.authReducer);
 
-  // const handleLogin = async () => {
-  //   axios({
-  //     method: 'POST',
-  //     url: loginUrl,
-  //     data: { email, password },
-  //     headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') },
-  //   }).then((res) => {
-  //     const errors = res.data.errors;
-  //     console.log(errors, 'errors');
-  //     if (!errors)
-  //     {
-  //       localStorage.setItem('userId', res.data.user);
-  //       history.push('/');
-  //     } else
-  //     {
-  //       if (errors.email !== '')
-  //       {
-  //         toast.error(errors.email);
-  //       }
-  //       if (errors.password !== '')
-  //       {
-  //         toast.error(errors.password);
-  //       }
-  //     }
-  //   });
-  // };
-
   const handleState = (event) => {
     const value = event.target.value;
     setState({ ...state, [event.target.name]: value })
@@ -69,7 +42,6 @@ function Login(props) {
       state.password,
       async (resp) => {
         // when auth success get all categories
-        console.log('je suis dedans')
         await getCategories(
           (resp) => {
             dispatch(
@@ -78,20 +50,19 @@ function Login(props) {
           },
           (err) => {
             setState({ ...state, errorOnLogin: true })
-            setState({ ...state, errorMessage: err.status === 500 ? "Something went wrong!" : err.data.error })
+            setState({ ...state, errorMessage: err?.status === 500 ? "Something went wrong!" : err.data.error })
           }
         );
         dispatch(
-          loginSuccessAction({ user: resp.data.user, token: resp.data.token })
+          loginSuccessAction({ user: resp?.data?.user, token: resp?.data?.token })
         );
         props.history.push('/');
       },
       (resp) => {
         setState({ ...state, errorOnLogin: true })
-        setState({ ...state, errorMessage: resp.status === 500 ? "Something went wrong!" : resp.data.error })
+        setState({ ...state, errorMessage: resp?.status === 500 ? "Something went wrong!" : resp.data.error })
       }
     );
-
   }
 
   return (
@@ -114,7 +85,7 @@ function Login(props) {
               className="input_login"
               type="text"
               name='email'
-              onChange={(e) => handleState(e.target.value)}
+              onChange={(e) => handleState(e)}
             />
           </div>
           <div className="wrapper_input_login" style={{ marginTop: 9 }}>
@@ -124,7 +95,7 @@ function Login(props) {
               className="input_login"
               type="text"
               name='password'
-              onChange={(e) => handleState(e.target.value)}
+              onChange={(e) => handleState(e)}
             />
           </div>
 

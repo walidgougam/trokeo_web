@@ -64,3 +64,14 @@ input::placeholder {
   cursor: pointer;
   /* font-family:Open Sans SemiBold ; */
 }
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 375px) {
+}
+
+/* IPAD */
+@media screen and (min-width: 376px) and (max-width: 769px) {
+  .container_cardhomesearch {
+    border: solid 1px grey;
+  }
+}

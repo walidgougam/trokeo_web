@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { getConversationUrl, getOneConversationUrl } from '../API/constant';
+import { API_URL, getConversationUrl, getOneConversationUrl, deleteChatUrl } from '../API/constant';
 
 const adaptedMessages = (conversation) => {
     return {
         ...conversation,
         messages: conversation.messages.map(item => {
-            // console.log('ITEM', item.user)
             if (item.user)
             {
                 return {
@@ -21,41 +20,70 @@ const adaptedMessages = (conversation) => {
     }
 }
 // get conversation List
-export const GetConversations = async (userid, token) => {
+export const GetConversations = async (userid, userToken) => {
     try
     {
         const res = await axios({
             method: 'GET',
             url: getConversationUrl(userid),
-            headers: { Authorization: 'Bearer ' + token }
+            headers: { Authorization: 'Bearer ' + userToken }
         });
 
+        console.log("res")
         return res && res.data.map(adaptedMessages)
     }
     catch (err)
     {
-        console.log(err, 'err on get one conversation');
+        console.log("rerr", err.response)
         return null
     }
 }
 
 // get conversation one
-export const getOneConversation = async (product) => {
-    const userid = await localStorage.getItem('userId')
+export const getOneConversation = async (product, userId, token) => {
     try
     {
         const res = await axios({
             method: 'GET',
-            url: getOneConversationUrl(userid, product.user._id, product._id),
-            headers: { Authorization: 'Bearer ' + await localStorage.getItem('jwt') }
+            url: getOneConversationUrl(userId, product.user._id, product._id),
+            headers: { Authorization: 'Bearer ' + token }
         });
-        // console.log('RES RES RES -----> ', res)
         return res && res.data.map(adaptedMessages)
     }
     catch (err)
     {
-        console.log(err, 'err on get conversation');
         return null
     }
     // console.log('Conversations :=> ', data)
+}
+
+
+export const deleteChat = async (sender, recieverId, token, successCB) => {
+    await axios({
+        method: 'DELETE',
+        url: deleteChatUrl(sender, recieverId),
+        headers: { Authorization: 'Bearer ' + token }
+    })
+        .then((res) => {
+            successCB()
+        })
+        .catch((err) => {
+            console.log(err, '-----error delete message-----');
+        });
+}
+
+
+export const deleteConversation = async (token, msgForDelete, successCB) => {
+    await axios({
+        method: 'POST',
+        url: `${API_URL}/conversation/delete`,
+        data: { id: msgForDelete },
+        headers: { Authorization: `Bearer ${token}` }
+    })
+        .then((res) => {
+            successCB()
+        })
+        .catch((err) => {
+            console.log(err.response, 'error on register');
+        });
 }

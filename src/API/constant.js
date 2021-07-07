@@ -1,11 +1,13 @@
 const dev = false;
 
 export const API_URL = dev
-  ? "http://192.168.1.9:5000"
-  : "https://test-api.trokeo.com";
+  ? "http://192.168.1.86:5000"
+  : "https://test-api.trokeo.com"
 
-export const imageStatic = (imageUrlFromBack) => {
-  return `${API_URL}/static/${imageUrlFromBack}`;
+export const imageStatic = (imageUrlFromBack, tmp = '') => {
+  const path = `${API_URL}/static/${tmp}${imageUrlFromBack}`;
+  console.log("PATH imege", imageUrlFromBack, path)
+  return path
 };
 
 export const registerUrl = `${API_URL}/user/register`;
@@ -23,11 +25,14 @@ export const getNotificationUrl = (userId) => {
 };
 export const checkUserEmailUrl = () => {
   return `${API_URL}/user/checkUserEmail`;
-}
-export const checkResetPasswordCode = () => {
-  return `${API_URL}/user//checkResetCode`;
-}
-export const editNotificationUrl = `${API_URL}/user/editnotification`;
+};
+export const checkResetPasswordCodeUrl = () => {
+  return `${API_URL}/user/checkResetCode`;
+};
+export const updateResetPasswordUrl = () => {
+  return `${API_URL}/user/resetPwd`;
+};
+export const editNotificationUrl = `${API_URL}/user/editNotificatoinConfig`;
 //PRODUCT
 export const createProductUrl = `${API_URL}/product/createproduct`;
 export const getProductUrl = `${API_URL}/product/getproduct`;

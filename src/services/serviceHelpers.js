@@ -4,8 +4,7 @@ export const createFormData = (photo, body) => {
     data.append('photo', {
         name: photo.fileName,
         type: photo.type,
-        uri:
-            photo.uri.replace('file://', '')
+        uri: photo.uri.replace('file://', '')
         // Platform.OS === 'android' ? photo.uri : photo.uri.replace('file://', '')
     });
 

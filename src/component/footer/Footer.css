@@ -65,3 +65,35 @@
   color: #3a3a3a;
   margin: 18px 66px 26px;
 }
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 375px) {
+  .wrapper_footer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .wrapper_discover_footer {
+    border-right: solid rgba(133, 133, 133, 0.5) 1px;
+  }
+  .description_footer {
+    font-size: 10px;
+    /* font-family: Open Sans Regular; */
+    color: #3a3a3a;
+  }
+}
+
+/* IPAD */
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  .ul_footer span {
+    font-size: 15px;
+    /* font-family: Open Sans SemiBold; */
+    text-decoration: none;
+  }
+  .description_footer {
+    font-size: 15px;
+    /* font-family: Open Sans Regular; */
+    color: #3a3a3a;
+    margin: 90px 66px 26px;
+  }
+}

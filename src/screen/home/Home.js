@@ -5,9 +5,9 @@ import { Navbar, HowItWorks, Footer, FooterHome, CardHomeSearch } from '../../co
 
 function Home(props) {
   return (
-    <>
-      <Navbar props={props} />
-      <div>
+    <div className="container_home">
+      < Navbar props={props} />
+      <>
         <div className="wrapper_image_home">
           <div style={{ marginTop: 86, marginLeft: 99 }}>
             <p className="text1_home">Le troc participatif et solidaire !</p>
@@ -21,8 +21,8 @@ function Home(props) {
         <HowItWorks />
         <FooterHome />
         <Footer />
-      </div>
-    </>
+      </>
+    </div >
   );
 }
 
