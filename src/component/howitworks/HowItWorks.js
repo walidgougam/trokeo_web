@@ -39,7 +39,7 @@ export default function HowItWorks() {
           return (
             <div
               key={index}
-              style={{ display: "flex", flexDirection: "column" }}
+              className="container_card_hiw"
             >
               <div
                 className="card_hiw"

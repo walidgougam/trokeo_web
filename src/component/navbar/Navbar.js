@@ -3,12 +3,11 @@ import './Navbar.scss';
 import {
   NavLink,
 } from 'react-router-dom';
-// SVG
+/** SVG */
 import { ReactComponent as LogoTrokeo } from '../../asset/allSvg/logo.svg';
 import { ReactComponent as IconProfileLittle } from '../../asset/allSvg/iconProfileLittle.svg';
-// REDUX
+/** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
-// import { getUserAction } from '../../redux/actions/UserAction';
 import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
@@ -30,7 +29,6 @@ function Navbar({ props }) {
   const isNavtitleSelected = '2px #40CE6A solid';
   return (
     <nav className="container_navbar">
-      {console.log(props, "props navbar")}
       <div className="header_left_navbar">
         <div style={{ margin: 0, cursor: 'pointer' }}>
           <NavLink to="/">
