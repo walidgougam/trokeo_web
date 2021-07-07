@@ -20,6 +20,7 @@ import HeaderGreenOrganization from './headerGreenOrganization/HeaderGreenOrgani
 import HowItWorks from './howitworks/HowItWorks';
 import InputForms from './inputForms/InputForms';
 import InputSelect from './inputSelect/InputSelect';
+import Modal from './modal/Modal';
 import Message from './message/Message';
 import Messages from './messages/Messages.js';
 import Navbar from './navbar/Navbar';
@@ -69,6 +70,7 @@ export {
     InputForms,
     InputSelect,
     Message,
+    Modal,
     Messages,
     Navbar,
     NoProductComponent,

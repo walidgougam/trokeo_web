@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Setting.scss';
-
 /** COMPONENT */
 import {
   HeaderGreen,
@@ -10,6 +9,7 @@ import {
   PaymentSetting,
   PasswordSetting,
   NotificationSetting,
+  Modal,
 } from '../../component/index';
 import wording from '../../constant/wording';
 
@@ -20,6 +20,11 @@ export default function Setting({ location }) {
   const [activePayment, setActivePayment] = useState(false);
   const [activePassword, setActivePassword] = useState(false);
   const [activeDeconnection, setActiveDeconnection] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClose = () => {
+    console.log('close');
+  };
 
   return (
     <div>
@@ -58,6 +63,13 @@ export default function Setting({ location }) {
           paddingTop={28}
         />
       </div>
+      <Modal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Supprimer l'annonce"
+        description="Etes-vous sûr de bien vouloir supprimer l'annonce"
+        btnTitle="Confirmer"
+      />
       <Footer />
     </div>
   );
