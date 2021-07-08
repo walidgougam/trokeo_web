@@ -1,0 +1,21 @@
+@import '../../scss/colors';
+
+.wrapper_input_createproduct {
+  .label_createproduct {
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    //   font-family: regular;
+    color: $black-light;
+    .input_createproduct {
+      box-sizing: border-box;
+      background-color: white;
+      padding-left: 10px;
+      width: 344px;
+      display: block;
+      height: 42px;
+      margin-top: 10px;
+      border: 1px solid $grey-light;
+    }
+  }
+}

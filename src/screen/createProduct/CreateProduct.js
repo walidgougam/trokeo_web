@@ -15,15 +15,16 @@ import {
 import { ReactComponent as AddPicture } from '../../asset/allSvg/addPicture.svg';
 import { ReactComponent as PictureIcon } from '../../asset/allSvg/picture_icon.svg';
 /** REDUX */
-import { useDispatch, useSelector } from "react-redux";
-import { getSpecificProductAction } from "../../redux/actions/ProductAction";
-import { userRefreshAction } from "../../redux/actions/AuthAction";
-import { createProductCategoryAction } from "../../redux/actions/ProductAction";
+import { useDispatch, useSelector } from 'react-redux';
+import { getSpecificProductAction } from '../../redux/actions/ProductAction';
+import { userRefreshAction } from '../../redux/actions/AuthAction';
+import { createProductCategoryAction } from '../../redux/actions/ProductAction';
 /** API */
-import axios from "axios";
-import { createProductUrl } from "../../API/constant";
+import axios from 'axios';
+import { createProductUrl } from '../../API/constant';
 /** SERVICE */
-import { refreshUser } from "../../services/userService";
+import { refreshUser } from '../../services/userService';
+import SelectOption from '../../component/selectOption/SelectOption';
 
 function CreateProduct(props) {
   /** STATE */
@@ -35,7 +36,7 @@ function CreateProduct(props) {
     category: '',
     isRequestProduct: '',
     productPicture: [],
-    errorOnCreateProduct: ''
+    errorOnCreateProduct: '',
   });
 
   /** REDUX */
@@ -43,7 +44,7 @@ function CreateProduct(props) {
   const userStore = useSelector((state) => state.authReducer);
   const locationStore = useSelector((state) => state.productReducer.location);
   const createProductCategoryStore = useSelector(
-    (state) => state.createProductCategoryReducer
+    (state) => state.createProductCategoryReducer,
   );
 
   const handleState = (event) => {
@@ -52,36 +53,36 @@ function CreateProduct(props) {
   };
 
   const cleanStateOfScreen = () => {
-    setState({ ...state, title: '' })
-    setState({ ...state, description: '' })
-    setState({ ...state, productPicture: '' })
-    setState({ ...state, conditionProduct: '' })
-    setState({ ...state, title: '' })
+    setState({ ...state, title: '' });
+    setState({ ...state, description: '' });
+    setState({ ...state, productPicture: '' });
+    setState({ ...state, conditionProduct: '' });
+    setState({ ...state, title: '' });
     dispatch(
       createProductCategoryAction({
         category: {},
-      })
+      }),
     );
   };
 
   const prepareData = (productPicture, body) => {
-    const data = new FormData()
+    const data = new FormData();
     if (productPicture)
     {
-      data.append('photos', productPicture)
+      data.append('photos', productPicture);
       Object.keys(body).forEach((key) => {
-        data.append(key, body[key])
-      })
-      return data
+        data.append(key, body[key]);
+      });
+      return data;
     } else
     {
-      setState({ ...state, errorOnCreateProduct: "true" })
+      setState({ ...state, errorOnCreateProduct: 'true' });
     }
-  }
+  };
 
   const handleCreateProduct = () => {
-    const userId = userStore.user._id
-    console.log(state, "state all")
+    const userId = userStore.user._id;
+    console.log(state, 'state all');
     axios
       .post(
         createProductUrl,
@@ -94,7 +95,7 @@ function CreateProduct(props) {
           type: state.isService ? 'service' : 'bien',
           isFromOrganization: userStore.user.isOrganisation,
           longitude: locationStore.longitude,
-          latitude: locationStore.latitude
+          latitude: locationStore.latitude,
         }),
         {
           headers: {
@@ -104,75 +105,89 @@ function CreateProduct(props) {
         },
       )
       .then(async (res) => {
-        await refreshUser(userStore.user._id, (res) => {
-          dispatch(userRefreshAction(res))
-        }, (err) => { console.log("ERROR TO HANDLE", err.response) })
-        dispatch(getSpecificProductAction(res?.data))
-        cleanStateOfScreen()
+        await refreshUser(
+          userStore.user._id,
+          (res) => {
+            dispatch(userRefreshAction(res));
+          },
+          (err) => {
+            console.log('ERROR TO HANDLE', err.response);
+          },
+        );
+        dispatch(getSpecificProductAction(res?.data));
+        cleanStateOfScreen();
         // navigation.navigate(constant.HOME_STACK, {
         //   screen: constant.PRODUCT_DETAIL,
         //   params: { product: res?.data?.product }
         // })
       })
       .catch((err) => {
-        console.log('ERROR', err.response.data.error)
-        setState({ ...state, errorOnCreateProduct: 'true' })
-      })
+        console.log('ERROR', err.response.data.error);
+        setState({ ...state, errorOnCreateProduct: 'true' });
+      });
   };
 
-
   const uploadPicture = (e) => {
-    setState({ ...state, productPicture: e.target.files })
+    setState({ ...state, productPicture: e.target.files });
   };
 
   return (
     <>
+      {console.log(state, "state")}
       <Navbar props={props} />
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService
+        fromCreateProduct
         onChange={(e) => setState({ ...state, isService: !state.isService })}
         isService={state.isService}
       />
       <div className="container_createproduct">
         <div className="container_icon_picture_createproduct">
           <div className="wrapper_icon_picture_createproduct">
-            {console.log(state.productPicture, "productpicture")}
-            {state.productPicture.length >= 1 ?
+            {state.productPicture.length >= 1 ? (
               <img
-                src={
-                  URL.createObjectURL(state.productPicture[0])
-                }
+                src={URL.createObjectURL(state.productPicture[0])}
                 style={{ width: 94, height: 94 }}
                 alt="msg picture"
-              /> : <PictureIcon />}
+              />
+            ) : (
+              <PictureIcon />
+            )}
           </div>
           <div className="wrapper_icon_picture_createproduct">
-            {state.productPicture.length >= 2 ?
+            {state.productPicture.length >= 2 ? (
               <img
-                src={
-                  URL.createObjectURL(state.productPicture[1])
-                }
+                src={URL.createObjectURL(state.productPicture[1])}
                 style={{ width: 94, height: 94 }}
                 alt="msg picture"
-              /> : <PictureIcon />}
+              />
+            ) : (
+              <PictureIcon />
+            )}
           </div>
           <div className="wrapper_icon_picture_createproduct">
-            {state.productPicture.length === 3 ?
+            {state.productPicture.length === 3 ? (
               <img
-                src={
-                  URL.createObjectURL(state.productPicture[2])
-                }
+                src={URL.createObjectURL(state.productPicture[2])}
                 style={{ width: 94, height: 94 }}
                 alt="msg picture"
-              /> : <PictureIcon />}
+              />
+            ) : (
+              <PictureIcon />
+            )}
           </div>
           <div
             className="wrapper_icon_picture_createproduct"
-            style={{ borderColor: '#0091FF' }} >
-            <label for="file-input" style={{ cursor: "pointer" }}>
+            style={{ borderColor: '#0091FF' }}>
+            <label for="file-input" style={{ cursor: 'pointer' }}>
               <AddPicture />
             </label>
-            <input id="file-input" type="file" onChange={uploadPicture} multiple />
+            <input
+              id="file-input"
+              type="file"
+              onChange={uploadPicture}
+              multiple
+            />
           </div>
         </div>
         <div className="separate_line_createproduct"></div>
@@ -202,43 +217,19 @@ function CreateProduct(props) {
           </label>
         </div>
         <div className="separate_line_createproduct"></div>
-        <div className="wrapper_input_createproduct">
-          <label className="label_createproduct">
-            Etat du bien
-            <select
-              className="input_createproduct"
-              onChange={(e) => setState({ ...state, condition: e.target.value })}>
-              <option value="" disabled selected>
-                Select your option
-              </option>
-              {goodsCondition.map((condition, index) => {
-                return <option value={condition}>{condition}</option>;
-              })}
-            </select>
-          </label>
-        </div>
+        <SelectOption
+          title="Etat du bien"
+          goodsCondition={goodsCondition}
+          changeState={(e) => setState({ ...state, condition: e.target.value })}
+        />
         <div className="separate_line_createproduct"></div>
-        <div className="wrapper_input_createproduct">
-          <label className="label_createproduct">
-            Catégorie
-            <select
-              className="input_createproduct"
-              onChange={(e) => setState({ ...state, category: e.target.value })}>
-              <option value="" disabled selected>
-                Select your option
-              </option>
-              {(state.isService ? serviceCategories : goodCategories).map(
-                (category, index) => {
-                  return (
-                    <option value={category.titleCategory}>
-                      {category.titleCategory}
-                    </option>
-                  );
-                },
-              )}
-            </select>
-          </label>
-        </div>
+        <SelectOption
+          title="Catégorie"
+          isService={state.isService}
+          serviceCategories={serviceCategories}
+          goodCategories={goodCategories}
+          changeState={(e) => setState({ ...state, category: e.target.value })}
+        />
         <div className="separate_line_createproduct"></div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <p className="text_annonce_createproduct">Type d'annonce</p>
@@ -263,13 +254,7 @@ function CreateProduct(props) {
             <label className="input_annonce_createproduct">demandes</label>
           </div>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: 42,
-            marginBottom: 164,
-          }}>
+        <div className="wrapper_btn_createproduct">
           <BtnNext
             title="Enregistrez"
             onClick={() => handleCreateProduct()}

@@ -5,13 +5,13 @@ import {
   Sidebar,
 } from '../index';
 
-function HeaderChooseGoodOrService({ onChange, isService }) {
+function HeaderChooseGoodOrService({ onChange, isService, fromCreateProduct }) {
   return (
     <>
       <div className="good_or_service_organization">
-        <div style={{ position: "absolute", left: 0 }}>
+        {!fromCreateProduct && <div style={{ position: "absolute", left: 0 }}>
           <Sidebar isService={isService} />
-        </div>
+        </div>}
         <div style={{ display: "flex", alignSelf: "center" }}>
           <p
             onClick={onChange}

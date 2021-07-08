@@ -7,7 +7,7 @@ export default function CardNotification({ picture, title, createdAt, index, las
             <div className="container_cardnotification" style={{ marginTop: index === 0 ? 35 : 13 }}>
                 <img
                     src={require('../../../asset/allSvg/shave.jpg')}
-                    style={{ width: 84, height: 68 }}
+                    className="img_cardnotification"
                 />
                 <div style={{ marginLeft: 10 }}>
                     <p className="title_cardnotification">{title}</p>

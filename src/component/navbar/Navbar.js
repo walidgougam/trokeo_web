@@ -12,7 +12,7 @@ import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
 
-function Navbar(props) {
+function Navbar({ props }) {
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
@@ -21,7 +21,7 @@ function Navbar(props) {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter')
     {
-      history.push('/product')
+      props.history.push('/product')
     }
   }
 
@@ -47,19 +47,19 @@ function Navbar(props) {
             className="icon_search_navbar"
           />
         </div>
+        <NavLink to={wording.CREATE_PRODUCT_URL} className="create_product_title">
+          <div className="add_product_navbar">
+            <img
+              src={require('../../asset/allSvg/icon_pencil.svg')}
+              alt="stylo"
+              className="pencil_icon_navbar"
+            />
+            <p className="text_add_product_navbar">
 
-        <div className="add_product_navbar">
-          <img
-            src={require('../../asset/allSvg/icon_pencil.svg')}
-            alt="stylo"
-            className="pencil_icon_navbar"
-          />
-          <p className="text_add_product_navbar">
-            <NavLink to={wording.CREATE_PRODUCT_URL} className="create_product_title">
               Déposer une annonce
-            </NavLink>
-          </p>
-        </div>
+            </p>
+          </div>
+        </NavLink>
       </div>
       <ul className="wrapper_link_navbar">
         {

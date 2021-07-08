@@ -13,7 +13,7 @@ function InputForms({
   return (
     <div className="inputWithIcon">
       <input
-        onChange={(e) => changeInput(e)}
+        onChange={changeInput}
         type="text"
         placeholder={placeholder}
         className="input_inputforms"

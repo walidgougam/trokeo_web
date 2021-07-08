@@ -1,1 +1,14 @@
 @import '../../scss/colors';
+
+.wrapper_notification {
+  margin-left: 139px;
+  margin-right: 139px;
+}
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .wrapper_notification {
+    margin-left: 50px;
+    margin-right: 0px;
+  }
+}

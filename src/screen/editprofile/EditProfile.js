@@ -13,6 +13,7 @@ import {
   PictureIconProfile,
   BtnFinish,
 } from '../../component/index';
+import SelectOption from '../../component/selectOption/SelectOption';
 
 function EditProfile(props) {
   const [state, setState] = useState({
@@ -47,7 +48,7 @@ function EditProfile(props) {
           placeholder={wording.LAST_NAME}
           value={state.lastName}
           name="lastName"
-          onChange={(e) => handleState(e.target.value)}
+          changeInput={(e) => handleState(e)}
         />
         <p className="label_input_editprofile" style={{ marginTop: 20 }}>
           {wording.FIRST_NAME}
@@ -56,7 +57,7 @@ function EditProfile(props) {
           placeholder="Prénom"
           value={state.firstName}
           name="firstName"
-          onChange={(e) => handleState(e.target.value)}
+          changeInput={(e) => handleState(e)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
@@ -66,7 +67,7 @@ function EditProfile(props) {
           value={state.about}
           name="about"
           style={{ width: 344, height: 145, borderColor: '#BFBDBD' }}
-          onChange={(e) => handleState(e.target.value)}></textarea>
+          onChange={(e) => handleState(e)}></textarea>
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
           {wording.EMAIL}
@@ -75,7 +76,7 @@ function EditProfile(props) {
           placeholder={wording.EMAIL}
           value={state.email}
           name="email"
-          onChange={(e) => handleState(e.target.value)}
+          changeInput={(e) => handleState(e.target.value)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
@@ -85,18 +86,19 @@ function EditProfile(props) {
           placeholder="Téléphone"
           value={state.phoneNumber}
           name="phoneNumber"
-          onChange={(e) => handleState(e.target.value)}
+          changeInput={(e) => handleState(e)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
           {wording.GENDER}
         </p>
-        <InputForms
+        <SelectOption goodsCondition={['male', 'female']} />
+        {/* <InputForms
           placeholder="Genre"
           value={state.female}
           name="female"
-          onChange={(e) => handleState(e.target.value)}
-        />
+          changeInput={(e) => handleState(e)}
+        /> */}
         <p className="line_between_section_editprofile"></p>
         <div className="wrapper_location_editprofile">
           <p>Géolocalisation</p>
@@ -104,19 +106,13 @@ function EditProfile(props) {
             <FormControlLabel
               style={{ margin: 0 }}
               control={
-                <Switch checked={state.checked} onChange={() => setState({ ...state, checked: true })} />
+                <Switch checked={state.checked} onChange={() => setState({ ...state, checked: !state.checked })} />
               }
             />
           </FormGroup>
         </div>
         <div
-          style={{
-            margin: 0,
-            marginTop: 66,
-            marginBottom: 129,
-            display: 'flex',
-            justifyContent: 'center',
-          }}>
+          className="wrapper_btn_editprofile">
           <BtnFinish
             width={320}
             height={42}

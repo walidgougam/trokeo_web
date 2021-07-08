@@ -55,7 +55,7 @@ function Notification({ props }) {
         <div>
             <Navbar props={props} />
             <HeaderGreen title="Notifications" />
-            <div style={{ marginLeft: 139, marginRight: 139 }}>
+            <div className="wrapper_notification">
                 {cardProduct.map((card, index) => {
                     return (
                         <CardNotification

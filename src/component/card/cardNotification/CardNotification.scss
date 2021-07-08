@@ -5,6 +5,11 @@
   flex-direction: row;
   margin-bottom: 13px;
 
+  .img_cardnotification {
+    width: 84px;
+    height: 68px;
+  }
+
   .title_cardnotification {
     font-size: 13px;
     line-height: 20px;
@@ -22,5 +27,38 @@
   }
   .separate_line_cardnotification {
     border-top: 1px solid #bfbdbd;
+  }
+}
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .container_cardnotification {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 13px;
+
+    .img_cardnotification {
+      width: 124px;
+      height: 105px;
+    }
+
+    .title_cardnotification {
+      font-size: 23px;
+      line-height: 20px;
+      // font-family: 'semi bold';
+      color: $black-light;
+      margin-top: 13px;
+      margin-bottom: 5px;
+    }
+    .createdAt_cardnotification {
+      margin-top: 0px;
+      font-size: 15px;
+      line-height: 20px;
+      // font-family: 'regular';
+      color: $grey-createdAt;
+    }
+    .separate_line_cardnotification {
+      border-top: 1px solid #bfbdbd;
+    }
   }
 }
