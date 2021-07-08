@@ -18,7 +18,7 @@ import {
   userDiconnectedAction,
 } from "../../redux/actions/AuthAction";
 
-function Setting({ props }) {
+function Setting(props) {
   /** STATE */
   const [activeNotification, setActiveNotification] = useState(false);
   const [activePersonalData, setActivePersonalData] = useState(false);

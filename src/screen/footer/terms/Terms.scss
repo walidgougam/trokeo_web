@@ -17,3 +17,27 @@
   color: $grey;
   //   font-family: regular;
 }
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .all_container_terms {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  .wrapper_terms {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+  .title_terms {
+    font-size: 15px;
+    line-height: 20px;
+    color: $grey;
+    //   font-family: semiBold;
+  }
+  .text_terms {
+    font-size: 10px;
+    line-height: 10px;
+    color: $grey;
+    //   font-family: regular;
+  }
+}

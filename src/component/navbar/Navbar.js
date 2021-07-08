@@ -8,7 +8,6 @@ import { ReactComponent as LogoTrokeo } from '../../asset/allSvg/logo.svg';
 import { ReactComponent as IconProfileLittle } from '../../asset/allSvg/iconProfileLittle.svg';
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
-import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
 

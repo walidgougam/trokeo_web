@@ -17,7 +17,7 @@ function GiveReview(props) {
     <HeaderGreen title={wording.GIVE_REVIEW} />
     <div className='container_givereview'>
       <div className='wrapper_card_givereview'>
-        <ChatHeader fromReview={true} name={"Manon_C"} productName={"Cours de chant"} location={'5,8'} />
+        <ChatHeader props={props} fromReview={true} name={"Manon_C"} productName={"Cours de chant"} location={'5,8'} />
         <div className="wrapper_givereview">
           <p style={{ marginBottom: 20, marginTop: 17 }}>Evaluation</p>
           <StarEmpty />

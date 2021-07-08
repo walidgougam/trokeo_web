@@ -87,6 +87,7 @@ function CardSendMessage(props) {
     <div className="outerContainer">
       <div className="container">
         <ChatHeader
+          props={props}
           name="marion_b"
           productName="cours de chant"
           location="5,8 km"

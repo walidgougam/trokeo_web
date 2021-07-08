@@ -38,12 +38,13 @@
     margin-bottom: 13px;
 
     .img_cardnotification {
-      width: 124px;
-      height: 105px;
+      width: 84px;
+      height: 68px;
+      margin-left: 5px;
     }
 
     .title_cardnotification {
-      font-size: 23px;
+      font-size: 13px;
       line-height: 20px;
       // font-family: 'semi bold';
       color: $black-light;
@@ -52,7 +53,7 @@
     }
     .createdAt_cardnotification {
       margin-top: 0px;
-      font-size: 15px;
+      font-size: 12px;
       line-height: 20px;
       // font-family: 'regular';
       color: $grey-createdAt;

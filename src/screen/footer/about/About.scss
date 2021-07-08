@@ -17,16 +17,13 @@
   color: #515151;
 }
 
-.wrapper_people_about {
+.wrapper_picture_about {
   height: 261px;
   box-sizing: border-box;
   background-color: $white-absolute;
   box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
   margin-left: 31px;
   margin-right: 31px;
-  margin-bottom: 19px;
-  padding-left: 74px;
-  padding-right: 74px;
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
@@ -38,44 +35,43 @@
     padding-left: 72px;
   }
 }
-.wrapper_woman_pig_about {
-  height: 261px;
-  box-sizing: border-box;
-  background-color: $white-absolute;
-  box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
-  margin-left: 31px;
-  margin-right: 31px;
-  margin-bottom: 19px;
-  padding-left: 114px;
-  padding-right: 114px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 1px;
-  div {
-    width: 447px;
-    padding-right: 72px;
-    margin: 0px;
-  }
-}
 
-.wrapper_man_painting_about {
-  height: 261px;
-  box-sizing: border-box;
-  background-color: $white-absolute;
-  box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
-  margin-left: 31px;
-  margin-right: 31px;
-  margin-bottom: 146px;
-  padding-left: 155px;
-  padding-right: 119px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 1px;
-  div {
-    width: 447px;
-    padding-left: 106px;
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .all_container_about {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  .title_about {
+    font-size: 10px;
+    font-family: bold;
+    //   font-family: Open Sans SemiBold;
+    color: #515151;
+  }
+  .text_about {
+    font-size: 10px;
+    //   font-family:  Open Sans Regular;
+    color: #515151;
+  }
+  .wrapper_img_about {
+    width: 0px;
+    height: 10px;
+  }
+  .wrapper_picture_about {
+    height: 261px;
+    box-sizing: border-box;
+    background-color: $white-absolute;
+    box-shadow: 3px 3px 10px rgba(194, 194, 194, 0.3);
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 1px;
+    div {
+      width: auto;
+      padding-left: 0px;
+    }
   }
 }

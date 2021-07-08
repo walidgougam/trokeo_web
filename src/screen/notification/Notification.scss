@@ -7,8 +7,12 @@
 
 /* IPHONE */
 @media screen and (min-width: 0px) and (max-width: 400px) {
+  .container_notification {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
   .wrapper_notification {
-    margin-left: 50px;
+    margin-left: 0px;
     margin-right: 0px;
   }
 }

@@ -3,7 +3,7 @@ import './Notification.scss'
 import { HeaderGreen, CardNotification, Footer } from '../../component/index';
 import { Navbar } from '../../component';
 
-function Notification({ props }) {
+function Notification(props) {
 
     const cardProduct = [
         {
@@ -52,7 +52,7 @@ function Notification({ props }) {
         }
     ]
     return (
-        <div>
+        <div className="container_notification">
             <Navbar props={props} />
             <HeaderGreen title="Notifications" />
             <div className="wrapper_notification">

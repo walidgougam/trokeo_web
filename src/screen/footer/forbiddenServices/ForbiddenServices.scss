@@ -16,3 +16,27 @@
   line-height: 20px;
   //   font-family: "open sans regular";
 }
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .all_container_forbiddenservice {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  .container_forbidden_service {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  .title {
+    font-size: 10px;
+    line-height: 20px;
+    color: $grey;
+    //   font-family: 'open sans bold';
+  }
+  .text {
+    font-size: 10px;
+    line-height: 10px;
+    //   font-family: "open sans regular";
+  }
+}

@@ -28,8 +28,8 @@ function Product(props) {
   const productStore = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(getProductAction());
-  }, []);
+    dispatch(getProductAction(1, false))
+  })
 
   const renderProduct = () => {
     // if (productStore.isLoading)
@@ -47,6 +47,7 @@ function Product(props) {
     {
       return (
         <div className="wrapper_card_product">
+          {console.log(productStore, "prodcutstore")}
           {allProduct.map((product, index) => {
             // to change by productStore
             return (

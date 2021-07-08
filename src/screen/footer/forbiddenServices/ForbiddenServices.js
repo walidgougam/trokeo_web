@@ -4,10 +4,10 @@ import { Footer, HeaderGreen, Navbar } from '../../../component/index'
 import wording from '../../../constant/wording';
 import './ForbiddenServices.scss';
 
-function ForbiddenServices() {
+function ForbiddenServices(props) {
   return (
-    <>
-      <Navbar />
+    <div className="all_container_forbiddenservice">
+      <Navbar props={props} />
       <HeaderGreen title={wording.FORBIDDEN_SERVICE} />
       <div className="container_forbidden_service">
         <p className="title_forbidden_service">Interdictions générales</p>
@@ -111,7 +111,7 @@ function ForbiddenServices() {
         </p>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
