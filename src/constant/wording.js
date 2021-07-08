@@ -90,4 +90,6 @@ export default {
   PERSONAL_DATA_BTN: 'Données personnelles',
   PASSWORD_BTN: 'Mot de passe',
   DISCONNECT_BTN: 'Déconnection',
+  /** MODAL */
+  SURE_DISCONNECTED: "Voulez-vous vraiment vous déconnecter?",
 };

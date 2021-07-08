@@ -12,8 +12,13 @@ import {
   Modal,
 } from '../../component/index';
 import wording from '../../constant/wording';
+/** REDUX */
+import { useDispatch } from "react-redux";
+import {
+  userDiconnectedAction,
+} from "../../redux/actions/AuthAction";
 
-export default function Setting({ location }) {
+function Setting({ props }) {
   /** STATE */
   const [activeNotification, setActiveNotification] = useState(false);
   const [activePersonalData, setActivePersonalData] = useState(false);
@@ -21,6 +26,9 @@ export default function Setting({ location }) {
   const [activePassword, setActivePassword] = useState(false);
   const [activeDeconnection, setActiveDeconnection] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  /** REDUX */
+  const dispatch = useDispatch();
 
   const handleClose = () => {
     console.log('close');
@@ -31,14 +39,26 @@ export default function Setting({ location }) {
     setIsOpen(true)
   }
 
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+
   const confirmDelete = () => {
     console.log("confirm delete")
-    localStorage.clear()
     setIsOpen(false)
+    dispatch(
+      userDiconnectedAction({
+        user: null,
+        token: null,
+        isConnected: false
+      }),
+    )
+    localStorage.clear()
   }
 
   return (
     <div>
+      <Navbar props={props} />
       <HeaderGreen title="Paramètres" />
       <div className="container_central_setting">
         <BtnSetting
@@ -76,12 +96,14 @@ export default function Setting({ location }) {
       </div>
       <Modal
         open={isOpen}
-        onClose={() => confirmDelete()}
-        title="Supprimer l'annonce"
-        description="Etes-vous sûr de bien vouloir supprimer l'annonce"
+        onClose={() => closeModal()}
+        btnPress={() => confirmDelete()}
+        title={wording.SURE_DISCONNECTED}
         btnTitle="Confirmer"
       />
       <Footer />
     </div>
   );
 }
+
+export default Setting

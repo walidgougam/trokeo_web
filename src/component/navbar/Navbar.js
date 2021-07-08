@@ -12,16 +12,15 @@ import Wording from '../../constant/wording';
 import wording from '../../constant/wording';
 
 
-function Navbar({ props }) {
+function Navbar(props) {
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
-  const { history } = props
+  const { history } = props;
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter')
     {
-      { console.log(props, "props") }
       history.push('/product')
     }
   }
@@ -132,7 +131,7 @@ function Navbar({ props }) {
                 }}>
                 <IconProfileLittle />
               </span>
-              {userStore?.user.firstName}
+              {userStore?.user?.firstName}
             </NavLink>
           ) : (
             <NavLink

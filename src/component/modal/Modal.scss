@@ -1,9 +1,26 @@
-.title_modal {
-  font-size: 16px;
-  line-height: 22px;
-  //   font-family: open sans bold;
+.close_btn_modal {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+  margin-right: 23px;
 }
 
-.description_modal {
+.wrapper_text_modal {
+  margin-left: 28px;
+  margin-right: 28px;
   text-align: center;
+  .title_modal {
+    font-size: 16px;
+    line-height: 22px;
+    //   font-family: open sans bold;
+  }
+  .description_modal {
+    text-align: center;
+  }
+}
+
+.wrapper_btn_modal {
+  margin-bottom: 23px;
+  display: flex;
+  justify-content: center;
 }
