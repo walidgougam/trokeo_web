@@ -30,7 +30,7 @@ function ThumbnailProfile({ props, name, createdProfileAt }) {
           <p className="text_city_thumbnailprofile">haut de seine france</p>
           <div
             className="wrapper_review_thumbnailprofile"
-            onClick={() => props.history.push('/allreview/2')}
+            onClick={() => props.props.history.push('/allreview/2')}
           >
             <p>voir les avis</p>
             <div>
