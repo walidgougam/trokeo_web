@@ -67,15 +67,14 @@ function CreateProduct(props) {
 
   const prepareData = (productPicture, body) => {
     const data = new FormData();
-    if (productPicture)
-    {
-      data.append('photos', productPicture);
+    if (productPicture) {
+      for (let i = 0; i < productPicture.length; i++)
+        data .append('photos', productPicture[i])
       Object.keys(body).forEach((key) => {
         data.append(key, body[key]);
       });
       return data;
-    } else
-    {
+    } else {
       setState({ ...state, errorOnCreateProduct: 'true' });
     }
   };
