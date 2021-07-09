@@ -46,6 +46,12 @@ function CreateProduct(props) {
   const createProductCategoryStore = useSelector(
     (state) => state.createProductCategoryReducer,
   );
+  const value = state.isService ? 'service' : 'bien';
+  const categories = useSelector((state) =>
+    state.categoryReducer?.categories?.filter(
+      (item) => item.type.type === value
+    )
+  );
 
   const handleState = (event) => {
     const value = event.target.value;
@@ -133,7 +139,6 @@ function CreateProduct(props) {
 
   return (
     <>
-      {console.log(state, "state")}
       <Navbar props={props} />
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService
@@ -226,8 +231,7 @@ function CreateProduct(props) {
         <SelectOption
           title="Catégorie"
           isService={state.isService}
-          serviceCategories={serviceCategories}
-          goodCategories={goodCategories}
+          goodCategories={categories}
           changeState={(e) => setState({ ...state, category: e.target.value })}
         />
         <div className="separate_line_createproduct"></div>

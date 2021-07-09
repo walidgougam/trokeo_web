@@ -16,11 +16,11 @@ function SelectOption({ title, isService, goodsCondition, serviceCategories, goo
                         goodsCondition ? goodsCondition.map((condition, index) => {
                             return <option value={condition}>{condition}</option>;
                         }) :
-                            (isService ? serviceCategories : goodCategories).map(
+                            goodCategories.map(
                                 (category, index) => {
                                     return (
                                         <option value={category.titleCategory}>
-                                            {category.titleCategory}
+                                            {category.category}
                                         </option>
                                     );
                                 },
