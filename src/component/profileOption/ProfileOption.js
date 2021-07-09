@@ -10,28 +10,29 @@ function ProfileOption({ props }) {
         switch (option)
         {
             case wording.SEE_PROFILE:
-                return props.history.push('/profile/edit');
+                return props.props.history.push('/profile/edit');
             case wording.FAVORITES:
-                return props.history.push('/favorites');
+                return props.props.history.push('/favorites');
             case wording.ORGANIZATION_MODE:
-                return props.history.push('/hello');
+                return props.props.history.push('/hello');
             case wording.CUSTOMIZATION:
-                return props.history.push('/hello');
+                return props.props.history.push('/hello');
             case wording.SETTINGS:
-                return props.history.push('/setting');
+                return props.props.history.push('/setting');
             case wording.ABOUT_TROKEO:
-                return props.history.push('/about');
+                return props.props.history.push('/about');
             case wording.CGU:
-                return props.history.push('/hello');
+                return props.props.history.push('/hello');
             case wording.EVALUATE_APP:
-                return props.history.push('/hello');
+                return props.props.history.push('/hello');
             case wording.HELP_CENTER:
-                return props.history.push('/helpcenter');
+                return props.props.history.push('/helpcenter');
         }
     };
     return (
         <>
             <div className="container_profileoption">
+                {console.log(props, "props")}
                 {allOptionsProfile.map((option, index) => {
                     return (
                         <div

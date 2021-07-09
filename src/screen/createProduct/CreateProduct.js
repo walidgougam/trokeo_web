@@ -73,14 +73,16 @@ function CreateProduct(props) {
 
   const prepareData = (productPicture, body) => {
     const data = new FormData();
-    if (productPicture) {
+    if (productPicture)
+    {
       for (let i = 0; i < productPicture.length; i++)
-        data .append('photos', productPicture[i])
+        data.append('photos', productPicture[i])
       Object.keys(body).forEach((key) => {
         data.append(key, body[key]);
       });
       return data;
-    } else {
+    } else
+    {
       setState({ ...state, errorOnCreateProduct: 'true' });
     }
   };
@@ -121,13 +123,9 @@ function CreateProduct(props) {
         );
         dispatch(getSpecificProductAction(res?.data));
         cleanStateOfScreen();
-        // navigation.navigate(constant.HOME_STACK, {
-        //   screen: constant.PRODUCT_DETAIL,
-        //   params: { product: res?.data?.product }
-        // })
       })
       .catch((err) => {
-        console.log('ERROR', err.response.data.error);
+        console.log('ERROR create product', err);
         setState({ ...state, errorOnCreateProduct: 'true' });
       });
   };

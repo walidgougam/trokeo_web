@@ -45,12 +45,12 @@ function Login(props) {
         await getCategories(
           (resp) => {
             dispatch(
-              categorySuccessAction({ categories: resp.data.categories })
+              categorySuccessAction({ categories: resp?.data?.categories })
             );
           },
           (err) => {
             setState({ ...state, errorOnLogin: true })
-            setState({ ...state, errorMessage: err?.status === 500 ? "Something went wrong!" : err.data.error })
+            setState({ ...state, errorMessage: err?.status === 500 ? "Something went wrong!" : err?.data?.error })
           }
         );
         dispatch(
@@ -60,7 +60,7 @@ function Login(props) {
       },
       (resp) => {
         setState({ ...state, errorOnLogin: true })
-        setState({ ...state, errorMessage: resp?.status === 500 ? "Something went wrong!" : resp.data.error })
+        setState({ ...state, errorMessage: resp?.status === 500 ? "Something went wrong!" : resp?.data?.error })
       }
     );
   }
