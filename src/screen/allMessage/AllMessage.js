@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './AllMessage.scss';
-import { allMessage } from '../../Helpers';
+import { allConversation } from '../../Helpers';
 import axios from 'axios';
 import Loader from 'react-loader';
 /** COMPONENT */
@@ -62,9 +62,10 @@ function AllMessage(props) {
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Messages" />
         <div className="container_allmessage" style={{ flex: '1' }}>
-          {state.conversations?.map((msg, index) => {
+          {allConversation?.map((msg, index) => {
             return (
               <>
+                {console.log(msg, "msgggg")}
                 <CardReceiveMessage
                   // deleteMessage={() => {
                   //   getAllRecieverChat();
@@ -77,6 +78,7 @@ function AllMessage(props) {
                   createdAt={msg?.createdAt}
                   recieverId={msg?.reciever?._id}
                   category={msg?.product?.category}
+                  props={props}
                 // conversation={msg}
                 // chatId={msg?._id}
                 // currentUser={userId}

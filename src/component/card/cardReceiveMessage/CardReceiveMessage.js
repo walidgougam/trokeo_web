@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 // import { getUserAction } from '../../../redux/actions/UserAction';
 
-function CardReceiveMessage({
+function CardReceiveMessage({ props,
   sender,
   message,
   createdAt,
@@ -24,7 +24,6 @@ function CardReceiveMessage({
   index,
   arrayLength,
   iconNoImage,
-  history,
 }) {
   // REDUX
   const dispatch = useDispatch();
@@ -64,7 +63,7 @@ function CardReceiveMessage({
       }}>
       <div
         className="container_image_cardReceiveMessage"
-        onClick={() => history.push(`/chat/${chatId}`)}>
+        onClick={() => props.props.history.push(`/chat/${chatId}`)}>
         {picture ? (
           <img
             src={

@@ -1,4 +1,4 @@
-const dev = true;
+const dev = false;
 
 export const API_URL = dev
   ? "http://192.168.1.9:5000"

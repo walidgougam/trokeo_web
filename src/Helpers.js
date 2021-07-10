@@ -131,35 +131,13 @@ export const allIcon = [
   { title: 'Services à la personne', icon: <ServicePersonneIcon /> },
 ];
 
-export const allMessage = [
+export const messages = [
   {
-    _id: 1,
-    pictureProduct: Shave,
-    userName: 'walid',
-    titleProduct: 'shave',
-    category: 'Animaux',
-  },
-  {
-    _id: 2,
-    pictureProduct: Shave,
-    userName: 'walid',
-    titleProduct: 'shave',
-    category: 'Animaux',
-  },
-  {
-    _id: 3,
-    // pictureProduct: Shave,
-    userName: 'walid',
-    titleProduct: 'shave',
-    category: 'Animaux',
-  },
-  {
-    _id: 4,
-    pictureProduct: Shave,
-    userName: 'walid',
-    titleProduct: 'shave',
-    category: 'Animaux',
-  },
+    text: "Hello",
+    user: { _id: "60e323bddde4e76bb78f45df" },
+    _id: "60e4c01505272e8be2646f6f",
+    createdAt: "2021-07-06T20:41:57.181Z"
+  }
 ];
 
 export const allOptionsProfile = [
@@ -174,279 +152,52 @@ export const allOptionsProfile = [
   { title: wording.HELP_CENTER, icon: <Question /> },
 ];
 
-export const allChat = [
+export const allConversation = [
   {
-    sender: '1',
-    reciever: '2',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'merci?',
-        createdAt: "aujourd'hui, 12:34",
-        user: {
-          _id: '2',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
+    messages: [{
+      text: "Salut hamza ca va?",
+      user: { _id: "60e0eaf56cd6680b0270febd" },
+      _id: "60e20333acd5830489eaa580",
+      createdAt: "2021-07-04T18:51:31.183Z"
+    }],
+    _id: "60e20333acd5830489eaa581",
+    reciever: {},
+    sender: "60e0eaf56cd6680b0270febd",
+    product: {
+      isFromOrganisation: false,
+      productPicture: [{
+        _id: "60e0f262b686334daefb1585",
+        picture: "photos_1625354850509_rn_image_picker_lib_temp_85454502-1738-474c-91b4-29b1093fea74.jpg",
+        createdAt: "2021-07-03T23:27:30.925Z",
+        updatedAt: "2021-07-03T23:27:30.925Z"
+      }], likes: 1, _id: "60e0f263b686334daefb1586"
+    },
+    createdAt: "2021-07-04T18:51:31.304Z",
+    updatedAt: "2021-07-04T18:51:31.304Z"
   },
   {
-    sender: '2',
-    reciever: '2',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'bonjour comment allez vous?',
-        createdAt: "aujourd'hui, 12:38",
-        user: {
-          _id: '1',
-          name: 'camille',
-          avatar: 'hello',
-        },
-      },
-    ],
+    messages: [{
+      text: "Salut hamza ca va?",
+      user: { _id: "60e0eaf56cd6680b0270febd" },
+      _id: "60e20333acd5830489eaa580",
+      createdAt: "2021-07-04T18:51:31.183Z"
+    }],
+    _id: "60e20333acd5830489eaa581",
+    reciever: {},
+    sender: "60e0eaf56cd6680b0270febd",
+    product: {
+      isFromOrganisation: false,
+      productPicture: [{
+        _id: "60e0f262b686334daefb1585",
+        picture: "photos_1625354850509_rn_image_picker_lib_temp_85454502-1738-474c-91b4-29b1093fea74.jpg",
+        createdAt: "2021-07-03T23:27:30.925Z",
+        updatedAt: "2021-07-03T23:27:30.925Z"
+      }], likes: 1, _id: "60e0f263b686334daefb1586"
+    },
+    createdAt: "2021-07-04T18:51:31.304Z",
+    updatedAt: "2021-07-04T18:51:31.304Z"
   },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
-  {
-    sender: '2',
-    reciever: '1',
-    product: 'faire le ménage',
-    messages: [
-      {
-        _id: '100',
-        text: 'tres bien et vous?',
-        createdAt: "aujourd'hui, 12:40",
-        user: {
-          _id: '1',
-          name: 'marion',
-          avatar: 'hello',
-        },
-      },
-    ],
-  },
+
 ];
 
 export const showCategoryPicture = (category) => {
@@ -725,5 +476,24 @@ export const allProduct = [
     },
     createdAt: "2021-06-24T19:24:38.077Z",
     updatedAt: "2021-06-24T19:24:38.077Z"
+  }
+]
+
+
+export const allReview = () => [
+  {
+    name: 'marine_w',
+    messageReview: 'joli sac',
+    createdAd: 1,
+  },
+  {
+    name: 'marine_w',
+    messageReview: 'joli sac',
+    createdAd: 2,
+  },
+  {
+    name: 'marine_w',
+    messageReview: 'joli sac',
+    createdAd: 3,
   }
 ]

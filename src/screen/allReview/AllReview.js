@@ -20,24 +20,6 @@ function AllReview(props) {
         0,
     )}`;
 
-    const allReview = [
-        {
-            name: 'marine_w',
-            messageReview: 'joli sac',
-            createdAd: 1,
-        },
-        {
-            name: 'marine_w',
-            messageReview: 'joli sac',
-            createdAd: 2,
-        },
-        {
-            name: 'marine_w',
-            messageReview: 'joli sac',
-            createdAd: 3,
-        },
-    ];
-
     return (
         <>
             <Navbar props={props} />

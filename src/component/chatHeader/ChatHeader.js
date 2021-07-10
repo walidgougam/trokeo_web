@@ -8,7 +8,6 @@ import Navbar from '../../component/navbar/Navbar';
 function ChatHeader(props, { name, productName, location, fromReview }) {
   return (
     <div>
-      <Navbar props={props} />
       <div className="container_chatheader">
         <div className="wrapper_product_chatheader">
           <img
