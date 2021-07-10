@@ -130,7 +130,7 @@ function CreateProduct(props) {
       });
   };
 
-  const uploadPicture = (e) => {
+  const handleUploadPicture = (e) => {
     setState({ ...state, productPicture: e.target.files });
   };
 
@@ -187,7 +187,7 @@ function CreateProduct(props) {
             <input
               id="file-input"
               type="file"
-              onChange={uploadPicture}
+              onChange={handleUploadPicture}
               multiple
             />
           </div>

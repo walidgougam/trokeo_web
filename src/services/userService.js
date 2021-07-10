@@ -65,12 +65,16 @@ export const userRegister = async (
    successCB,
    errorCB
 ) => {
+   console.log(userPicture, "userpicture on userregister")
+   console.log(userData, "userdata on user register")
    await axios
       .post(registerUrl, createFormData(userPicture, userData), headersConfig)
       .then((res) => {
+         console.log(res, "res success userRegister")
          return LoginSuccess(res, successCB);
       })
       .catch((err) => {
+         console.log(err, "err  userRegister")
          errorCB(err);
       });
 };

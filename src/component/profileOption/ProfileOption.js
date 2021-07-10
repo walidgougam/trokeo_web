@@ -4,35 +4,35 @@ import { allOptionsProfile } from '../../Helpers';
 import ThumbnailProfile from '../thumbnailProfile/ThumbnailProfile';
 import wording from '../../constant/wording';
 
-function ProfileOption({ props }) {
+function ProfileOption({ history }) {
+    console.log(history, "historyyyy")
 
     const handleProfileOption = (option) => {
         switch (option)
         {
             case wording.SEE_PROFILE:
-                return props.props.history.push('/profile/edit');
+                return history.push('/profile/edit');
             case wording.FAVORITES:
-                return props.props.history.push('/favorites');
+                return history.push('/favorites');
             case wording.ORGANIZATION_MODE:
-                return props.props.history.push('/hello');
+                return history.push('/hello');
             case wording.CUSTOMIZATION:
-                return props.props.history.push('/hello');
+                return history.push('/hello');
             case wording.SETTINGS:
-                return props.props.history.push('/setting');
+                return history.push('/setting');
             case wording.ABOUT_TROKEO:
-                return props.props.history.push('/about');
+                return history.push('/about');
             case wording.CGU:
-                return props.props.history.push('/hello');
+                return history.push('/hello');
             case wording.EVALUATE_APP:
-                return props.props.history.push('/hello');
+                return history.push('/hello');
             case wording.HELP_CENTER:
-                return props.props.history.push('/helpcenter');
+                return history.push('/helpcenter');
         }
     };
     return (
         <>
             <div className="container_profileoption">
-                {console.log(props, "props")}
                 {allOptionsProfile.map((option, index) => {
                     return (
                         <div

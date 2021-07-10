@@ -30,7 +30,7 @@ function AllReview(props) {
                     name={name}
                     createdProfileAt={userStore.user.createdAt}
                 />
-                {allReview.map((review, index) => {
+                {/* {allReview.map((review, index) => {
                     return (
                         <CardReview
                             name={review.name}
@@ -40,7 +40,7 @@ function AllReview(props) {
                             index={index}
                         />
                     );
-                })}
+                })} */}
             </div>
             <Footer />
         </>

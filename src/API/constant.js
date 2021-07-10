@@ -1,7 +1,7 @@
-const dev = false;
+const dev = true;
 
 export const API_URL = dev
-  ? "http://192.168.1.9:5000"
+  ? "http://192.168.1.46:5000"
   : "https://test-api.trokeo.com"
 
 export const imageStatic = (imageUrlFromBack, tmp = '') => {
