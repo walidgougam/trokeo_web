@@ -50,3 +50,12 @@
   align-self: flex-start;
   /* font-family: "open sans regular"; */
 }
+
+.wrapper_icon_picture_createproduct {
+  > input {
+    cursor: pointer;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}

@@ -43,8 +43,7 @@ function Setting(props) {
     setIsOpen(false)
   }
 
-  const confirmDelete = () => {
-    console.log("confirm delete")
+  const confirmDisconnect = () => {
     setIsOpen(false)
     dispatch(
       userDiconnectedAction({
@@ -97,7 +96,7 @@ function Setting(props) {
       <Modal
         open={isOpen}
         onClose={() => closeModal()}
-        btnPress={() => confirmDelete()}
+        btnPress={() => confirmDisconnect()}
         title={wording.SURE_DISCONNECTED}
         btnTitle="Confirmer"
       />

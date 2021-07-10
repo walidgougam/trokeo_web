@@ -1,12 +1,10 @@
 export const createFormData = (photo, body) => {
     const data = new FormData();
+    console.log(photo, "photo register createformdata")
 
-    data.append('photo', {
-        name: photo.fileName,
-        type: photo.type,
-        uri: photo.uri.replace('file://', '')
-        // Platform.OS === 'android' ? photo.uri : photo.uri.replace('file://', '')
-    });
+    data.append('photo',
+        photo
+    );
 
     Object.keys(body).forEach(key => {
         data.append(key, body[key]);

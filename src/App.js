@@ -68,6 +68,7 @@ const App = ({ history }) => {
         <Route exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
         <Route exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />
         {/* <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile" component={Profile} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile/edit" component={EditProfile} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/allreview/:id" component={AllReview} isAuth={userStore.isConnected} />
@@ -87,7 +88,7 @@ const App = ({ history }) => {
         <ProtectedRoute exact path="/payment" component={Payment} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/notification" component={Notification} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
-        <ProtectedRoute exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} /> */}
+  <ProtectedRoute exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />*/}
       </Switch>
     </BrowserRouter>
   );
