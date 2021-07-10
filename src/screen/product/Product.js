@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function Product(props) {
   /** STATE */
   const [isService, setIsService] = useState(true);
+  const [page, setPage] = useState(1);
   const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   /** REDUX */
@@ -28,8 +29,8 @@ function Product(props) {
   const productStore = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(getProductAction(1, false))
-  })
+    dispatch(getProductAction(page, false))
+  }, [page])
 
   const renderProduct = () => {
     // if (productStore.isLoading)
@@ -48,15 +49,16 @@ function Product(props) {
       return (
         <div className="wrapper_card_product">
           {console.log(productStore, "prodcutstore")}
-          {allProduct.map((product, index) => {
+          {productStore.product.map((product, index) => {
+            console.log("PROD", product)
             // to change by productStore
             return (
-              <div style={{ width: 168, height: 146 }}>
+              <div style={{ width: 168, height: 146 }} key={index}>
                 <CardProduct
-                  category={product.category}
+                  category={product?.category?.category}
                   key={index}
                   title={product.title}
-                  productPicture={product?.productPicture[0].picture}
+                  productPicture={product?.productPicture[0]?.picture}
                   goToProductDetail={() =>
                     props.history.push(`/product/:${product._id}`)
                   }
@@ -64,6 +66,13 @@ function Product(props) {
               </div>
             );
           })}
+
+          <br />
+          <br />
+          <br />
+          <div>
+            <input type="button" value="see more..." onClick={() => setPage(prevState => prevState + 1)} />
+          </div>
         </div>
       );
     }

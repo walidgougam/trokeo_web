@@ -25,6 +25,7 @@
     "react-scripts": "3.4.3",
     "react-sticky-footer": "0.1.0-rc3",
     "react-toastify": "^7.0.3",
+    "react-web-gifted-chat": "^0.6.7",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",

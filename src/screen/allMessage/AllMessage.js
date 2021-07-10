@@ -23,13 +23,11 @@ function AllMessage(props) {
   const userStore = useSelector((state) => state.authReducer);
 
   useEffect(() => {
-    console.log(userStore.user._id, "ZONE")
     // get conversationList
     GetConversations(userStore.user._id, userStore.token)
       .then((res) => {
         console.log(res, "resresres")
-        setState({ ...state, conversations: res })
-        setState({ ...state, isLoading: false })
+        setState({ ...state, conversations: res, isLoading: false })
       })
       .catch((err) => {
         // handle erros setErros
@@ -51,18 +49,17 @@ function AllMessage(props) {
   //   getConversations();
   // }, [userId]);
 
-  if (state.isLoading)
-  {
+  if (state.isLoading) {
     return <Loader loaded={false} color="green" />;
   }
-
+  console.log("conv", state)
   return (
     <>
       <Navbar props={props} />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Messages" />
         <div className="container_allmessage" style={{ flex: '1' }}>
-          {allConversation?.map((msg, index) => {
+          {state.conversations?.map((msg, index) => {
             return (
               <>
                 {console.log(msg, "msgggg")}
@@ -71,13 +68,14 @@ function AllMessage(props) {
                   //   getAllRecieverChat();
                   //   setDeletedMessage(true);
                   // }}
-                  product={msg.product}
-                  sender={msg?.reciever?.firstName}
-                  message={msg?.messages[0]?.text}
-                  picture={msg?.product?.productPicture[0].picture}
-                  createdAt={msg?.createdAt}
-                  recieverId={msg?.reciever?._id}
-                  category={msg?.product?.category}
+                  conversationData={msg}
+                  // product={msg.product}
+                  // sender={msg?.reciever?.firstName}
+                  // message={msg?.messages[0]?.text}
+                  // picture={msg?.product?.productPicture[0].picture}
+                  // createdAt={msg?.createdAt}
+                  // recieverId={msg?.reciever?._id}
+                  // category={msg?.product?.category}
                   props={props}
                 // conversation={msg}
                 // chatId={msg?._id}

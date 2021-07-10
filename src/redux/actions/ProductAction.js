@@ -12,11 +12,11 @@ export const GET_SPECIFIC_PRODUCT_SUCCESS = 'GET_SPECIFIC_PRODUCT_SUCCESS'
 export const HANDLE_LIKES = 'HANDLE_LIKES'
 export const SET_LOCATION = 'SET_LOCATION'
 
-export const getProductAction = () => {
+export const getProductAction = (page, isOrganisation) => {
   return async (dispatch) => {
     return axios({
       method: 'GET',
-      url: getProductUrl,
+      url: `${getProductUrl}/${page}/${isOrganisation}/web`,
     })
       .then(async res => {
         res && dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data.product });

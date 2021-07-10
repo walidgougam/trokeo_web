@@ -17,26 +17,28 @@ const initialState = {
 }
 
 export function productReducer(state = initialState, action) {
-  switch (action.type)
-  {
+  switch (action.type) {
     case GET_PRODUCT_SUCCESS:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
+        let newState = state.product
+        action.payload.map(item => {
+          const rs = newState.filter(it => it._id === item._id)
+          !(rs.length > 0) && newState.push(item)
+        })
         return {
-          product: action.payload
+          ...state,
+          product: [...newState]
         }
-      } else return [];
+      } else return state;
     case GET_SPECIFIC_PRODUCT_SUCCESS:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
         return {
           ...state,
           product: [...state.product, action.payload.product],
         }
       } else return [];
     case CREATE_PRODUCT_SUCCESS:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
         return {
           product: action.payload,
         }
@@ -67,11 +69,9 @@ export function productReducer(state = initialState, action) {
 }
 
 export function createProductCategoryReducer(state = initialState, action) {
-  switch (action.type)
-  {
+  switch (action.type) {
     case CREATE_PRODUCT_CATEGORY_SUCCESS:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
         return action.payload.category
       } else return {}
     default:
@@ -82,11 +82,9 @@ export function createProductCategoryReducer(state = initialState, action) {
 
 
 export function searchProductReducer(state = initialState, action) {
-  switch (action.type)
-  {
+  switch (action.type) {
     case SEARCH_PRODUCT:
-      if (action.payload !== undefined)
-      {
+      if (action.payload !== undefined) {
         return action.payload;
       } else return [];
     default:

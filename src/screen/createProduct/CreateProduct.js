@@ -34,7 +34,7 @@ function CreateProduct(props) {
     description: '',
     condition: '',
     category: '',
-    isRequestProduct: '',
+    isRequestProduct: false,
     productPicture: [],
     errorOnCreateProduct: '',
   });
@@ -73,16 +73,14 @@ function CreateProduct(props) {
 
   const prepareData = (productPicture, body) => {
     const data = new FormData();
-    if (productPicture)
-    {
+    if (productPicture) {
       for (let i = 0; i < productPicture.length; i++)
         data.append('photos', productPicture[i])
       Object.keys(body).forEach((key) => {
         data.append(key, body[key]);
       });
       return data;
-    } else
-    {
+    } else {
       setState({ ...state, errorOnCreateProduct: 'true' });
     }
   };
@@ -97,12 +95,13 @@ function CreateProduct(props) {
           title: state.title,
           description: state.description,
           condition: state.condition,
-          category: createProductCategoryStore.id,
+          category: state.category,
           userId,
+          isOffer: !state.isRequestProduct,
           type: state.isService ? 'service' : 'bien',
           isFromOrganization: userStore.user.isOrganisation,
-          longitude: locationStore.longitude,
-          latitude: locationStore.latitude,
+          // longitude: //locationStore.longitude,
+          // latitude: locationStore.latitude,
         }),
         {
           headers: {
@@ -136,6 +135,7 @@ function CreateProduct(props) {
 
   return (
     <>
+      {console.log("state", state)}
       <Navbar props={props} />
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService

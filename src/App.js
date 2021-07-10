@@ -60,7 +60,7 @@ const App = ({ history }) => {
         <Route exact path="/followcategory" component={FollowCategory} isAuth={userStore.isConnected} />
         <Route exact path="/followcategory/edit" component={FollowCategory} isAuth={userStore.isConnected} />
         <Route exact path="/chat" component={AllMessage} isAuth={userStore.isConnected} />
-        <Route exact path="/chat/:id" component={Chat} isAuth={userStore.isConnected} />
+        <Route exact path="/conversation" component={Chat} isAuth={userStore.isConnected} />
         <Route exact path="/about" component={About} isAuth={userStore.isConnected} />
         <Route exact path="/terms" component={Terms} isAuth={userStore.isConnected} />
         <Route exact path="/payment" component={Payment} isAuth={userStore.isConnected} />

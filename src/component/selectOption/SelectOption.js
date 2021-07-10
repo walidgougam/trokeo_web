@@ -19,7 +19,7 @@ function SelectOption({ title, isService, goodsCondition, serviceCategories, goo
                             goodCategories.map(
                                 (category, index) => {
                                     return (
-                                        <option value={category.titleCategory}>
+                                        <option value={category._id}>
                                             {category.category}
                                         </option>
                                     );

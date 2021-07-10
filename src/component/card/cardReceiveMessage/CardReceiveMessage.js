@@ -10,12 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { getUserAction } from '../../../redux/actions/UserAction';
 
 function CardReceiveMessage({ props,
-  sender,
-  message,
-  createdAt,
-  picture,
-  product,
-  conversation,
+  // sender,
+  // message,
+  // createdAt,
+  // picture,
+  // product,
+  // conversation,
+  conversationData,
   chatId,
   currentUser,
   userName,
@@ -30,7 +31,7 @@ function CardReceiveMessage({ props,
   const userStore = useSelector((state) => state.userReducer);
 
   const displayHour = () => {
-    return moment(createdAt).format('HH:mm');
+    return moment(conversationData.createdAt).format('HH:mm');
   };
 
   // useEffect(() => {
@@ -53,6 +54,7 @@ function CardReceiveMessage({ props,
   //   return <Loader loaded={false} color="green" />;
   // }
 
+  console.log("DATAAA", conversationData)
   return (
     <div
       className="container_cardReceiveMessage"
@@ -63,8 +65,14 @@ function CardReceiveMessage({ props,
       }}>
       <div
         className="container_image_cardReceiveMessage"
-        onClick={() => props.props.history.push(`/chat/${chatId}`)}>
-        {picture ? (
+        onClick={() => props.history.push({
+          pathname: `/conversation`,
+          state: {
+            fromAllMessages: true,
+            conversation: conversationData
+          }
+        })}>
+        {conversationData.product?.productPicture[0].picture ? (
           <img
             src={
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwLV6l8UzTWhIhHBYxM801tLHtKTzHAjhzxQ&usqp=CAU'
@@ -76,11 +84,11 @@ function CardReceiveMessage({ props,
         )}
         <div className="wrapper_cardReceiveMessage">
           <div>
-            <p className="text_name_cardReceiveMessage">{sender}</p>
-            <p className="text_title_cardReceiveMessage">{product?.title}</p>
+            <p className="text_name_cardReceiveMessage">{conversationData.reciever?.firstName}</p>
+            <p className="text_title_cardReceiveMessage">{conversationData.product?.title}</p>
           </div>
           <p className="text_lastmessage_cardReceiveMessage">
-            {`${displayHour()} - ${message}`}
+            {`${displayHour()} - ${conversationData.messages[0]?.text}`}
           </p>
         </div>
       </div>

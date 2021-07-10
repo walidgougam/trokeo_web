@@ -4,7 +4,7 @@ import { allOptionsProfile } from '../../Helpers';
 import ThumbnailProfile from '../thumbnailProfile/ThumbnailProfile';
 import wording from '../../constant/wording';
 
-function ProfileOption({ props }) {
+function ProfileOption(props) {
 
     const handleProfileOption = (option) => {
         switch (option)
