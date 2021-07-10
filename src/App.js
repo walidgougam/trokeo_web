@@ -46,7 +46,7 @@ const App = ({ history }) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
+        {/* <Route exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
         <Route exact path="/profile" component={Profile} isAuth={userStore.isConnected} />
         <Route exact path="/profile/edit" component={EditProfile} isAuth={userStore.isConnected} />
         <Route exact path="/allreview/:id" component={AllReview} isAuth={userStore.isConnected} />
@@ -66,8 +66,8 @@ const App = ({ history }) => {
         <Route exact path="/payment" component={Payment} isAuth={userStore.isConnected} />
         <Route exact path="/notification" component={Notification} isAuth={userStore.isConnected} />
         <Route exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
-        <Route exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />
-        {/* <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
+        <Route exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} /> */}
+        <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile" component={Profile} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile/edit" component={EditProfile} isAuth={userStore.isConnected} />
@@ -88,7 +88,7 @@ const App = ({ history }) => {
         <ProtectedRoute exact path="/payment" component={Payment} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/notification" component={Notification} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path='/forbiddenservices' component={ForbiddenServices} isAuth={userStore.isConnected} />
-  <ProtectedRoute exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />*/}
+        <ProtectedRoute exact path='/helpcenter' component={HelpCenter} isAuth={userStore.isConnected} />
       </Switch>
     </BrowserRouter>
   );
