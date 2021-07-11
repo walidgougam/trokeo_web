@@ -12,7 +12,7 @@ import {
 import { getProductAction } from '../../redux/actions/ProductAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Product(props) {
+function Product({ props }) {
   /** STATE */
   const [isService, setIsService] = useState(false);
   const [page, setPage] = useState(1);
@@ -35,10 +35,10 @@ function Product(props) {
     if (allProduct?.length > 0)
     {
       return (
-        <div className="wrapper_card_product">
+        <div className="container_card_product">
           {allProduct.map((product, index) => {
             return (
-              <div style={{ width: 168, height: 146 }} key={index}>
+              <div className="wrapper_card_product" key={index}>
                 <CardProduct
                   category={product?.category?.category}
                   key={index}

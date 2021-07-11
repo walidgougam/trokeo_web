@@ -35,7 +35,6 @@ export default {
   SEE_PROFILE: 'Voir mon profil',
   FAVORITES: 'Favoris',
   ORGANIZATION_MODE: 'Mode association',
-  EVALUATE_APP: 'Evaluer l’application',
   HELP_CENTER: 'Centre d’aide',
 
   /** AUTRE */

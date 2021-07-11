@@ -3,8 +3,8 @@ import './CardContactOwner.scss';
 /** COMPONENT */
 import { BtnFinish, PictureIconProfile } from '../../index';
 /** SVG */
-import { ReactComponent as StarFull } from '../../../asset/allSvg/star_full.svg';
-import { ReactComponent as StarEmpty } from '../../../asset/allSvg/star_empty.svg';
+import { ReactComponent as StarFullLittle } from '../../../asset/allSvg/star_full_little.svg';
+import { ReactComponent as StarEmptyLittle } from '../../../asset/allSvg/star_empty_little.svg';
 
 export default function CardContactOwner({ pictureProductOwner }) {
   return (
@@ -18,10 +18,10 @@ export default function CardContactOwner({ pictureProductOwner }) {
         <div className="wrapper_name_owner_cardcontactowner">
           <p>marine_w</p>
           <div className="wrapper_star_cardcontactowner">
-            <StarFull />
-            <StarFull />
-            <StarEmpty />
-            <StarEmpty />
+            <StarFullLittle />
+            <StarFullLittle />
+            <StarEmptyLittle />
+            <StarEmptyLittle />
           </div>
         </div>
       </div>

@@ -94,10 +94,10 @@ function EditProfile(props) {
   };
 
   return (
-    <>
+    <div className="allcontainer_editprofile">
       <Navbar history={props.history} />
       <HeaderGreen title="Mise à jour du profil" />
-      <div style={{ marginLeft: 139, marginRight: 139 }}>
+      <div className="container_editprofile">
         <div className="wrapper_picture_editprofile">
           {state.userPicture ?
             <img
@@ -210,7 +210,7 @@ function EditProfile(props) {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -15,7 +15,8 @@ export default function CardProduct({
   const [booked, setBooked] = useState(true);
   const [heart, setHeart] = useState(false);
   return (
-    <div className="container_cardproduct">
+    <div className="container_cardproduct" style={{ cursor: 'pointer' }}
+      onClick={goToProductDetail}>
       {!productPicture?.length > 0 ? (
         <img
           src={productPicture}
@@ -37,8 +38,7 @@ export default function CardProduct({
       </p>
       <p
         className="title_product_cardproduct"
-        style={{ cursor: 'pointer' }}
-        onClick={goToProductDetail}>
+      >
         {title}
       </p>
       <div className="container_icon_cardproduct">

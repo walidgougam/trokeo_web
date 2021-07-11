@@ -148,7 +148,6 @@ export const allOptionsProfile = [
   { title: wording.SETTINGS, icon: <Setting /> },
   { title: wording.ABOUT_TROKEO, icon: <About /> },
   { title: wording.CGU, icon: <Custom2 /> },
-  { title: wording.EVALUATE_APP, icon: <Great /> },
   { title: wording.HELP_CENTER, icon: <Question /> },
 ];
 

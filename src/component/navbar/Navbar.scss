@@ -101,6 +101,20 @@
   /* font-family:Open Sans Regular ; */
 }
 
+.burger_navbar {
+  display: none;
+}
+
 // .wrapper_link_navbar li a:active {
 //   border-bottom: solid 1px green;
 // }
+
+/* IPHONE */
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .container_navbar {
+    display: none;
+  }
+  .burger_navbar {
+    display: inline;
+  }
+}

@@ -8,7 +8,7 @@
   padding: 11px 30px;
 }
 
-.wrapper_card_product {
+.container_card_product {
   // background-color: green;
   margin-left: 13.5%;
   margin-right: 13.5%;
@@ -17,21 +17,30 @@
   grid-column-gap: 25px;
   grid-row-gap: 80px;
 }
+
+.wrapper_card_product {
+  width: 168px;
+  height: 146px;
+}
+
 /*======== IPHONE X ========*/
 
 @media only screen and (max-width: 400px) {
-  .wrapper_card_product {
-    /* margin-left: 13.5%;
-    margin-right: 13.5%; */
+  .container_card_product {
+    margin-left: 0px;
+    margin-right: 0px;
     justify-items: center;
-    display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
+  }
+  .wrapper_card_product {
+    width: 168px;
+    height: 146px;
   }
 }
 
 /*======== IPAD ========*/
 @media only screen and (min-width: 401px) and (max-width: 768px) {
-  .wrapper_card_product {
+  .container_card_product {
     /* margin-left: 13.5%;
     margin-right: 13.5%; */
     justify-items: center;

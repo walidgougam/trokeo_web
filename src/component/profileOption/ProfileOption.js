@@ -24,8 +24,6 @@ function ProfileOption({ history }) {
                 return history.push('/about');
             case wording.CGU:
                 return history.push('/hello');
-            case wording.EVALUATE_APP:
-                return history.push('/hello');
             case wording.HELP_CENTER:
                 return history.push('/helpcenter');
         }

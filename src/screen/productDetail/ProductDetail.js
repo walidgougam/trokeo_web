@@ -25,9 +25,10 @@ const center = {
 
 function ProductDetail() {
 
-  const [state, setState] = ({
+  /** STATE */
+  const [state, setState] = useState({
     heart: true
-  })
+  });
 
   //GOOGLEMAP
   const { isLoaded, loadError } = useLoadScript({
@@ -37,15 +38,15 @@ function ProductDetail() {
   if (loadError) return 'error Loading Map';
   if (!isLoaded) return 'Loading Maps';
   return (
-    <div className="container_productdetail">
+    <div className="allcontainer_productdetail">
+      <Navbar />
       <div
-        style={{
-          marginLeft: '13.9vw',
-        }}>
+        className="container_productdetail"
+      >
         <div className="wrapper_title_category_productdetail">
           <span className="title_category_productdetail">Catégorie</span>
           <span className="detail_category_productdetail">
-            Beauté & bien être > soin du visage
+            Beauté & bien être
           </span>
         </div>
         <div className="container_cardcontact_productdetail">
@@ -90,6 +91,7 @@ function ProductDetail() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
