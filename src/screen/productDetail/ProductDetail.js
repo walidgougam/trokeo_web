@@ -12,6 +12,7 @@ import { ReactComponent as HeartFull } from '../../asset/allSvg/heart_full.svg';
 import { ReactComponent as IconLocation } from '../../asset/allSvg/icon_location.svg';
 /** COMPONENT */
 import { Navbar, Footer, CardContactOwner } from '../../component/index'
+import { useLocation } from 'react-router';
 
 const mapContainerStyle = {
   width: '479px',
@@ -25,6 +26,8 @@ const center = {
 
 function ProductDetail() {
 
+  const location = useLocation()
+  const { product } = location.state
   /** STATE */
   const [state, setState] = useState({
     heart: true
@@ -52,6 +55,7 @@ function ProductDetail() {
         <div className="container_cardcontact_productdetail">
           <CardContactOwner
             pictureProductOwner={'../../asset/allSvg/shave.jpg'}
+            product={product}
           />
           <div className="container_right_productdetail">
             <img

@@ -5,8 +5,7 @@ const adaptedMessages = (conversation) => {
     return {
         ...conversation,
         messages: conversation.messages.map(item => {
-            if (item.user)
-            {
+            if (item.user) {
                 return {
                     text: item.text,
                     user: {
@@ -21,8 +20,7 @@ const adaptedMessages = (conversation) => {
 }
 // get conversation List
 export const GetConversations = async (userid, userToken) => {
-    try
-    {
+    try {
         const res = await axios({
             method: 'GET',
             url: getConversationUrl(userid),
@@ -32,8 +30,7 @@ export const GetConversations = async (userid, userToken) => {
         console.log("res")
         return res && res.data.map(adaptedMessages)
     }
-    catch (err)
-    {
+    catch (err) {
         console.log("rerr", err.response)
         return null
     }
@@ -41,8 +38,8 @@ export const GetConversations = async (userid, userToken) => {
 
 // get conversation one
 export const getOneConversation = async (product, userId, token) => {
-    try
-    {
+    console.log("producttt", product, userId)
+    try {
         const res = await axios({
             method: 'GET',
             url: getOneConversationUrl(userId, product.user._id, product._id),
@@ -50,8 +47,8 @@ export const getOneConversation = async (product, userId, token) => {
         });
         return res && res.data.map(adaptedMessages)
     }
-    catch (err)
-    {
+    catch (err) {
+        console.log("ERRRR", err)
         return null
     }
     // console.log('Conversations :=> ', data)
