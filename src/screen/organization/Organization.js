@@ -22,7 +22,7 @@ function Organization({ props }) {
   const { product } = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(getProductAction(page, false))
+    dispatch(getProductAction(page, true))
   }, [page])
 
 
