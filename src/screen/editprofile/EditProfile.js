@@ -56,11 +56,7 @@ function EditProfile(props) {
     const data = new FormData()
     if (userPicture)
     {
-      data.append('photo', {
-        name: userPicture.fileName,
-        type: userPicture.type,
-        uri: userPicture?.uri
-      })
+      data.append('photo', state.userPicture[0])
     }
     Object.keys(body).forEach((key) => {
       data.append(key, body[key])
@@ -70,6 +66,7 @@ function EditProfile(props) {
 
   const handleEditProfile = async () => {
     let userId = user._id;
+    console.log("ID, ", userId, user, state)
     const data = prepareData(state.userPicture, {
       userId,
       firstName: state.firstName,
