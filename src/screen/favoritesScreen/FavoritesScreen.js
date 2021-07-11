@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
 import Footer from '../../component/footer/Footer';
 
-function FavoritesScreen({ props }) {
+function FavoritesScreen(props) {
     /** STATE */
     const [isService, setIsService] = useState(false);
 

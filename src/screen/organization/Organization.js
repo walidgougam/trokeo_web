@@ -12,7 +12,7 @@ import {
 import { getProductAction } from '../../redux/actions/ProductAction';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Organization({ props }) {
+function Organization(props) {
   /** STATE */
   const [isService, setIsService] = useState(false);
   const [page, setPage] = useState(1);
@@ -31,7 +31,8 @@ function Organization({ props }) {
     const allProduct = product?.filter(
       (e) => e?.type.type === goodOrService && e?.isFromOrganisation === true
     );
-    if (allProduct?.length > 0) {
+    if (allProduct?.length > 0)
+    {
       return (
         <div className="wrapper_card_product">
           {allProduct?.map((product, index) => {

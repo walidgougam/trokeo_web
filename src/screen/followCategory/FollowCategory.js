@@ -23,7 +23,7 @@ function FollowCategory(props) {
                   arrayLength={goodCategories.length}
                   index={index}
                   key={index}
-                  title={category.titleCategory}
+                  title={category.category}
                   follow={category.followByUser}
                 />
               );
@@ -41,7 +41,7 @@ function FollowCategory(props) {
                   arrayLength={serviceCategories.length}
                   key={index}
                   index={index}
-                  title={category.titleCategory}
+                  title={category.category}
                   follow={category.followByUser}
                 />
               );

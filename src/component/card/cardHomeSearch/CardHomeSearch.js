@@ -2,31 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './CardHomeSearch.scss';
 import { goodCategories, serviceCategories } from '../../../Helpers';
 import wording from '../../../constant/wording';
-import {
-  Link,
-} from 'react-router-dom';
 
 function CardHomeSearch({ props }) {
   /** STATE */
 
   const [state, setState] = useState({
     isServices: false,
-    category: [],
-    city: ''
-  })
+    categories: [],
+    city: '',
+    category: ''
+  });
 
   const handleResearch = () => {
-    console.log("research")
-    props.history.push(wording.PRODUCT_URL)
-  }
+    props.history.push(wording.PRODUCT_URL);
+  };
 
   useEffect(() => {
     if (!state.isServices)
     {
-      setState({ ...state, category: goodCategories });
+      setState({ ...state, categories: goodCategories });
     } else
     {
-      setState({ ...state, category: serviceCategories });
+      setState({ ...state, categories: serviceCategories });
     }
   }, [state.isServices]);
 
@@ -51,10 +48,19 @@ function CardHomeSearch({ props }) {
         <p className="question_cardhomesearch">
           Sélectionner la/les catégorie(s) associée(s)
         </p>
-        <select className="input_category_cardhomesearch">
-          <option style={{ color: "grey" }} value="" selected disabled>Catégories</option>
-          {state.category?.map((category, index) => {
-            return <option key={index}>{category.titleCategory}</option>;
+        {/* <SelectOption
+          style={{}}
+          // goodsCondition={['male', 'female']}
+          placeholder="Catégories"
+          goodCategories={state.categories}
+          changeState={(e) => setState({ ...state, female: e.target.value === 'male' ? false : true })}
+        /> */}
+        <select className="input_category_cardhomesearch" onChange={(e) => setState({ ...state, category: e.target.value })}>
+          <option style={{ color: 'grey' }} value="" selected disabled>
+            Catégories
+          </option>
+          {state.categories?.map((category, index) => {
+            return <option key={index}>{category.category}</option>;
           })}
         </select>
         <p className="question_cardhomesearch">Choississez la localisation ?</p>
@@ -65,13 +71,13 @@ function CardHomeSearch({ props }) {
           className="input_entercity_cardhomesearch"
         />
       </div>
-      {/* <Link to={wording.PRODUCT_URL} style={{ textDecoration: 'none' }}> */}
-      <div className="wrapper_btn_cardhomesearch" onClick={() => handleResearch()}>
+      <div
+        className="wrapper_btn_cardhomesearch"
+        onClick={() => handleResearch()}>
         <p>Lancer la recherche</p>
       </div>
-      {/* </Link> */}
     </div>
   );
 }
 
-export default CardHomeSearch
+export default CardHomeSearch;

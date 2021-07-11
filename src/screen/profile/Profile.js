@@ -9,9 +9,9 @@ import {
   Footer,
 } from '../../component/index';
 /** REDUX */
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Profile = ({ props }) => {
+const Profile = (props) => {
   /** REDUX */
   const userStore = useSelector((state) => state.authReducer);
   const name = `${userStore?.user?.firstName}_${userStore?.user?.lastName.charAt(

@@ -49,7 +49,7 @@ function ProductDetail() {
         <div className="wrapper_title_category_productdetail">
           <span className="title_category_productdetail">Catégorie</span>
           <span className="detail_category_productdetail">
-            Beauté & bien être
+            {product.category.category}
           </span>
         </div>
         <div className="container_cardcontact_productdetail">
@@ -65,7 +65,7 @@ function ProductDetail() {
             />
             <div className="wrapper_icon_heart_productdetail">
               <p className="title_product_productdetail">
-                Kit de rasage pour Homme
+                {product.title}
               </p>
               <div
                 onClick={() => setState({ ...state, heart: !state.heart })}
@@ -74,12 +74,10 @@ function ProductDetail() {
               </div>
             </div>
             <p className="title_section_productdetail">Etat</p>
-            <p className="result_section_productdetail">Neuf</p>
+            <p className="result_section_productdetail">{product.condition}</p>
             <p className="title_section_productdetail">Description</p>
             <p className="result_section_productdetail">
-              Tout est là : les produits, les outils, le résultat.. Tout! Ce Kit
-              de rasage shavette de la marque Bluebeards Revenge rallie
-              magistralement tradition.
+              {product.description}
             </p>
             <p className="title_section_productdetail">Localisation</p>
             <div className="wrapper_location_productdetail">

@@ -4,7 +4,7 @@ import { HeaderGreen, CardNotification, Footer } from '../../component/index';
 import { Navbar } from '../../component';
 import { notificationData } from '../../Helpers'
 
-function Notification({ props }) {
+function Notification(props) {
     return (
         <div className="container_notification">
             <Navbar history={props.history} />

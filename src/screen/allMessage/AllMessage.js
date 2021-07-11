@@ -11,7 +11,7 @@ import { getConversationAction } from '../../redux/actions/ChatAction';
 /** SERVICES */
 import { GetConversations } from "../../services/chatService";
 
-function AllMessage({ props }) {
+function AllMessage(props) {
   /** STATE */
   const [state, setState] = useState({
     userId: '',
@@ -33,21 +33,6 @@ function AllMessage({ props }) {
         // handle erros setErros
       });
   }, []);
-
-  // useEffect(() => {
-  //   const getConversations = async () => {
-  //     try
-  //     {
-  //       const userId = await localStorage.getItem('userId');
-  //       await dispatch(getConversationAction(userId));
-  //       setIsLoading(false);
-  //     } catch (err)
-  //     {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getConversations();
-  // }, [userId]);
 
   if (state.isLoading)
   {

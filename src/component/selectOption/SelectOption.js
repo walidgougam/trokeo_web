@@ -1,16 +1,17 @@
 import React from 'react'
 import './SelectOption.scss'
 
-function SelectOption({ title, isService, goodsCondition, serviceCategories, goodCategories, changeState }) {
+function SelectOption({ title, isService, goodsCondition, serviceCategories, goodCategories, changeState, style, placeholder }) {
     return (
         <div className="wrapper_input_createproduct">
             <label className="label_createproduct">
                 {title}
                 <select
+                    style={style}
                     className="input_createproduct"
                     onChange={changeState}>
                     <option value="" disabled selected>
-                        Select your option
+                        {placeholder ? placeholder : 'Select your option'}
                     </option>
                     {
                         goodsCondition ? goodsCondition.map((condition, index) => {
@@ -33,21 +34,3 @@ function SelectOption({ title, isService, goodsCondition, serviceCategories, goo
 }
 
 export default SelectOption;
-
-
-
-
-
-// <div className="wrapper_input_createproduct">
-//     <label className="label_createproduct">
-//         Catégorie
-//         <select
-//             className="input_createproduct"
-//             onChange={(e) => setState({ ...state, category: e.target.value })}>
-//             <option value="" disabled selected>
-//                 Select your option
-//             </option>
-//             { }
-//         </select>
-//     </label>
-// </div>
