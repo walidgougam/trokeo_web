@@ -9,7 +9,7 @@ function Chat(props) {
   console.log("LOCATION", location.state)
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <div className="container_chat">
         <HeaderGreen title="Messages" />
         <CardSendMessage props={props} data={location.state} />

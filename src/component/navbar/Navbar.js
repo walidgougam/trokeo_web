@@ -11,16 +11,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import wording from '../../constant/wording';
 
 
-function Navbar({ props }) {
+function Navbar({ history }) {
+  /** STATE */
+  const [productResearch, setProductResearch] = useState('')
+
+
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
-  const { history } = props;
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter')
+    if (event.key === 'Enter' && productResearch)
     {
-      props.history.push('/product')
+      history.push('/product')
     }
   }
 
@@ -39,6 +42,7 @@ function Navbar({ props }) {
             className="input_search_word_navbar"
             placeholder="Rechercher des mots clés"
             onKeyDown={handleKeyDown}
+            onChange={(e) => setProductResearch(e.target.value)}
           />
           <img
             src={require('../../asset/allSvg/icon_search.svg')}

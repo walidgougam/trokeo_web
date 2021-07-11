@@ -34,12 +34,13 @@ import NotificationSetting from './setting/notificationSetting/NotificationSetti
 import PasswordSetting from './setting/passwordSetting/PasswordSetting';
 import PaymentSetting from './setting/paymentSetting/PaymentSetting';
 import ThumbnailProfile from './thumbnailProfile/ThumbnailProfile';
-import Sidebar from './sidebar/Sidebar'
-import ConnexionHelpCenter from './helpCenter/connexionHelpCenter/ConnexionHelpCenter'
-import ExchangeHelpCenter from './helpCenter/exchangeHelpCenter/ExchangeHelpCenter'
-import ProposeGoodHelpCenter from './helpCenter/proposeGoodHelpCenter/ProposeGoodHelpCenter'
-import ResearchHelpCenter from './helpCenter/researchHelpCenter/ResearchHelpCenter'
-import SubscribeHelpCenter from './helpCenter/subscribeHelpCenter/SubscribeHelpCenter'
+import Sidebar from './sidebar/Sidebar';
+import SelectOption from './selectOption/SelectOption';
+import ConnexionHelpCenter from './helpCenter/connexionHelpCenter/ConnexionHelpCenter';
+import ExchangeHelpCenter from './helpCenter/exchangeHelpCenter/ExchangeHelpCenter';
+import ProposeGoodHelpCenter from './helpCenter/proposeGoodHelpCenter/ProposeGoodHelpCenter';
+import ResearchHelpCenter from './helpCenter/researchHelpCenter/ResearchHelpCenter';
+import SubscribeHelpCenter from './helpCenter/subscribeHelpCenter/SubscribeHelpCenter';
 
 export {
     BtnChatHeader,
@@ -82,6 +83,7 @@ export {
     PaymentSetting,
     ResearchHelpCenter,
     Sidebar,
+    SelectOption,
     SubscribeHelpCenter,
     ThumbnailProfile,
 };

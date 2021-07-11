@@ -2,67 +2,21 @@ import React from 'react'
 import './Notification.scss'
 import { HeaderGreen, CardNotification, Footer } from '../../component/index';
 import { Navbar } from '../../component';
+import { notificationData } from '../../Helpers'
 
-function Notification(props) {
-
-    const cardProduct = [
-        {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        },
-        {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        },
-        {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }, {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-        , {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-        , {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-        , {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-        , {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-        , {
-            picture: '',
-            title: "Arnaud a mis en ligne de nouvelles offres.",
-            createdAt: '15 heures'
-        }
-    ]
+function Notification({ props }) {
     return (
         <div className="container_notification">
-            <Navbar props={props} />
+            <Navbar history={props.history} />
             <HeaderGreen title="Notifications" />
             <div className="wrapper_notification">
-                {cardProduct.map((card, index) => {
+                {notificationData.map((card, index) => {
                     return (
                         <CardNotification
                             picture={card.picture}
                             title={card.title}
                             createdAt={card.createdAt}
-                            lastIndex={cardProduct.length - 1}
+                            lastIndex={notificationData.length - 1}
                             index={index}
                         />
                     )

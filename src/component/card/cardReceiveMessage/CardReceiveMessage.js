@@ -10,18 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { getUserAction } from '../../../redux/actions/UserAction';
 
 function CardReceiveMessage({ props,
-  // sender,
-  // message,
-  // createdAt,
-  // picture,
-  // product,
-  // conversation,
   conversationData,
-  chatId,
-  currentUser,
-  userName,
-  titleProduct,
-  pictureProduct,
   index,
   arrayLength,
   iconNoImage,
@@ -34,27 +23,7 @@ function CardReceiveMessage({ props,
     return moment(conversationData.createdAt).format('HH:mm');
   };
 
-  // useEffect(() => {
-  //   const friendId = conversation.members.find((m) => m !== currentUser._id);
 
-  //   const getUser = async () => {
-  //     try
-  //     {
-  //       dispatch(getUserAction(friendId));
-  //     } catch (err)
-  //     {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getUser();
-  // }, [currentUser, conversation]);
-
-  // if (userStore.isLoading === true || Object.keys(userStore).length === 0)
-  // {
-  //   return <Loader loaded={false} color="green" />;
-  // }
-
-  console.log("DATAAA", conversationData)
   return (
     <div
       className="container_cardReceiveMessage"

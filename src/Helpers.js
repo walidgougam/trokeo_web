@@ -479,6 +479,52 @@ export const allProduct = [
   }
 ]
 
+export const notificationData = [
+  {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  },
+  {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  },
+  {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }, {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+  , {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+  , {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+  , {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+  , {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+  , {
+    picture: '',
+    title: "Arnaud a mis en ligne de nouvelles offres.",
+    createdAt: '15 heures'
+  }
+]
 
 export const allReview = () => [
   {

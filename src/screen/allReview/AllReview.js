@@ -22,11 +22,11 @@ function AllReview(props) {
 
     return (
         <>
-            <Navbar props={props} />
+            <Navbar history={props.history} />
             <HeaderGreen />
             <div style={{ marginLeft: '13.5%', marginRight: '13.5%' }}>
                 <ThumbnailProfile
-                    props={props}
+                    history={props.history}
                     name={name}
                     createdProfileAt={userStore.user.createdAt}
                 />

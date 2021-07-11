@@ -11,7 +11,7 @@ import wording from '../../../constant/wording';
 function About(props) {
   return (
     <div className="all_container_about">
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen title="A propos de Trokéo" />
       <div className="container_about">
         <div

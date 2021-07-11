@@ -7,7 +7,7 @@ import { ReactComponent as Star } from '../../asset/allSvg/star_full.svg';
 import { ReactComponent as ArrowRight } from '../../asset/allSvg/arrow_right.svg';
 import moment from 'moment';
 
-function ThumbnailProfile({ props, name, createdProfileAt }) {
+function ThumbnailProfile({ history, name, createdProfileAt }) {
   return (
     <div className="container_thumbnailprofile">
       <div className="wrapper_top_thumbnail_thumbnailprofile">
@@ -30,7 +30,7 @@ function ThumbnailProfile({ props, name, createdProfileAt }) {
           <p className="text_city_thumbnailprofile">haut de seine france</p>
           <div
             className="wrapper_review_thumbnailprofile"
-            onClick={() => props.props.history.push('/allreview/2')}
+            onClick={() => history.push('/allreview/2')}
           >
             <p>voir les avis</p>
             <div>

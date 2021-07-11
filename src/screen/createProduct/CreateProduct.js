@@ -73,14 +73,16 @@ function CreateProduct(props) {
 
   const prepareData = (productPicture, body) => {
     const data = new FormData();
-    if (productPicture) {
+    if (productPicture)
+    {
       for (let i = 0; i < productPicture.length; i++)
         data.append('photos', productPicture[i])
       Object.keys(body).forEach((key) => {
         data.append(key, body[key]);
       });
       return data;
-    } else {
+    } else
+    {
       setState({ ...state, errorOnCreateProduct: 'true' });
     }
   };
@@ -99,7 +101,7 @@ function CreateProduct(props) {
           userId,
           isOffer: !state.isRequestProduct,
           type: state.isService ? 'service' : 'bien',
-          isFromOrganization: userStore.user.isOrganisation,
+          isFromOrganisation: userStore.user.isOrganisation,
           // longitude: //locationStore.longitude,
           // latitude: locationStore.latitude,
         }),
@@ -135,8 +137,7 @@ function CreateProduct(props) {
 
   return (
     <>
-      {console.log("state", state)}
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen title="Créer une annonce" />
       <HeaderChooseGoodOrService
         fromCreateProduct

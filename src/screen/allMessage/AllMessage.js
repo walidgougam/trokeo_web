@@ -11,7 +11,7 @@ import { getConversationAction } from '../../redux/actions/ChatAction';
 /** SERVICES */
 import { GetConversations } from "../../services/chatService";
 
-function AllMessage(props) {
+function AllMessage({ props }) {
   /** STATE */
   const [state, setState] = useState({
     userId: '',
@@ -49,42 +49,27 @@ function AllMessage(props) {
   //   getConversations();
   // }, [userId]);
 
-  if (state.isLoading) {
+  if (state.isLoading)
+  {
     return <Loader loaded={false} color="green" />;
   }
-  console.log("conv", state)
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Messages" />
         <div className="container_allmessage" style={{ flex: '1' }}>
           {state.conversations?.map((msg, index) => {
             return (
               <>
-                {console.log(msg, "msgggg")}
                 <CardReceiveMessage
                   // deleteMessage={() => {
                   //   getAllRecieverChat();
                   //   setDeletedMessage(true);
                   // }}
                   conversationData={msg}
-                  // product={msg.product}
-                  // sender={msg?.reciever?.firstName}
-                  // message={msg?.messages[0]?.text}
-                  // picture={msg?.product?.productPicture[0].picture}
-                  // createdAt={msg?.createdAt}
-                  // recieverId={msg?.reciever?._id}
-                  // category={msg?.product?.category}
                   props={props}
-                // conversation={msg}
-                // chatId={msg?._id}
-                // currentUser={userId}
                 // history={history}
-                // key={index}
-                // pictureProduct={msg?.pictureProduct}
-                // titleProduct={msg?.titleProduct}
-                // userName={msg?.userName}
                 // index={index}
                 // arrayLength={allMessage?.length}
                 // iconNoImage={<NoImageProduct icon={msg?.category} />}

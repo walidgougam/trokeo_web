@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import './Register.scss';
-import { registerApi } from '../../API';
 import { userRegister } from '../../services/userService'
 import wording from '../../constant/wording';
-/** API */
-import axios from 'axios';
-import { registerUrl } from '../../API/constant';
 /** COMPONENT */
 import { BtnFinish, PictureIconProfile, InputForms, InputSelect, Navbar } from '../../component/index'
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 import { registerSuccessAction } from '../../redux/actions/AuthAction'
-import { userRefreshAction } from '../../redux/actions/AuthAction';
-/** SERVICE */
-import { refreshUser } from '../../services/userService';
 
 function Register(props) {
 
@@ -47,24 +40,7 @@ function Register(props) {
     setState({ ...state, errorOnRegister: true })
   }
 
-  const prepareData = (userPicture, body) => {
-    const data = new FormData();
-    if (userPicture)
-    {
-      for (let i = 0; i < userPicture.length; i++)
-        data.append('photos', userPicture[i])
-      Object.keys(body).forEach((key) => {
-        data.append(key, body[key]);
-      });
-      return data;
-    } else
-    {
-      setState({ ...state, errorOnCreateProduct: 'true' });
-    }
-  };
-
   const handleRegister = async () => {
-    console.log("hanle register")
     await userRegister(
       state.userPicture[0],
       {
@@ -76,7 +52,6 @@ function Register(props) {
         isOrganisation: state.type === orgOrGender.ORG
       },
       (resp) => {
-        console.log(resp, "res success")
         dispatch(
           registerSuccessAction({
             user: resp?.data?.user,
@@ -84,7 +59,6 @@ function Register(props) {
           })
 
         )
-        console.log("history push")
         props.history.push('/');
         setState({ ...state, loading: false })
       },
@@ -96,46 +70,7 @@ function Register(props) {
     )
   };
 
-  // const handleRegister = () => {
-  //   const userId = userStore?.user?._id;
-  //   console.log(state, 'state all');
-  //   axios
-  //     .post(
-  //       registerUrl,
-  //       prepareData(state.userPicture, {
-  //         email: state.email,
-  //         password: state.password,
-  //         firstName: state.firstName,
-  //         lastName: state.lastName,
-  //         female: state.type === orgOrGender.TROKEUSE,
-  //         isOrganisation: state.type === orgOrGender.ORG
-  //       }),
-  //       {
-  //         headers: {
-  //           'content-type': 'multipart/form-data',
-  //           Authorization: 'Bearer ' + userStore.token,
-  //         },
-  //       },
-  //     )
-  //     .then(async (res) => {
-  //       await refreshUser(
-  //         userStore.user._id,
-  //         (res) => {
-  //           dispatch(userRefreshAction(res));
-  //         },
-  //         (err) => {
-  //           console.log('ERROR TO HANDLE', err.response);
-  //         },
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       console.log('ERROR create product', err);
-  //       setState({ ...state, errorOnCreateProduct: 'true' });
-  //     });
-  // };
-
   const handleUploadPicture = (e) => {
-    console.log(e.target.files)
     setState({ ...state, userPicture: e.target.files });
   };
 
@@ -145,14 +80,14 @@ function Register(props) {
   }
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <div className="container_register">
         <div className="wrapper_register">
           <p className="text_create_account_register">Créez un compte</p>
           {state.userPicture ?
             <img
               src={URL.createObjectURL(state.userPicture[0])}
-              style={{ width: 94, height: 94 }}
+              className='image_register'
               alt="msg picture"
             />
             :

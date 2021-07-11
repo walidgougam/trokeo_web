@@ -5,9 +5,6 @@ import {
 } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from 'react-loader';
-import axios from 'axios';
-import { loginUrl } from '../../API/constant';
 import wording from '../../constant/wording';
 /** COMPONENT */
 import { Navbar, BtnLogin, BtnNext } from '../../component/index'
@@ -67,7 +64,7 @@ function Login(props) {
 
   return (
     <div>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <ToastContainer />
       <div className="container_login">
         <div className="wrapper_login">

@@ -5,7 +5,7 @@ import { HeaderGreen, Navbar, Footer } from '../../../component/index';
 function Terms(props) {
     return (
         <div className="all_container_terms">
-            <Navbar props={props} />
+            <Navbar history={props.history} />
             <div className="container_terms">
                 <HeaderGreen title="Conditions d’utilisation" />
                 <div className="wrapper_terms">

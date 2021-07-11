@@ -12,10 +12,15 @@ import {
   InputForms,
   PictureIconProfile,
   BtnFinish,
+  SelectOption
 } from '../../component/index';
-import SelectOption from '../../component/selectOption/SelectOption';
+/** REDUX */
+import { useDispatch, useSelector } from 'react-redux';
+import { editProfileAction } from "../../redux/actions/ProfileAction";
+import { userRefreshAction } from "../../redux/actions/AuthAction";
 
 function EditProfile(props) {
+  /** STATE */
   const [state, setState] = useState({
     lastName: '',
     firstName: '',
@@ -25,21 +30,96 @@ function EditProfile(props) {
     female: false,
     location: '',
     checked: '',
+    userPicture: ''
   });
+
+  /** REDUX */
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.authReducer);
 
   const handleState = (event) => {
     const value = event.target.value;
     setState({ ...state, [event.target.name]: value });
   };
 
+  function checkIdStateEmpty(obj) {
+    for (var key in obj)
+    {
+      if (obj[key] !== null && obj[key] != "")
+        return false;
+    }
+    return true;
+  }
+
+
+  const prepareData = (userPicture, body) => {
+    const data = new FormData()
+    if (userPicture)
+    {
+      data.append('photo', {
+        name: userPicture.fileName,
+        type: userPicture.type,
+        uri: userPicture?.uri
+      })
+    }
+    Object.keys(body).forEach((key) => {
+      data.append(key, body[key])
+    })
+    return data
+  }
+
+  const handleEditProfile = async () => {
+    let userId = user._id;
+    const data = prepareData(state.userPicture, {
+      userId,
+      firstName: state.firstName,
+      lastName: state.lastName,
+      about: state.about,
+      email: state.email,
+      phoneNumber: state.phoneNumber,
+      female: state.female,
+    })
+    dispatch(
+      editProfileAction(
+        token,
+        data,
+        (res) => dispatch(userRefreshAction(res))
+      )
+    );
+    props.history.push("/")
+  };
+
+  const handleUploadPicture = (e) => {
+    setState({ ...state, userPicture: e.target.files });
+  };
+
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen title="Mise à jour du profil" />
       <div style={{ marginLeft: 139, marginRight: 139 }}>
         <div className="wrapper_picture_editprofile">
-          <PictureIconProfile width={86} height={86} />
-          <p>Changer ma photo de profil</p>
+          {state.userPicture ?
+            <img
+              src={URL.createObjectURL(state.userPicture[0])}
+              className="image_editprofile"
+              alt="msg picture"
+            />
+            :
+            <PictureIconProfile style={{ width: 89, height: 86 }} />
+          }
+          <div
+            className="wrapper_text_picture_editprofile"
+            style={{ borderColor: '#0091FF' }}>
+            <label for="file-input" style={{ cursor: 'pointer' }}>
+              Changer ma photo de profil
+            </label>
+            <input
+              id="file-input"
+              type="file"
+              onChange={handleUploadPicture}
+            />
+          </div>
         </div>
         <p className="label_input_editprofile" style={{ marginTop: 37 }}>
           {wording.LAST_NAME}
@@ -76,7 +156,7 @@ function EditProfile(props) {
           placeholder={wording.EMAIL}
           value={state.email}
           name="email"
-          changeInput={(e) => handleState(e.target.value)}
+          changeInput={(e) => handleState(e)}
         />
         <p className="line_between_section_editprofile"></p>
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
@@ -92,7 +172,10 @@ function EditProfile(props) {
         <p className="label_input_editprofile" style={{ marginTop: 28 }}>
           {wording.GENDER}
         </p>
-        <SelectOption goodsCondition={['male', 'female']} />
+        <SelectOption
+          goodsCondition={['male', 'female']}
+          changeState={(e) => setState({ ...state, female: e.target.value === 'male' ? false : true })}
+        />
         {/* <InputForms
           placeholder="Genre"
           value={state.female}
@@ -106,19 +189,23 @@ function EditProfile(props) {
             <FormControlLabel
               style={{ margin: 0 }}
               control={
-                <Switch checked={state.checked} onChange={() => setState({ ...state, checked: !state.checked })} />
+                <Switch
+                  checked={state.checked}
+                  onChange={() => setState({ ...state, checked: !state.checked })}
+                />
               }
             />
           </FormGroup>
         </div>
         <div
-          className="wrapper_btn_editprofile">
+          className="wrapper_btn_editprofile"
+          style={checkIdStateEmpty(state) ? { opacity: 0.5 } : { opacity: 1 }}>
           <BtnFinish
             width={320}
             height={42}
             titleBtn="Enregistrer"
             fontSize={16}
-            onClick={() => console.log('enrengistrer')}
+            onClick={() => handleEditProfile()}
           />
         </div>
       </div>

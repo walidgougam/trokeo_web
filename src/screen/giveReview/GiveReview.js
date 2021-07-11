@@ -13,7 +13,7 @@ function GiveReview(props) {
     console.log("let review")
   }
   return <>
-    <Navbar props={props} />
+    <Navbar history={props.history} />
     <HeaderGreen title={wording.GIVE_REVIEW} />
     <div className='container_givereview'>
       <div className='wrapper_card_givereview'>

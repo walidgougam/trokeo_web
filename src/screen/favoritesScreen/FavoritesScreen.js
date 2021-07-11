@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './FavoritesScreen.scss';
-import axios from 'axios';
-import { getProductUrl } from '../../API/constant';
 import Loader from 'react-loader';
 /** COMPONENT */
 import Navbar from '../../component/navbar/Navbar';
@@ -13,10 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
 import Footer from '../../component/footer/Footer';
 
-function FavoritesScreen(props) {
+function FavoritesScreen({ props }) {
     /** STATE */
-    const [isService, setIsService] = useState(true);
-    const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const [isService, setIsService] = useState(false);
 
     /** STATE */
     const dispatch = useDispatch();
@@ -64,7 +61,7 @@ function FavoritesScreen(props) {
 
     return (
         <div>
-            <Navbar props={props} />
+            <Navbar history={props.history} />
             <HeaderChooseGoodOrService
                 onChange={() => setIsService(!isService)}
                 isService={isService}

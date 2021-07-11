@@ -9,7 +9,7 @@ function FollowCategory(props) {
   const [activeServices, setActiveServices] = useState(false);
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <HeaderGreen title="Personnalisation" />
         <div className="container_central_follow">

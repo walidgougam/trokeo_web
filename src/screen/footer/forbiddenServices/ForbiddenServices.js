@@ -7,7 +7,7 @@ import './ForbiddenServices.scss';
 function ForbiddenServices(props) {
   return (
     <div className="all_container_forbiddenservice">
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen title={wording.FORBIDDEN_SERVICE} />
       <div className="container_forbidden_service">
         <p className="title_forbidden_service">Interdictions générales</p>

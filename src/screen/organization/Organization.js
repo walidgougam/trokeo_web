@@ -1,55 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import './Organisation.scss';
-import axios from 'axios';
-import { getProductUrl } from '../../API/constant';
-import Loader from 'react-loader';
-
 /** COMPONENT */
-import { HeaderGreenOrganization, Navbar, NoProductComponent, CardProduct } from '../../component/index'
+import {
+  Navbar,
+  CardProduct,
+  Footer,
+  HeaderChooseGoodOrService,
+  HeaderGreenOrganization,
+} from '../../component/index';
 /** REDUX */
 import { getProductAction } from '../../redux/actions/ProductAction';
 import { useDispatch, useSelector } from 'react-redux';
-import HeaderChooseGoodOrService from '../../component/headerChooseGoodOrService/HeaderChooseGoodOrService';
-import Footer from '../../component/footer/Footer';
 
-function Organization(props) {
+function Organization({ props }) {
   /** STATE */
-  const [isService, setIsService] = useState(true);
-  const tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const [isService, setIsService] = useState(false);
+  const [page, setPage] = useState(1);
 
-  /** STATE */
+  /** REDUX */
   const dispatch = useDispatch();
-  const getProduct = useSelector((state) => state.productReducer);
+  const { product } = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(getProductAction());
-  }, []);
+    dispatch(getProductAction(page, false))
+  }, [page])
 
-  const renderProduct = () => {
-    if (getProduct.isLoading)
-    {
-      return <Loader loaded={false} color="green" />;
-    } else if (!getProduct.length > 0)
-    {
-      return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {console.log(window.innerHeight, "window.innerHeight")}
-          <NoProductComponent />
-        </div>
-      );
-    } else
+
+  const renderProductForOrganization = () => {
+    const goodOrService = isService ? "service" : 'bien';
+    const allProduct = product?.filter(
+      (e) => e?.type.type === goodOrService && e?.isFromOrganisation === true
+    );
+    if (allProduct?.length > 0)
     {
       return (
-        <div className="wrapper_card">
-          {console.log(window.innerHeight, "window.innerHeight")}
-          {getProduct.map((product, index) => {
+        <div className="wrapper_card_product">
+          {allProduct?.map((product, index) => {
+            // to change by productStore
             return (
-              <div style={{ width: 168, height: 146 }}>
+              <div style={{ width: 168, height: 146 }} key={index}>
                 <CardProduct
-                  category={product.category}
+                  category={product?.category?.category}
                   key={index}
                   title={product.title}
-                  productPicture={product?.productPicture}
+                  productPicture={product?.productPicture[0]?.picture}
                   goToProductDetail={() =>
                     props.history.push(`/product/:${product._id}`)
                   }
@@ -57,6 +51,12 @@ function Organization(props) {
               </div>
             );
           })}
+          <br />
+          <br />
+          <br />
+          <div>
+            <input type="button" value="see more..." onClick={() => setPage(prevState => prevState + 1)} />
+          </div>
         </div>
       );
     }
@@ -64,17 +64,16 @@ function Organization(props) {
 
   return (
     <>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreenOrganization title="Dons demandés par les associations" />
       <HeaderChooseGoodOrService
         onChange={() => setIsService(!isService)}
         isService={isService}
       />
-      {renderProduct()}
+      {renderProductForOrganization()}
       <Footer />
     </>
   );
 }
 
-
-export default Organization
+export default Organization;

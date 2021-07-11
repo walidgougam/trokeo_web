@@ -57,7 +57,7 @@ function Setting(props) {
 
   return (
     <div>
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen title="Paramètres" />
       <div className="container_central_setting">
         <BtnSetting

@@ -28,7 +28,7 @@ function HelpCenter(props) {
 
     return (
         <div className="container_helpcenter">
-            <Navbar props={props} />
+            <Navbar history={props.history} />
             <HeaderGreen title="Centre d'aide" />
             <div className="container_central_setting">
                 <BtnSetting

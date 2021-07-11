@@ -6,7 +6,7 @@ import { Navbar, HowItWorks, Footer, FooterHome, CardHomeSearch } from '../../co
 function Home(props) {
   return (
     <div className="container_home">
-      < Navbar props={props} />
+      < Navbar history={props.history} />
       <>
         <div className="wrapper_image_home">
           <div style={{ marginTop: 86, marginLeft: 99 }}>

@@ -46,3 +46,26 @@
   display: flex;
   justify-content: center;
 }
+
+.image_editprofile {
+  border-radius: 50%;
+  width: 89px;
+  height: 86px;
+}
+
+.wrapper_text_picture_editprofile {
+  margin-left: 22px;
+  label {
+    color: #0091ff;
+    text-decoration: underline;
+    font-size: 13px;
+    // font-family: 'Open Sans Regular';
+    line-height: 20px;
+  }
+  > input {
+    cursor: pointer;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}

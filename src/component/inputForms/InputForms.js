@@ -8,7 +8,8 @@ function InputForms({
   marginBottom,
   onChange,
   hidePassword,
-  changeInput
+  changeInput,
+  name
 }) {
   return (
     <div className="inputWithIcon">
@@ -17,6 +18,7 @@ function InputForms({
         type="text"
         placeholder={placeholder}
         className="input_inputforms"
+        name={name}
       />
       {hidePassword && (
         <div className="i">

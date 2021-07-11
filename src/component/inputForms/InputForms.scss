@@ -25,11 +25,6 @@
   transition: 0.3s;
 }
 
-.input_inputforms[type='text']:focus {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
-}
-
 .inputWithIcon .input_inputforms[type='text'] {
   padding-left: 12px;
 }

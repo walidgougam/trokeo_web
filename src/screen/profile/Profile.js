@@ -11,7 +11,7 @@ import {
 /** REDUX */
 import { useDispatch, useSelector } from 'react-redux';
 
-const Profile = (props) => {
+const Profile = ({ props }) => {
   /** REDUX */
   const userStore = useSelector((state) => state.authReducer);
   const name = `${userStore?.user?.firstName}_${userStore?.user?.lastName.charAt(
@@ -19,16 +19,15 @@ const Profile = (props) => {
   )}`;
   return (
     <div className='container_profile'>
-      {console.log(props, "props")}
-      <Navbar props={props} />
+      <Navbar history={props.history} />
       <HeaderGreen />
       <div style={{ marginLeft: '13.5%', marginRight: '13.5%' }}>
         <ThumbnailProfile
-          props={props}
+          history={props.history}
           name={name}
           createdProfileAt={userStore?.user?.createdAt}
         />
-        <ProfileOption history={props.props.history} />
+        <ProfileOption history={props.history} />
       </div>
       <Footer />
     </div>
