@@ -32,8 +32,7 @@ function Product({ props }) {
       (e) => e?.type.type === goodOrService && e?.isFromOrganisation === false
     );
 
-    if (allProduct?.length > 0)
-    {
+    if (allProduct?.length > 0) {
       return (
         <div className="container_card_product">
           {allProduct.map((product, index) => {
@@ -45,7 +44,10 @@ function Product({ props }) {
                   title={product.title}
                   productPicture={product?.productPicture[0]?.picture}
                   goToProductDetail={() =>
-                    props.history.push(`/product/:${product._id}`)
+                    props.history.push({
+                      pathname: `/productdetail`,
+                      state: { product }
+                    })
                   }
                 />
               </div>

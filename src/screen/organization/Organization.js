@@ -22,7 +22,7 @@ function Organization({ props }) {
   const { product } = useSelector((state) => state.productReducer);
 
   useEffect(() => {
-    dispatch(getProductAction(page, false))
+    dispatch(getProductAction(page, true))
   }, [page])
 
 
@@ -31,8 +31,7 @@ function Organization({ props }) {
     const allProduct = product?.filter(
       (e) => e?.type.type === goodOrService && e?.isFromOrganisation === true
     );
-    if (allProduct?.length > 0)
-    {
+    if (allProduct?.length > 0) {
       return (
         <div className="wrapper_card_product">
           {allProduct?.map((product, index) => {
@@ -45,7 +44,9 @@ function Organization({ props }) {
                   title={product.title}
                   productPicture={product?.productPicture[0]?.picture}
                   goToProductDetail={() =>
-                    props.history.push(`/product/:${product._id}`)
+                    props.history.push(`/productdetail`, {
+                      product
+                    })
                   }
                 />
               </div>

@@ -56,7 +56,7 @@ const App = ({ history }) => {
         <ProtectedRoute exact path="/product" component={Product} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/product/organization" component={Organization} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/product/createproduct" component={CreateProduct} isAuth={userStore.isConnected} />
-        <ProtectedRoute exact path="/product/:id" component={ProductDetail} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/productdetail" component={ProductDetail} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/setting" component={Setting} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/followcategory" component={FollowCategory} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/followcategory/edit" component={FollowCategory} isAuth={userStore.isConnected} />
