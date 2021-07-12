@@ -103,6 +103,7 @@ export const favoriteProduct = (token, userProduct, successCB) => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
     ).then((res) => {
+        console.log(res, "res favorite product")
         successCB(res)
     }).catch((err) => console.log("ERRRORR", err))
 }

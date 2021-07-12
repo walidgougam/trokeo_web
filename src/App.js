@@ -27,6 +27,7 @@ import {
   Product,
   ProductDetail,
   Profile,
+  ProfileProduct,
   Register,
   Setting,
   Terms,
@@ -35,7 +36,7 @@ import { Footer, Navbar } from './component/index';
 import ProtectedRoute from './ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 
-const App = ({ history }) => {
+const App = () => {
   /** REDUX */
   const productStore = useSelector((state) => state.productReducer);
   const userStore = useSelector((state) => state.authReducer)
@@ -47,9 +48,9 @@ const App = ({ history }) => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/" component={Home} />
         <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
-        <ProtectedRoute exact path="/favorites" component={FavoritesScreen} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile" component={Profile} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/profile/edit" component={EditProfile} isAuth={userStore.isConnected} />
+        <ProtectedRoute exact path="/profile/product" component={ProfileProduct} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/allreview/:id" component={AllReview} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/givereview/:id" component={GiveReview} isAuth={userStore.isConnected} />
         <ProtectedRoute exact path="/product/edit/:id" component={EditProduct} isAuth={userStore.isConnected} />

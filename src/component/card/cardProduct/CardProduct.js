@@ -15,27 +15,28 @@ export default function CardProduct({
   const [booked, setBooked] = useState(true);
   const [heart, setHeart] = useState(false);
   return (
-    <div className="container_cardproduct" style={{ cursor: 'pointer' }}
-      onClick={goToProductDetail}>
-      {!productPicture?.length > 0 ? (
-        <img
-          src={productPicture}
-          alt="product_image"
-          className="image_product_cardproduct"
-          onClick={goToProductDetail}
-        />
-      ) : (
-        <div className="wrapper_category_cardproduct">
-          {showCategoryPicture(category)}
-        </div>
-      )}
-      <p
-        className="text_booked_cardproduct"
-        style={{
-          visibility: 'visible',
-        }}>
-        Réservé
-      </p>
+    <div className="container_cardproduct" style={{ cursor: 'pointer' }}>
+      <div onClick={goToProductDetail}>
+        {!productPicture?.length > 0 ? (
+          <img
+            src={productPicture}
+            alt="product_image"
+            className="image_product_cardproduct"
+            onClick={goToProductDetail}
+          />
+        ) : (
+          <div className="wrapper_category_cardproduct">
+            {showCategoryPicture(category)}
+          </div>
+        )}
+        <p
+          className="text_booked_cardproduct"
+          style={{
+            visibility: 'visible',
+          }}>
+          Réservé
+        </p>
+      </div>
       <p
         className="title_product_cardproduct"
       >
@@ -50,7 +51,8 @@ export default function CardProduct({
           className="wrapper_icon_cardproduct"
           style={{ cursor: 'pointer' }}
           onClick={() => setHeart(!heart)}>
-          <div>{heart ? <HeartEmpty /> : <HeartFull />}</div>
+          {console.log(heart, "ah bon heart")}
+          <div>{heart ? <HeartFull /> : <HeartEmpty />}</div>
           <span className="text_icon_cardproduct">12</span>
         </div>
       </div>

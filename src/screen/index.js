@@ -18,6 +18,7 @@ import Payment from './payment/Payment';
 import Product from './product/Product';
 import ProductDetail from './productDetail/ProductDetail';
 import Profile from './profile/Profile';
+import ProfileProduct from './profileProduct/ProfileProduct';
 import Register from './register/Register';
 import Setting from './setting/Setting';
 import Terms from './footer/terms/Terms';
@@ -43,6 +44,7 @@ export {
     Product,
     ProductDetail,
     Profile,
+    ProfileProduct,
     Register,
     Setting,
     Terms,

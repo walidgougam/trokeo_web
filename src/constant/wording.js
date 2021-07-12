@@ -91,4 +91,10 @@ export default {
   DISCONNECT_BTN: 'Déconnection',
   /** MODAL */
   SURE_DISCONNECTED: "Voulez-vous vraiment vous déconnecter?",
+
+  /** ERROR MESSAGE */
+  NO_INTERNET: 'noInternet',
+  NO_PRODUCT: 'noProduct',
+  NO_MESSAGE: 'noMessage',
+  NO_NOTIFICATION: 'noNotification',
 };

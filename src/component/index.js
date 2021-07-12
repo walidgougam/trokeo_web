@@ -12,6 +12,7 @@ import CardReceiveMessage from './card/cardReceiveMessage/CardReceiveMessage';
 import CardReview from './card/cardReview/CardReview';
 import CardSendMessage from './card/cardSendMessage.js/CardSendMessage';
 import ChatHeader from './chatHeader/ChatHeader';
+import ErrorImageComponent from './errorImageComponent/ErrorImageComponent';
 import Footer from './footer/Footer';
 import FooterHome from './footer/FooterHome';
 import HeaderChooseGoodOrService from './headerChooseGoodOrService/HeaderChooseGoodOrService';
@@ -58,6 +59,7 @@ export {
     CardReview,
     CardSendMessage,
     ChatHeader,
+    ErrorImageComponent,
     ConnexionHelpCenter,
     ExchangeHelpCenter,
     Footer,

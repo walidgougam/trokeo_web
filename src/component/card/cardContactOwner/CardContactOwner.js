@@ -48,7 +48,7 @@ export default function CardContactOwner({ pictureProductOwner, product }) {
       </div>
       <div className="container_btn_cardcontactowner">
         <BtnFinish width={219} height={30} titleBtn="Contacter le trokeur" onClick={() => goToChat()} />
-        <div className="btn_product_inline_cardcontactowner">
+        <div className="btn_product_inline_cardcontactowner" onClick={() => history.push('/profile/product')}>
           <span>8 annonces en ligne</span>
         </div>
       </div>
