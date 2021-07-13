@@ -79,7 +79,7 @@ function Register(props) {
     setState({ ...state, [stateName]: value });
   }
   return (
-    <>
+    <div className="allcontainer_register">
       <Navbar history={props.history} />
       <div className="container_register">
         <div className="wrapper_register">
@@ -132,7 +132,7 @@ function Register(props) {
           <BtnFinish titleBtn="Terminer" onClick={() => handleRegister()} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

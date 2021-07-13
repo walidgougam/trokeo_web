@@ -12,9 +12,11 @@ import { GiftedChat } from 'react-web-gifted-chat';
 function CardSendMessage({ props, data }) {
   const { conversation, product: specificProduct } = data;
   const user = useSelector((state) => state.authReducer.user);
+  console.log("User", user)
   const [messages, setMessages] = useState(conversation?.messages);
   const [conversationId, setConversationId] = useState(conversation?._id);
   const product = conversation ? conversation?.product : specificProduct;
+  console.log("DATA", product)
   /** SOCKET */
   const socketRef = useRef(null);
 
@@ -67,8 +69,8 @@ function CardSendMessage({ props, data }) {
       <div className="container">
         <ChatHeader
           props={props}
-          name={`${data.product.user.firstName}_${data.product.user.lastName}`}
-          productName={data.product.title}
+          name={`${product.user.firstName}_${product.user.lastName}`}
+          productName={product.title}
           location="5,8 km"
         />
         <GiftedChat

@@ -14,11 +14,15 @@ import wording from '../../constant/wording';
 function Navbar({ history }) {
   /** STATE */
   const [productResearch, setProductResearch] = useState('')
-
-
+  const [showLinks, setShowLinks] = useState(true)
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
+
+  const handleShowLinks = () => {
+    console.log("handle link")
+    setShowLinks(!showLinks)
+  }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' && productResearch)
@@ -152,42 +156,99 @@ function Navbar({ history }) {
           </li>
         </ul>
       </nav>
-      <nav className="burger_navbar">
-        {userStore.isConnected ? (
-          <NavLink
-            style={{
-              cursor: ' pointer',
-            }}
-            to="/profile"
-            activeStyle={{
-              borderBottom: isNavtitleSelected,
-              paddingBottom: 2
-            }}
-          >
-            <span
-              style={{
-                marginRight: 10,
-                fontSize: 11,
-                position: 'relative',
-                top: 2,
-              }}>
-              <IconProfileLittle />
-            </span>
-            {userStore?.user?.firstName}
+      {/** IPHONE NO CONNECTED */}
+      {userStore.isConnected ?
+        <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
+          <NavLink to="/">
+            <LogoTrokeo />
           </NavLink>
-        ) : (
-          <NavLink
-            to="/login"
-            activeStyle={{
-              borderBottom: isNavtitleSelected
-            }}
-            style={{
-              paddingBottom: '3px',
-            }}>
-            Se connecter
+          <ul className="navbar__links">
+            <li className="navbar__item slideInDown-1">
+              <NavLink
+                onClick={handleShowLinks}
+                to="/login"
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link">Se connecter
+              </NavLink>
+            </li>
+            <li className="navbar__item slideInDown-2">
+              <NavLink
+                onClick={handleShowLinks}
+                to="/register"
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link"
+              >
+                S'inscrire
+              </NavLink>
+            </li>
+          </ul>
+          <button className="navbar__burger" onClick={handleShowLinks}>
+            <span className='burger-bar'></span>
+          </button>
+        </nav> :
+        <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
+          <NavLink to="/">
+            <LogoTrokeo />
           </NavLink>
-        )}
-      </nav>
+          <ul className="navbar__links">
+            <li className="navbar__item slideInDown-1">
+              <NavLink
+                onClick={handleShowLinks}
+                to={wording.FAVORITES_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link">Favoris
+              </NavLink>
+            </li>
+            <li className="navbar__item slideInDown-1">
+              <NavLink
+                onClick={handleShowLinks}
+                to={wording.CHAT_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link">Messages
+              </NavLink>
+            </li>
+            <li className="navbar__item slideInDown-2">
+              <NavLink
+                onClick={handleShowLinks}
+                to={wording.NOTIFICATION_URL}
+                activeStyle={{
+                  borderBottom: isNavtitleSelected
+                }}
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link"
+              >
+                Notifications
+              </NavLink>
+            </li>
+          </ul>
+          <button className="navbar__burger" onClick={handleShowLinks}>
+            <span className='burger-bar'></span>
+          </button>
+        </nav>
+      }
+
     </>
   );
 }
