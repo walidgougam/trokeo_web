@@ -1,9 +1,7 @@
 .container_footer {
   border-top: solid rgba(133, 133, 133, 0.5) 1px;
-  padding-top: 18px;
-  left: 0;
-  position: relative;
-  bottom: 0;
+  height: 88px;
+  margin-top: 10px;
 }
 
 .wrapper_footer {

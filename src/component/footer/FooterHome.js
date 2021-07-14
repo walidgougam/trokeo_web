@@ -25,7 +25,7 @@ export default function FooterHome() {
           >
             <DownloadApple />
           </div>
-          <div style={{ width: 88, height: 30, backgroundColor: "pink" }}>
+          <div style={{ width: 88, height: 30 }}>
             <DownloadGoogle />
           </div>
         </div>

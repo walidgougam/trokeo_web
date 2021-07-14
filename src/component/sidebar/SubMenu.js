@@ -66,7 +66,7 @@ const SubMenu = ({ item }) => {
             <DropdownLink key={index}>
               {item.icon}
               <SidebarLabel>
-                <label>{item.titleCategory.length > 18 ? item.titleCategory.substring(0, 18) + '...' : item.titleCategory}</label>
+                <label>{item?.titleCategory?.length > 18 ? item?.titleCategory.substring(0, 18) + '...' : item?.titleCategory}</label>
                 <input
                   style={{ width: 20, height: 20 }}
                   type="radio"

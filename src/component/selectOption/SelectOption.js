@@ -6,28 +6,31 @@ function SelectOption({ title, isService, goodsCondition, serviceCategories, goo
         <div className="wrapper_input_createproduct">
             <label className="label_createproduct">
                 {title}
-                <select
-                    style={style}
-                    className="input_createproduct"
-                    onChange={changeState}>
-                    <option value="" disabled selected>
-                        {placeholder ? placeholder : 'Select your option'}
-                    </option>
-                    {
-                        goodsCondition ? goodsCondition.map((condition, index) => {
-                            return <option value={condition}>{condition}</option>;
-                        }) :
-                            goodCategories.map(
-                                (category, index) => {
-                                    return (
-                                        <option value={category._id}>
-                                            {category.category}
-                                        </option>
-                                    );
-                                },
-                            )
-                    }
-                </select>
+                <div className="style-select">
+
+                    <select
+                        style={style}
+                        className="input_createproduct"
+                        onChange={changeState}>
+                        <option value="" disabled selected>
+                            {placeholder ? placeholder : 'Select your option'}
+                        </option>
+                        {
+                            goodsCondition ? goodsCondition.map((condition, index) => {
+                                return <option value={condition}>{condition}</option>;
+                            }) :
+                                goodCategories.map(
+                                    (category, index) => {
+                                        return (
+                                            <option value={category._id}>
+                                                {category.category}
+                                            </option>
+                                        );
+                                    },
+                                )
+                        }
+                    </select>
+                </div>
             </label>
         </div>
     )

@@ -12,3 +12,7 @@
   color: #bebebe;
   //   font-family: open sans regular;
 }
+
+.sideBarContent::-webkit-scrollbar {
+  display: none;
+}

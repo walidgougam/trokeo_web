@@ -19,3 +19,17 @@
     }
   }
 }
+
+select {
+  -webkit-appearance: none;
+  background: transparent;
+  background-image: url('/images/arrow_select_bottom.png');
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 14px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  margin-right: 2rem;
+  padding: 1rem 0 1rem;
+  padding-top: 10px;
+}

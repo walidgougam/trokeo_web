@@ -30,11 +30,10 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.nav`
   background: white;
   width: 186px;
-  height: 100vh;
+  height: 900px;
   overflow-y: auto;
   display: flex;
   justify-content: center;
-  position: fixed;
   // top: 120px;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
@@ -63,9 +62,11 @@ const Sidebar = ({ isService }) => {
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
-            {SidebarData(isService).map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
+            <div className="sideBarContent">
+              {SidebarData(isService).map((item, index) => {
+                return <SubMenu item={item} key={index} />;
+              })}
+            </div>
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>

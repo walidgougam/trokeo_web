@@ -1,5 +1,6 @@
 .container_footerhome {
-  height: 237px;
+  position: relative;
+  height: 238px;
   background-image: url('../../asset/allSvg/background_download_app.png');
   display: flex;
   flex-direction: row;

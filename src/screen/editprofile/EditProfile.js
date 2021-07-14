@@ -20,22 +20,22 @@ import { editProfileAction } from "../../redux/actions/ProfileAction";
 import { userRefreshAction } from "../../redux/actions/AuthAction";
 
 function EditProfile(props) {
+  /** REDUX */
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.authReducer);
+
   /** STATE */
   const [state, setState] = useState({
-    lastName: '',
-    firstName: '',
-    about: '',
-    email: '',
-    phoneNumber: '',
+    lastName: user.lastName,
+    firstName: user.firstName,
+    about: user.about,
+    email: user.email,
+    phoneNumber: user.phoneNumber,
     female: false,
     location: '',
     checked: '',
     userPicture: ''
   });
-
-  /** REDUX */
-  const dispatch = useDispatch();
-  const { user, token } = useSelector((state) => state.authReducer);
 
   const handleState = (event) => {
     const value = event.target.value;
@@ -131,7 +131,7 @@ function EditProfile(props) {
           {wording.FIRST_NAME}
         </p>
         <InputForms
-          placeholder="Prénom"
+          placeholder={state.firstName ? state.firstName : "Prénom"}
           value={state.firstName}
           name="firstName"
           changeInput={(e) => handleState(e)}

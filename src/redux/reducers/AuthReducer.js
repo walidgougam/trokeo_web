@@ -10,7 +10,8 @@ import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState = {
   isGuest: false,
-  isConnected: false
+  isConnected: false,
+  isLoading: true
 }
 
 export default function authReducer(state = initialState, action) {
