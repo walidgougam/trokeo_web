@@ -4,6 +4,7 @@ import './Home.scss';
 import { Navbar, HowItWorks, Footer, FooterHome, CardHomeSearch } from '../../component/index'
 
 function Home(props) {
+
   return (
     <div className="container_home">
       <div className="container_home_content">

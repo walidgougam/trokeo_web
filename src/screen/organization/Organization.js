@@ -65,16 +65,18 @@ function Organization(props) {
   };
 
   return (
-    <>
-      <Navbar history={props.history} />
-      <HeaderGreenOrganization title="Dons demandés par les associations" />
-      <HeaderChooseGoodOrService
-        onChange={() => setIsService(!isService)}
-        isService={isService}
-      />
-      {renderProductForOrganization()}
+    <div>
+      <div className="container_organization_content">
+        <Navbar history={props.history} />
+        <HeaderGreenOrganization title="Dons demandés par les associations" />
+        <HeaderChooseGoodOrService
+          onChange={() => setIsService(!isService)}
+          isService={isService}
+        />
+        {renderProductForOrganization()}
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

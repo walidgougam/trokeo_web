@@ -1,5 +1,9 @@
 @import '../../scss/colors';
 
+.container_home_content {
+  min-height: 85vh;
+}
+
 .wrapper_image_home {
   background: url('../../asset/allSvg/femme.png') no-repeat;
   background-size: 100% 406px;

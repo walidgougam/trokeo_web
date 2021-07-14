@@ -41,9 +41,6 @@ const App = () => {
   const productStore = useSelector((state) => state.productReducer);
   const userStore = useSelector((state) => state.authReducer)
 
-  console.log(userStore, "userStore")
-
-  if (userStore.isLoading) return null
   return (
     <BrowserRouter>
       <Switch>

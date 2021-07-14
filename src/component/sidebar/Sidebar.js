@@ -60,15 +60,18 @@ const Sidebar = ({ isService }) => {
             </div>
           }
         </Nav>
-        <SidebarNav sidebar={sidebar}>
-          <SidebarWrap>
-            <div className="sideBarContent">
-              {SidebarData(isService).map((item, index) => {
-                return <SubMenu item={item} key={index} />;
-              })}
-            </div>
-          </SidebarWrap>
-        </SidebarNav>
+        {
+          sidebar &&
+          <SidebarNav sidebar={sidebar}>
+            <SidebarWrap>
+              <div className="sideBarContent">
+                {SidebarData(isService).map((item, index) => {
+                  return <SubMenu item={item} key={index} />;
+                })}
+              </div>
+            </SidebarWrap>
+          </SidebarNav>
+        }
       </IconContext.Provider>
     </>
   );

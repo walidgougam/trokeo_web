@@ -12,7 +12,7 @@ export const GET_SPECIFIC_PRODUCT_SUCCESS = 'GET_SPECIFIC_PRODUCT_SUCCESS'
 export const HANDLE_LIKES = 'HANDLE_LIKES'
 export const SET_LOCATION = 'SET_LOCATION'
 
-export const getProductAction = (page, isOrganisation) => {
+export const getProductAction = (page, isOrganisation, successCB) => {
   return async (dispatch) => {
     return axios({
       method: 'GET',
@@ -20,6 +20,7 @@ export const getProductAction = (page, isOrganisation) => {
     })
       .then(async res => {
         res && dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data.product });
+        successCB()
         console.log(await localStorage.getItem('jwt'), "------token------")
       })
       .catch(err => console.log(err, 'error on getallproductapi'))
