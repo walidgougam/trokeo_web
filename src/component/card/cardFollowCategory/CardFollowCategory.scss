@@ -13,8 +13,10 @@
   color: $white-absolute;
   border: solid 1px $blue-msg;
   border-radius: 5px;
-  height: 29px;
+  height: 3vh;
+  width: 10vw;
   display: flex;
+  justify-content: center;
   align-content: center;
   cursor: pointer;
 
@@ -31,11 +33,12 @@
   color: $blue-msg;
   border: solid 1px $blue-msg;
   border-radius: 5px;
-  height: 29px;
+  height: 3vh;
   display: flex;
   align-content: center;
   cursor: pointer;
-
+  width: 10vw;
+  justify-content: center;
   p {
     margin: 0px 0px;
     padding: 4px 37px;

@@ -6,7 +6,7 @@ import { ReactComponent as HeartFull } from '../../../asset/allSvg/heart_full.sv
 import { imageStatic } from '../../../API/constant';
 import { showCategoryPicture } from '../../../Helpers';
 
-export default function CardProduct({
+function CardProduct({
   goToProductDetail,
   title,
   productPicture,
@@ -59,3 +59,5 @@ export default function CardProduct({
     </div>
   );
 }
+
+export default CardProduct

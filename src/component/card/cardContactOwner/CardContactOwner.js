@@ -37,7 +37,7 @@ export default function CardContactOwner({ pictureProductOwner, product }) {
           fromCardContactOwner
         />
         <div className="wrapper_name_owner_cardcontactowner">
-          <p>marine_w</p>
+          <p>{`${product?.user?.firstName}_${product?.user?.lastName.substring(0, 1)}`}</p>
           <div className="wrapper_star_cardcontactowner">
             <StarFullLittle />
             <StarFullLittle />

@@ -5,8 +5,6 @@ import ThumbnailProfile from '../thumbnailProfile/ThumbnailProfile';
 import wording from '../../constant/wording';
 
 function ProfileOption({ history }) {
-    console.log(history, "historyyyy")
-
     const handleProfileOption = (option) => {
         switch (option)
         {
@@ -17,13 +15,13 @@ function ProfileOption({ history }) {
             case wording.ORGANIZATION_MODE:
                 return history.push('/hello');
             case wording.CUSTOMIZATION:
-                return history.push('/hello');
+                return history.push('/followcategory');
             case wording.SETTINGS:
                 return history.push('/setting');
             case wording.ABOUT_TROKEO:
                 return history.push('/about');
             case wording.CGU:
-                return history.push('/hello');
+                return history.push('/terms');
             case wording.HELP_CENTER:
                 return history.push('/helpcenter');
         }

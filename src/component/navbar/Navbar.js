@@ -14,7 +14,7 @@ import wording from '../../constant/wording';
 function Navbar({ history }) {
   /** STATE */
   const [productResearch, setProductResearch] = useState('')
-  const [showLinks, setShowLinks] = useState(true)
+  const [showLinks, setShowLinks] = useState(false)
   /** REDUX */
   const dispatch = useDispatch();
   const userStore = useSelector((state) => state.authReducer);
@@ -157,7 +157,7 @@ function Navbar({ history }) {
         </ul>
       </nav>
       {/** IPHONE NO CONNECTED */}
-      {userStore.isConnected ?
+      {!userStore.isConnected ?
         <nav className={`navbar ${showLinks ? "show-nav" : "hide-nav"}`}>
           <NavLink to="/">
             <LogoTrokeo />
@@ -167,9 +167,6 @@ function Navbar({ history }) {
               <NavLink
                 onClick={handleShowLinks}
                 to="/login"
-                activeStyle={{
-                  borderBottom: isNavtitleSelected
-                }}
                 style={{
                   paddingBottom: '3px',
                 }}
@@ -180,9 +177,6 @@ function Navbar({ history }) {
               <NavLink
                 onClick={handleShowLinks}
                 to="/register"
-                activeStyle={{
-                  borderBottom: isNavtitleSelected
-                }}
                 style={{
                   paddingBottom: '3px',
                 }}
@@ -205,9 +199,6 @@ function Navbar({ history }) {
               <NavLink
                 onClick={handleShowLinks}
                 to={wording.FAVORITES_URL}
-                activeStyle={{
-                  borderBottom: isNavtitleSelected
-                }}
                 style={{
                   paddingBottom: '3px',
                 }}
@@ -218,9 +209,6 @@ function Navbar({ history }) {
               <NavLink
                 onClick={handleShowLinks}
                 to={wording.CHAT_URL}
-                activeStyle={{
-                  borderBottom: isNavtitleSelected
-                }}
                 style={{
                   paddingBottom: '3px',
                 }}
@@ -231,15 +219,24 @@ function Navbar({ history }) {
               <NavLink
                 onClick={handleShowLinks}
                 to={wording.NOTIFICATION_URL}
-                activeStyle={{
-                  borderBottom: isNavtitleSelected
-                }}
                 style={{
                   paddingBottom: '3px',
                 }}
                 className="navbar__link"
               >
                 Notifications
+              </NavLink>
+            </li>
+            <li className="navbar__item slideInDown-2">
+              <NavLink
+                onClick={handleShowLinks}
+                to="/profile"
+                style={{
+                  paddingBottom: '3px',
+                }}
+                className="navbar__link"
+              >
+                Profile
               </NavLink>
             </li>
           </ul>

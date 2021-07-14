@@ -24,12 +24,13 @@ function AllMessage(props) {
 
   useEffect(() => {
     // get conversationList
+    setState({ ...state, isLoading: true })
     GetConversations(userStore.user._id, userStore.token)
       .then((res) => {
-        console.log(res, "resresres")
         setState({ ...state, conversations: res, isLoading: false })
       })
       .catch((err) => {
+        setState({ ...state, isLoading: false })
         // handle erros setErros
       });
   }, []);
@@ -39,11 +40,11 @@ function AllMessage(props) {
     return <Loader loaded={false} color="green" />;
   }
   return (
-    <>
+    <div className='allcontainer_allmessage'>
       <Navbar history={props.history} />
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div className="container_allmessage">
         <HeaderGreen title="Messages" />
-        <div className="container_allmessage" style={{ flex: '1' }}>
+        <div className="wrapper_allmessage" style={{ flex: '1' }}>
           {state.conversations?.map((msg, index) => {
             return (
               <>
@@ -65,7 +66,7 @@ function AllMessage(props) {
         </div>
         <Footer />
       </div>
-    </>)
+    </div>)
 }
 
 export default AllMessage

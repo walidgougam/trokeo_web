@@ -1,12 +1,35 @@
 import React, { useState } from 'react';
 import './FollowCategory.scss';
-import { goodCategories, serviceCategories } from '../../Helpers';
 /** COMPONENT */
 import { Navbar, Footer, CardFollowCategory, HeaderGreen, BtnSetting } from '../../component/index'
+/** REDUX */
+import { useDispatch, useSelector } from "react-redux";
+import { userRefreshAction } from "../../redux/actions/AuthAction";
+import { followCategory } from "../../services/productService";
 
 function FollowCategory(props) {
   const [activeGoods, setActiveGoods] = useState(false);
   const [activeServices, setActiveServices] = useState(false);
+
+  /** REDUX */
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.authReducer);
+  const goodCategories = useSelector((state) =>
+    state.categoryReducer?.categories?.filter(
+      (item) => item.type.type === 'bien'
+    )
+  );
+  const serviceCategories = useSelector((state) =>
+    state.categoryReducer?.categories?.filter(
+      (item) => item.type.type === 'service'
+    )
+  );
+
+  const handleFollowProduct = (categoryId, isUnfollow) => {
+    return followCategory(token, user?._id, categoryId, isUnfollow, (res) =>
+      dispatch(userRefreshAction(res.data.data))
+    );
+  };
   return (
     <>
       <Navbar history={props.history} />
@@ -20,11 +43,17 @@ function FollowCategory(props) {
             component={goodCategories.map((category, index) => {
               return (
                 <CardFollowCategory
+                  onClick={() =>
+                    handleFollowProduct(
+                      category?._id,
+                      user?.categoryFollow?.includes(category?._id)
+                    )
+                  }
                   arrayLength={goodCategories.length}
                   index={index}
                   key={index}
                   title={category.category}
-                  follow={category.followByUser}
+                  followByUser={user?.categoryFollow?.includes(category?._id)}
                 />
               );
             })}
@@ -38,6 +67,12 @@ function FollowCategory(props) {
             component={serviceCategories.map((category, index) => {
               return (
                 <CardFollowCategory
+                  onClick={() =>
+                    handleFollowProduct(
+                      category?._id,
+                      user?.categoryFollow?.includes(category?._id)
+                    )
+                  }
                   arrayLength={serviceCategories.length}
                   key={index}
                   index={index}

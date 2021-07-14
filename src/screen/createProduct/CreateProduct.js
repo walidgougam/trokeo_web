@@ -89,7 +89,6 @@ function CreateProduct(props) {
 
   const handleCreateProduct = () => {
     const userId = userStore.user._id;
-    console.log(state, 'state all');
     axios
       .post(
         createProductUrl,
@@ -126,7 +125,6 @@ function CreateProduct(props) {
         cleanStateOfScreen();
       })
       .catch((err) => {
-        console.log('ERROR create product', err);
         setState({ ...state, errorOnCreateProduct: 'true' });
       });
   };

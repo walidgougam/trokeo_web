@@ -1,8 +1,29 @@
 @import '../../scss/colors';
 
 .container_allmessage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper_allmessage {
   margin-left: 128px;
   margin-right: 149px;
   margin-top: 35px;
   margin-bottom: 127px;
+}
+
+/*======== IPHONE X ========*/
+
+@media only screen and (max-width: 400px) {
+  .allcontainer_allmessage {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+  .wrapper_allmessage {
+    margin-left: 12px;
+    margin-right: 14px;
+    margin-top: 3px;
+    margin-bottom: 12px;
+  }
 }
